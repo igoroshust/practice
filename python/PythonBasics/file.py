@@ -1,23 +1,48 @@
-class Dog:
-    about = "Canis Familiaris" # классовый атрибут
+"""Нелькальная переменная"""
+def outer_function():
+    x = 10 # Нелокальная переменная
 
-    def __init__(self, name, age):
-        self.name = name # экземплярный атрибут
-        self.age = age
+    def inner_function():
+        """Изменяем значение x"""
+        nonlocal x # переменная x нелокальная (хотим изменить X, а не создавать новую локальную переменную)
+        x += 5 # изменяем значение x
 
-    def __str__(self):
-        return f'Dog(name={self.name}, age={self.age})'
+    inner_function() # вызываем внутреннюю функцию
+    return x # возвращаем изменённое значение x
 
-    def bark(self):
-        return f'{self.name} says woof!'
+result = outer_function()
+print(result)
 
-my_dog = Dog("Buddy", 12)
-print(my_dog.name) # Buddy
-print(my_dog.age) # 21
-print(my_dog)
-print(my_dog.about) # Canis ...
-print(my_dog.bark()) # Buddy says woof!
 
+"""Локальные и глобальные переменные"""
+# age = 5
+#
+# def generate():
+#     # age = 10
+#     return age + 3
+#
+# result = generate()
+# print(result)
+
+
+
+"""Аннотация типов"""
+# def concat(first: str, second: str) -> str:
+#     return first + second
+#
+# a = 'Ig'
+# b = 'or'
+#
+# print(concat(a, b))
+
+
+"""Возвращение последнего символа в строке"""
+# def get_last_char(text):
+#     return text[-1]
+#
+# name = 'Hexlet'
+#
+# print(get_last_char(name))
 
 
 """Создание объекта (ООП)"""
@@ -35,6 +60,30 @@ print(my_dog.bark()) # Buddy says woof!
 # print(my_dog.name) # Buddy
 # print(my_dog.bark()) # Buddy says woof!
 # print(my_dog.species) # Canis familiaris
+
+"""Работа с созданным объектом"""
+# class Dog:
+#     about = "Canis Familiaris" # классовый атрибут
+#
+#     def __init__(self, name, age):
+#         """Конструктор для объявления атрибутов"""
+#         self.name = name # экземплярный атрибут
+#         self.age = age
+#
+#     def __str__(self):
+#         """Человекочитаемое предсталвение"""
+#         return f'Dog(name={self.name}, age={self.age})'
+#
+#     def bark(self):
+#         """Лай"""
+#         return f'{self.name} says woof!'
+#
+# my_dog = Dog("Buddy", 12)
+# print(my_dog.name) # Buddy
+# print(my_dog.age) # 21
+# print(my_dog)
+# print(my_dog.about) # Canis ...
+# print(my_dog.bark()) # Buddy says woof!
 
 
 """Документация по функции"""
