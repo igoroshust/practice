@@ -1,3 +1,98 @@
+"""Реализуйте функцию has_char().
+Она должна проверять, содержит ли строка указанную букву (вне зависимости от регистра).
+Функция принимает два параметра:"""
+
+# Решение учителя
+# def has_char(string, char):
+#     return char.lower() in string.lower()
+#
+# print(has_char('abracadabra', ''))
+
+# # Моё решение
+# def has_char(string, char):
+#
+#     index = 0
+#
+#     while index < len(string):
+#         if string[index] == char.lower() or string[index] == char.upper():
+#             return True
+#         index += 1
+#
+#     return False
+#
+#
+# print(has_char('abracadabra', 'A'))
+
+
+
+
+
+
+
+
+
+
+"""Алгоритм проверки простоты числа (делится нацело на себя и на единицу)"""
+# def is_prime(number):
+#     if number < 2:
+#         return False
+#     divider = 2
+#     while divider <= number / 2:
+#         if number % divider == 0:
+#             return False
+#         divider += 1
+#
+#     return True
+#
+# def show_prime(number):
+#     if is_prime(number):
+#         return 'простое'
+#     else:
+#         return 'составное'
+#
+# # Ввод числа от пользователя
+# user_input = int(input("Введите число: "))
+#
+# # Определение чётности
+# parity = 'чётное' if user_input % 2 == 0 else 'нечётное'
+#
+# # Результат вывода
+# print(f'Число {user_input} - {show_prime(user_input)} {parity} число')
+
+
+
+"""Функция, считающая количество вхождений подстроки в строку"""
+# # Решение учителя
+
+# def count_chars(string, char):
+#     index = 0
+#     count = 0
+#
+#     while index < len(string):
+#         if string[index] == char:
+#             # Считаем только подходящие символы
+#             count += 1
+#         # Счётчик увеличивается в любом случае
+#         index += 1
+#
+#     return count
+#
+# print(count_chars('abracadabra', 'a'))
+
+
+# # Моё решение:
+# def count_chars(string, word_count):
+#     lst = []
+#
+#     for i in string:
+#         if i == word_count:
+#             lst.append(i)
+#
+#     return len(lst)
+#
+# print(count_chars('abracadabra', 'b'))
+
+
 """Декларативный способ - ЧТО? - фокусировка на результате"""
 # string = 'igor'
 # print(string[::-1])
