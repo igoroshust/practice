@@ -1,3 +1,187 @@
+"""Реализуйте функцию sort_pair, которая принимает пару (кортеж из двух значений) и возвращает пару,
+значения которой расположены строго в порядке возрастания."""
+# def sort_pair(pair):
+#     # Сортируем значения в кортеже и возвращаем их как новый кортеж
+#     return tuple(sorted(pair))
+#
+# # Примеры использования
+# print(sort_pair((5, 1)))  # (1, 5)
+# print(sort_pair((2, 2)))  # (2, 2)
+# print(sort_pair((7, 8)))  # (7, 8)
+
+"""Кортежи"""
+# # Основное применение - когда нужно вернуть сразу несколько значений
+# def div_mod(a, b):
+#     quotient = a // b
+#     modulo = a % b
+#     return (quotient, modulo)
+#
+# print(div_mod(13, 4))
+
+# # Распаковка или деструктуризация кортежа
+# name_and_age = ('Bob', 42)
+#
+# (name, age) = name_and_age
+# name  # 'Bob'
+# age   # 42
+
+
+"""Выбрать случайный символ из строки"""
+# from random import choice
+#
+# string = 'abcde'
+# char = choice(string)
+#
+# print(char)
+
+
+"""Определить количество гласных в тексте"""
+# # Корректный вариант
+# from symbols import is_vowel
+#
+# def count_vowels(text):
+#     count = 0
+#     for i in text:
+#         if is_vowel(i):
+#             count += 1
+#     return count
+
+# # Альетрнативный вариант
+# def count_vowels(s):
+#     g = 'aeoiuy'
+#     return len(list(filter(lambda x: x in g, s.lower())))
+#
+# print(count_vowels('London is the capital of Great Britain'))
+
+"""Палиндром"""
+# # Решение ИИ
+# import re
+# def is_palindrome(word):
+#     # Удаляем все не буквенные символы и пробелы, приводим к нижнему регистру
+#     cleaned_word = re.sub(r'\s+', '', word.lower()) # Удаляем пробелы
+#     return cleaned_word == cleaned_word[::-1]
+#
+# print(is_palindrome('а лис он умен крыса сыр к нему носила'))
+
+# # Мой вариант
+# def is_palindrome(word):
+#     if word.lower() == word[::-1].lower():
+#         return True
+#     else:
+#         return False
+#
+# print(is_palindrome('ишак ищет у тещи каши'))
+
+# ишак ищет у тещи каши
+# а лис он умен крыса сыр к нему носила
+
+
+"""Реализуйте функцию filter_string(). Она принимает на вход строку и символ и возвращает новую строку,
+в которой удален переданный символ во всех его позициях.
+Если строка не содержит указанный символ, то она возвращается без изменений."""
+
+
+# def filter_string(text, symbol):
+#     # Удаляем все вхождения символа и обрезаем пробелы
+#     return text.replace(symbol, '').replace(symbol.lower(), '').strip()
+#
+# text = 'I look back if you are lost'
+# filter_string(text, 'i')  # 'look back f you are lost'
+# filter_string(text, 'O')  # 'I lk back if yu are lst'
+
+
+# # Моё решение
+# def filter_string(string, symbol):
+#     new_string = ''
+#
+#     for i in string.lower():
+#         if i != symbol.lower():
+#             new_string += i
+#         else:
+#             pass
+#
+#     return new_string.strip()
+#
+# print(filter_string('look back if you are lost', 'l'))
+
+# # Решение ИИ
+# def filter_string(string, symbol):
+#     # Удаляем все вхождения символа и обрезаем пробелы
+#     return string.replace(symbol, '').replace(symbol.lower(), '').strip()
+#
+# print(filter_string('look back if you are lost', 'l'))
+
+
+
+
+
+
+
+"""Цикл for"""
+# # Количество упоминаний символа в строке без учёта регистра
+# def chars_count(text, char):
+#     result = 0 # поскольку ищем сумму, начальное значение 0
+#     for current_char in text:
+#         # Приводим всё к нижнему регистру
+#         if current_char.lower() == char.lower():
+#             result += 1
+#     return result
+#
+# print(chars_count('hexlet!', 'e'))
+# print(chars_count('hExlet!', 'e'))
+# print(chars_count('hExlet!', 'E'))
+
+
+# # Функция переворота строки
+
+# def reverse_string(text):
+#     # Начальное значение
+#     result = ''
+#     # char - переменная, в которую записывается текущий символ
+#     for char in text:
+#         # Соединяем в обратном порядке
+#         result = char + result
+#
+#     return result
+#
+# print(reverse_string('go!'))
+
+
+# # Перебор символов в строке
+# text = 'igor'
+# for symbol in text[::-1]:
+#     print(symbol)
+
+
+# # Вывод слова без переменной
+# for _ in range(1, 4):
+#     print('Hooray!')
+
+
+# # Вывод обратной последовательности
+# for i in range(5, -1, -1):
+#     print(i)
+
+
+"""Поиск суммы значений в диапазоне"""
+# # Вариант через for
+# sum = 0
+#
+# for i in range(6):
+#     sum += i
+# print(sum)
+
+# # Вариант через while
+# sum = 0
+# i = 0
+#
+# while i < 10:
+#     sum += i
+#     i += 1
+#
+# print(sum)
+
+
 """Реализуйте функцию has_char().
 Она должна проверять, содержит ли строка указанную букву (вне зависимости от регистра).
 Функция принимает два параметра:"""
