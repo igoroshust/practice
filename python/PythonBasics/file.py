@@ -1,3 +1,82 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""Виды форматирования строк"""
+# name = 'Igor'
+# age = 28
+#
+# # Интерполяция (шаблонные строки)
+# print(f'My name is {name}, I\'m {age} years old')
+#
+# # Оператор %
+# print('My name is %s, I\'m %d years old' % (name, age))
+#
+# # str.format()
+# print('My name is {}, I\'m {} years old'.format(name, age))
+#
+# # str.Template
+#
+# from string import Template
+#
+# template = Template('My name is $name, I\'m $age years old')
+# formatted_string = template.substitute(name=name, age=age)
+#
+# print(formatted_string)
+
+"""Примеры GET и POST запросов"""
+# # GET
+# GET /search?q=python HTTP/1.1
+# Host: example.com
+
+# # POST
+# POST /submit HTTP/1.1
+# Host: example.com
+# Content-Type: application/x-www-form-urlencoded
+#
+# name=John&surname=Smith
+
+
+"""Что такое copy и deepcopy"""
+# # Методы, используемые для создания копий объектов. Copy - поверхностно, deepcopy - основательно
+# import copy
+#
+# original_list = [1, 2, [3, 4]]
+# # copy_list = copy.copy(original_list)
+# copy_list = copy.deepcopy(original_list)
+#
+# original_list[2][0] = 'changed'
+#
+# print(original_list)
+# print(copy_list)
+
+
+"""Отличие is от =="""
+# a = [1, 2, 3]
+# b = [1, 2, 3]
+#
+# print(a == b) # True
+# print(a is b) # False
+# print(id(a))
+# print(id(b))
+
 """Реализуйте функцию sort_pair, которая принимает пару (кортеж из двух значений) и возвращает пару,
 значения которой расположены строго в порядке возрастания."""
 # def sort_pair(pair):
