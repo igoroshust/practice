@@ -1,33 +1,5 @@
-# # Методы создания объектов
-create(**kwargs) # Создание объекта
-Book.objects.create(title='New Book', author='Author Name', published_date='2023-01-01')
-
-bulk_create(objs, batch_size=None) # Создание множества объектов в БД за один SQL-запрос
-Book.objects.bulk_create([Book(title='Book 1'), Book(title='Book 2')])
-
-get_or_create(defaults=None, **kwargs) # Получает объект, если он существует, или создаёт его, если нет
-book, created = Book.objects.get_or_create(title='New Book', defaults={'author': 'Author Name'})
-
-update_or_create(defaults=None, **kwargs) # Обновляет объект, если он существует, или добавляет его в случае отсутствия
-book, created = Book.objects.update_or_create(title='New Book', defaults={'author': 'Author Name'})
-
-# # Методы чтения объектов
-all() # Возвращает все объекты модели
-
-
-delete()
-filter()
-order_by()
-all()
-save()
-update()
-sort()
-
-
-
-
-
-
+"""Перечислите методы DJango ORM"""
+import DjangoORM_Methods # Список в этом файле
 
 
 """Как записать в базу данных сразу множество объектов"""
