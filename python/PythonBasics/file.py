@@ -1,5 +1,31 @@
 """Перечислите методы DJango ORM"""
-import DjangoORM_Methods # Список в этом файле
+# import DjangoORM_Methods # Список в этом файле
+
+# all()
+# get()
+# get_or_create()
+# update()
+# update_or_create()
+# delete()
+# create()
+# bulk_create()
+# exclude()
+# filter(**kwargs)
+# order-by(**kwargs)
+# values()
+# value_list()
+# aggregate()
+# distinct()
+# first()
+# last()
+# count()
+# save()
+#
+# exists()
+# annotate()
+# iterator()
+# transaction.atomic()
+# prefetch_related()
 
 
 """Как записать в базу данных сразу множество объектов"""
@@ -253,11 +279,6 @@ import DjangoORM_Methods # Список в этом файле
 # print(filter_string('look back if you are lost', 'l'))
 
 
-
-
-
-
-
 """Цикл for"""
 # # Количество упоминаний символа в строке без учёта регистра
 # def chars_count(text, char):
@@ -347,13 +368,6 @@ import DjangoORM_Methods # Список в этом файле
 #
 #
 # print(has_char('abracadabra', 'A'))
-
-
-
-
-
-
-
 
 
 
