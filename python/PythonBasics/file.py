@@ -1,3 +1,27 @@
+# # Методы создания объектов
+create(**kwargs) # Создание объекта
+Book.objects.create(title='New Book', author='Author Name', published_date='2023-01-01')
+
+bulk_create(objs, batch_size=None) # Создание множества объектов в БД за один SQL-запрос
+Book.objects.bulk_create([Book(title='Book 1'), Book(title='Book 2')])
+
+get_or_create(defaults=None, **kwargs) # Получает объект, если он существует, или создаёт его, если нет
+book, created = Book.objects.get_or_create(title='New Book', defaults={'author': 'Author Name'})
+
+update_or_create(defaults=None, **kwargs) # Обновляет объект, если он существует, или добавляет его в случае отсутствия
+book, created = Book.objects.update_or_create(title='New Book', defaults={'author': 'Author Name'})
+
+# # Методы чтения объектов
+all() # Возвращает все объекты модели
+
+
+delete()
+filter()
+order_by()
+all()
+save()
+update()
+sort()
 
 
 
@@ -6,30 +30,96 @@
 
 
 
+"""Как записать в базу данных сразу множество объектов"""
+# # Ответ: с помощью метода bulk_create() модели. Он добавляет несколько экземпляров модели за один запрос к БД
+
+# from django.db import models
+#
+# class Book(models.Model):
+#     title = models.CharField(max_length=200)
+#     description = models.CharField(max_length=200)
+#     published_date = models.DateField()
+#
+#
+# # # В другом файле
+#
+# from myapp.models import Book
+#
+# books_to_create = [
+#     Book(title='Book 1', description='Author 1', published_date='2023-01-01'),
+#     Book(title='Book 2', description='Author 2', published_date='2023-02-01'),
+#     Book(title='Book 3', description='Author 3', published_date='2023-03-01'),
+# ]
+#
+# # # Сохраняем все объекты в БД за один запрос
+# Book.objects.bulk_create(books_to_create)
+
+"""Что такое FBV и CBV в Django?"""
+# # Пример FBV
+
+# from django.http import HttpResponse
+# from django.shortcuts import render
+#
+# def my_view(request):
+#     # Логика обработки запроса
+#     return HttpResponse("Hello, World!")
+#
+# # # Пример CBV
+# from django.http import HttpResponse
+# from django.views import View
+# class MyView(View):
+#     def get(self, request):
+#         return HttpResponse("Hello, world!")
 
 
+"""Функция map"""
+
+# iter_list = [1, 2, 3, 4, 5]
+# result = map(lambda x: x * 2, iter_list)
+# print(list(result))
 
 
+# def double(x):
+#     return x * 2
+#
+# iter_list = [1, 2, 3, 4, 5]
+#
+# double_result = map(double, iter_list)
+#
+# print(list(double_result))
 
+# iter_list = ['Игорь', 'Андрей', 'Виктор']
+#
+# def say_hello(name):
+#     return 'Привет, ' + name
+#
+# result = map(say_hello, iter_list)
+#
+# print(list(result))
 
+# # Применение функции к нескольким итерируемым объектам
 
-
-
-
-
+# def add(x, y):
+#     return x + y
+#
+# numbers = [i for i in range(1, 10+1)]
+# numbers_two = [i for i in range(11, 20+1)]
+#
+# result = map(add, numbers, numbers_two)
+# print(list(result)) # Здесь сумма 1 элемента из numbers и 1 элемента numbers_two, и так до конца списка
 
 
 """Виды форматирования строк"""
 # name = 'Igor'
 # age = 28
 #
-# # Интерполяция (шаблонные строки)
+# # Интерполяция (шаблонные строки) (добавлен в Python 3.6, самый новый способ)
 # print(f'My name is {name}, I\'m {age} years old')
 #
-# # Оператор %
+# # Оператор % (пришёл из C)
 # print('My name is %s, I\'m %d years old' % (name, age))
 #
-# # str.format()
+# # str.format() (введён в Python 2.7)
 # print('My name is {}, I\'m {} years old'.format(name, age))
 #
 # # str.Template
