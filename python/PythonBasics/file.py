@@ -1,3 +1,138 @@
+import aiohttp
+import asyncio
+
+async def fetch(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            return await response.json()
+
+async def main():
+    url = 'https://jsonplaceholder.typicode.com/posts'
+    response = await fetch(url)
+
+    for post in response[:10]:
+        print(f'''Post ID: {post['id']}
+Title: {post['title']}
+Body: {post['body'][:10]}...
+''')
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+
+"""Асинхронные функции"""
+# # async и await - ключевые слова в Python, используемые для написания аснхронного кода. Они позволяют писать код, который
+# # Они позволяют писать код, который может выполнять операции ввода-вывода (I/O) без блокировки выполнения программы.
+# # Это особенно полезно для работы с сетевыми запросами, файловыми операциями и другими задачами, которые могут занять много времени.
+# # Возвращают объект типа `coroutine`, который можно запускать с помощью 'await' и 'asyncio.run()'
+
+# # Ключевое слово await используется для ожидания завершения асинхронной операции. Когда используем await,
+# # Выполнение функции приостанавливается до тех пор, пока не завершится операция, которую вы ожидаете.
+# import asyncio
+#
+# async def fetch_data():
+#     print('Fetching data...')
+#     await asyncio.sleep(2)
+#     print('Data fetched!')
+#     return {"data": 42}
+#
+# async def main():
+#     result = await fetch_data() # Ожидание завершения fetch_data
+#     print(f'Result: {result}')
+#
+# if __name__ == '__main__':
+#     asyncio.run(main())
+
+
+
+"""aiohttp"""
+# # aiohttp - асинхронная библиотека для работы с HTTP в Python, позволяющая выполнять асинхронные HTTP-запросы и создавать
+# # асинхронные веб-серверы. Она построена на основе asyncio, что позволяет эффективно обрабатывать множество соединений
+# # одновременно, не блокируя выполнение программы.
+# # Позволяет выполнять асинхронные GET, POST и другие HTTP-запросы, что делает его идеальным для работы с API и веб-сервисами.
+# # Можно использовать aiohttp для создания собственного веб-сервера, способного обрабатывать множество запросов одновременно.
+# # Поддерживает WebSocket.
+
+# import aiohttp # работаем с http в асинхронном режиме
+# import asyncio # асинхронный код в Python
+#
+# async def fetch(url): # асинхронная функция, принимающая url аргументом
+#     async with aiohttp.ClientSession() as session:
+#         """Создаем асинхронную сессию для выполнения HTTP-запросов.
+#         'async with' гарантирует закрытие сессии после завершения работы."""
+#
+#         async with session.get(url) as response:
+#             """Выполняем асинхронный GET-запрос к указанному URL. Ответ сохраняем в переменной 'response'"""
+#             return await response.json() # извлекаем и возвращаем JSON-данные из ответа (await позволяет дождаться завершения операции)
+#
+# async def main(): # определяем основную асинхронную функцию, которая будет запускаться в конце
+#     url = 'https://jsonplaceholder.typicode.com/posts'
+#
+#     response = await fetch(url) # вызываем функцию 'fetch' и ждёт её завершения, получая ответ
+#
+#     for post in response[:5]: # перебираем первые 5 постов из полученного ответа
+#         print(f'Post ID: {post['id']}, Title: {post['title']}')
+#
+# if __name__ == '__main__': # проверяем, что скрипт выполняется как основная программа
+#     asyncio.run(main()) # запускаем функцию main(), которая инициирует выполнение всего кода.
+
+
+"""Какие вы знаете способы выполнять код параллельно/асинхронно?"""
+# # 1. Threading - позволяет создавать потоки (threads) для выполнения кода параллельно. Это полезно для задач, требующих
+# # Это полезно для задач, требующих много времени на ожидание (например, ввод-вывод). Не эффективен для CPU-bound задач из-за GIL
+# import threading
+#
+# def worker():
+#     print('some print')
+#
+# thread = threading.Thread(target=worker)
+# thread.start()
+# thread.join()
+
+
+# # 2. multiprocessing - позволяет создавать процессы, которые могут выполняться параллельно и не подвержены GIL.
+# # Это хороший выбор для CPU-bound задач.
+# from multiprocessing import Process
+#
+# def worker():
+#     print('some print')
+#
+# if __name__ == '__main__':
+#     process = Process(target=worker)
+#     process.start()
+#     process.join()
+
+# # 3. asyncio - позволяет писать асинхронный код с использованием async и await.
+# # Полезно для задач, связанных с вводом-выводом (например, сетевые запросы).
+# import asyncio
+#
+# async def worker():
+#     print('Работа в асинхронной функции')
+#     await asyncio.sleep(3)
+#
+# asyncio.run(worker())
+
+# # 4. concurrent.futures - предоставляет высокоуровневый интерфейс для выполнения параллельных задач с использованием
+# # потоков (ThreadPoolExecutor) или процессов (ProcessPoolExecutor).
+# from concurrent.futures import ThreadPoolExecutor
+#
+# def worker():
+#     print('Работа в пуле потоков')
+#
+# with ThreadPoolExecutor() as executor:
+#     executor.submit(worker)
+
+# # Модуль joblib - используется для параллельного выполнения задач, особенно в контексте научных вычислений и машинного
+# # обучения. Поддерживает как потоки, так и процессы.
+# from joblib import Parallel, delayed
+#
+# def worker(i):
+#     return i * i
+#
+# results = Parallel(n_jobs=2)(delayed(worker)(i) for i in range(9+1))
+
+
 """Миграции данных"""
 # # Миграция - процесс переноса данных из одной БД в другую или изменение структуры БД с сохранением данных.
 # # В конетексте Django - способ управления изменениями в моделях и их отражения в БД.
