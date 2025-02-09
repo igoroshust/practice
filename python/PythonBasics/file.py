@@ -1,24 +1,51 @@
-import aiohttp
-import asyncio
+"""Сортировка вставками"""
+# # Сортировка вставками - алгоритм сортировки, который работает также, как вы сортируете карты в руке.
+# # Значение справа сравнивается со значением слева и меняется местами, если значение справа меньше (по условию).
+# # Вы берёте одну карту за раз и вставляете её в правильное место среди уже отсортированных карт.
+# # file:///C:/Users/Igor/Desktop/%D0%A3%D1%87%D1%91%D0%B1%D0%B0/Skillfactory/insertion_sort.gif
 
-async def fetch(url):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
-            return await response.json()
+# def insertion_sort(array):
+#     for i in range(1, len(array)): # начинаем цикл с i=1 до конца массива. Пропускаем первый элемент (индекс 0), т.к. он считает отсортированным.
+#         key = array[i] # Сохраняем текущий элемент, который хотим вставить на правильное место, в переменной key
+#         j = i - 1 # Инициализация индекса для сравнения. Устанавливаем j на индекс элемента перед key. Используется для сравнения и сдвига элементов
+#
+#         # Сдвигаем элементы, которые больше key, на одну позицию вправо
+#         while j >= 0 and array[j] > key: # продолжаем сдвигать элементы вправо, пока не найдём правильное место для key
+#             array[j + 1] = array[j] # сдвигаем элемент array[j] на одну позицию вправо, чтобы осовобдить место для key
+#             j -= 1 # уменьшаем индекс
+#
+#         # Вставляем key на его правильное место в отсортированной части массива
+#         array[j + 1] = key
+#
+# array = [5, 2, 9, 1, 5, 6]
+# insertion_sort(array)
+# print("Отсортированный массив:", array)
 
-async def main():
-    url = 'https://jsonplaceholder.typicode.com/posts'
-    response = await fetch(url)
 
-    for post in response[:10]:
-        print(f'''Post ID: {post['id']}
-Title: {post['title']}
-Body: {post['body'][:10]}...
-''')
+"""Бинарный поиск"""
+# # Это эффективный алгоритм поиска элемента в отсортированном массиве.
+# # Делит массив пополам последовательно, пока не найдёт нужный элемент.
 
-if __name__ == "__main__":
-    asyncio.run(main())
-
+# def binary_search(array, target):
+#     low = 0
+#     high = len(array) - 1
+#
+#     while low <= high:
+#         mid = (low + high) // 2
+#         if array[mid] == target:
+#             return mid  # Элемент найден
+#         elif array[mid] < target:
+#             low = mid + 1  # Ищем в правой половине
+#         else:
+#             high = mid - 1  # Ищем в левой половине
+#
+#     return -1  # Элемент не найден
+#
+# # Пример использования
+# sorted_array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# target = 5
+# result = binary_search(sorted_array, target)
+# print(f"Элемент {target} найден на индексе: {result}")
 
 
 """Асинхронные функции"""
