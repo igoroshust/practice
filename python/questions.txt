@@ -32,3 +32,4 @@
 - staticmethod, classmethod
 - raise
 - try/except
+- Тип None

@@ -90,16 +90,16 @@
 #
 # class WindowsFactory(GUIFactory):
 #     def create_button(self):
-#         return WindowsButton()
+#         return WindowsButton() # Создаём Windows-кнопку
 #
 # class MacFactory(GUIFactory):
 #     def create_button(self):
-#         return MacButton()
+#         return MacButton() # Создаём Mac-кнопку
 #
 # # Использование
 # def client_code(factory: GUIFactory):
-#     button = factory.create_button()
-#     print(button.paint())
+#     button = factory.create_button() # Создаём кнопку через фабрику
+#     print(button.paint()) # Выводим результат рендеринга кнопки
 #
 # # Выбор фабрики в зависимости от платформы
 # platform = 'Windows'
@@ -112,42 +112,64 @@
 # client_code(factory) # Вывод: Rendering a button in Windows style.
 
 
-class Button:
-    def paint(self):
-        raise NotImplementedError('Subclasses should implement this.')
+# # Builder - разделяет конструирование сложного объекта и его представление, так что один и тот же процесс строительства
+# # может создавать разные представления. Похож на фабрику, но новые объекты можно модифицировать. Они создаются по сложной логике,
+# # а не клонируют эталонный.
+# # Ситуация: вы хотите создать сложный объект, например, дом, который может иметь различные компоненты (крыша, стены, окна и т.д.).
 
-class WindowsButton(Button):
-    def paint(self):
-        return "Render a button in Windows style"
+# class House:
+#     def __init__(self):
+#         self.roof = None # Инициализация крыши
+#         self.walls = None
+#         self.windows = None
+#
+#     def __str__(self):
+#         """Строковое представление дома с его компонентами"""
+#         return f"House with {self.roof}, {self.walls}, and {self.windows}"
+#
+# class HouseBuilder:
+#     def __init__(self):
+#         self.house = House() # Создаём новый объект House
+#
+#     def build_roof(self, roof_type):
+#         self.house.roof = roof_type # Устанавливаем тип крыши
+#         return self # Возвращаем текущий объект для цепочки вызовов
+#
+#     def build_walls(self, wall_type):
+#         self.house.walls = wall_type # Устанавливаем тип стен
+#         return self
+#
+#     def build_windows(self, window_type):
+#         self.house.windows = window_type # Устанавливаем тип окон
+#         return self
+#
+#     def build(self):
+#         return self.house # Возвращаем готовый объект House
+#
+# # Использование
+# builder = HouseBuilder() # Создаём строителя
+# house = (builder
+#          .build_roof('Gable Roof') # Устанавливаем крышу
+#          .build_walls('Brick Walls') # Устанавливаем стены
+#          .build_windows('Double Glazed Windows') # Устанавливаем окна
+#          .build()) # Завершаем строительство и получаем объект House
+#
+# print(house)
 
-class MacButton(Button):
-    def paint(self):
-        return "Render a button in Mac style"
-
-class GUIFactory:
-    def create_button(self):
-        raise NotImplementedError('Subclasses should implement this.')
 
 
-class WindowsFactory(GUIFactory):
-    def create_button(self):
-        return WindowsButton()
-
-class MacFactory(GUIFactory):
-    def create_button(self):
-        return MacButton()
-
-def client_code(factory: GUIFactory):
-    button = factory.create_button()
-    print(button.paint())
 
 
-platform = 'Windows'
 
-if platform == 'Windows':
-    factory = WindowsFactory()
-else:
-    factory = MacFactory()
 
-client_code(factory)
+
+
+
+
+
+
+
+
+
+
 
