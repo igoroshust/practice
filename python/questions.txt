@@ -29,3 +29,6 @@
 - Jinja;
 - Сессии, куки;
 - Потоки, процессы - отличия
+- staticmethod, classmethod
+- raise
+- try/except
