@@ -37,6 +37,38 @@
 # print(config2.get_setting('theme'))  # Вывод: dark (настройка доступна)
 # print(config1 is config2)  # Вывод: True (оба экземпляра ссылаются на один и тот же объект)
 
+# # > Lazy Initialization - техника, при которой объект создаётся только в тот момент, когда он действительно необходим,
+# # а не в момент инициализации программы. Это полезно для экономии ресурсов, особенно если создание объекта является дорогостоящей операцией.
+# # Ситуация: создадим класс `DatabaseConnection`, который будет использовать Lazy Initialization для создания единственного
+# # экземпляра соединения с базой данных.
+
+# # Реализация Lazy Initialization на примере Singleton:
+
+# class DatabaseConnection:
+#     _instance = None # Хранит единственный экземпляр класса
+#
+#     def __new__(cls):
+#         """Создаём новый экземпляр (если ещё не создан)"""
+#         if cls._instance is None:
+#             cls._instance = super(DatabaseConnection, cls).__new__(cls) # Создаём новый экземпляр
+#             cls._instance.initialize() # Инициализируем экземпляр (+ установление соединения с БД)
+#         return cls._instance # Возвращаем единственный экземпляр
+#
+#     def initialize(self):
+#         """Здесь можно выполнить дорогостоящие операции, например, установить соединение с БД"""
+#         self.connection_string = 'Database connection established.'
+#         print(self.connection_string) # Выводим сообщение об установлении соединения
+#
+#
+# # Использование
+# db1 = DatabaseConnection() # Создаём первый экземпляр
+# db2 = DatabaseConnection() # Пытаемся создать второй экземпляр
+#
+# print(db1 is db2) # Вывод: True (оба экземпляра ссылаются на один и тот же объект)
+
+
+
+
 # > Factory (фабрика) - для создания новых объектов придумывают отдельный класс. Он создаёт объекты как копии некоего эталона.
 # Это когда создают отдельный класс для создания новых объектов.
 # Ситуация: есть несколько типов уведомлений (Email, SMS), мы хотим создать их без жёсткой привязкии к конкретным классам.
@@ -69,7 +101,7 @@
 # print(notification.notify()) # Вывод: Sending an email notification.
 
 
-# # Abstract Factory - предоставляет интерфейс для создания семейств связанных или зависимых объектов без указания их конкретных классов.
+# # > Abstract Factory - предоставляет интерфейс для создания семейств связанных или зависимых объектов без указания их конкретных классов.
 # # Ситуация: вы разрабатываете кросс-платформенное приложение и вам нужно создать интерфейсы для различных платформ (Windows, Mac).
 
 # class Button:
@@ -112,7 +144,7 @@
 # client_code(factory) # Вывод: Rendering a button in Windows style.
 
 
-# # Builder - разделяет конструирование сложного объекта и его представление, так что один и тот же процесс строительства
+# # > Builder - разделяет конструирование сложного объекта и его представление, так что один и тот же процесс строительства
 # # может создавать разные представления. Похож на фабрику, но новые объекты можно модифицировать. Они создаются по сложной логике,
 # # а не клонируют эталонный.
 # # Ситуация: вы хотите создать сложный объект, например, дом, который может иметь различные компоненты (крыша, стены, окна и т.д.).
@@ -157,19 +189,48 @@
 # print(house)
 
 
+# # > Prototype - Создает новые объекты путём копирования существующих. Объект сам создаёт свои копии.
+# # Ситуация: есть объект, который вы хотите клонировать, чтобы создать новые экземпляры с теми же свойствами.
+
+# import copy
+#
+# class Prototype:
+#     def clone(self):
+#         return copy.deepcopy(self) # Глубокая копия текущего объекта
+#
+# class ConcretePrototype(Prototype):
+#     def __init__(self, name):
+#         self.name = name # Инициализируем имя объекта
+#
+#     def __str__(self):
+#         return f'Prototype with name: {self.name}' # Возвращаем строковое представление
+#
+# # Использование
+# original = ConcretePrototype("Original") # Создаём оригинальный объект
+# print(original) # Вывод: Prototype with name: Original
+#
+# cloned = original.clone() # Клонируем оригинальный объект
+# cloned.name = "Cloned"
+#
+# print(cloned)  # Вывод: Prototype with name: Cloned
+# print(original)  # Вывод: Prototype with name: Original (оригинал не изменился)
 
 
 
+class DatabaseConnection:
+    _instance = None
 
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(DatabaseConnection, cls).__new__(cls)
+            cls._instance.initialize() # ?
+        return cls._instance
 
+    def initialize(self):
+        self.echo_message = 'Database connection established.'
+        print(self.echo_message)
 
+db1 = DatabaseConnection()
+db2 = DatabaseConnection()
 
-
-
-
-
-
-
-
-
-
+print(db1 is db2)
