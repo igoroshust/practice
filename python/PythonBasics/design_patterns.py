@@ -67,8 +67,6 @@
 # print(db1 is db2) # Вывод: True (оба экземпляра ссылаются на один и тот же объект)
 
 
-
-
 # > Factory (фабрика) - для создания новых объектов придумывают отдельный класс. Он создаёт объекты как копии некоего эталона.
 # Это когда создают отдельный класс для создания новых объектов.
 # Ситуация: есть несколько типов уведомлений (Email, SMS), мы хотим создать их без жёсткой привязкии к конкретным классам.
@@ -215,22 +213,3 @@
 # print(cloned)  # Вывод: Prototype with name: Cloned
 # print(original)  # Вывод: Prototype with name: Original (оригинал не изменился)
 
-
-
-class DatabaseConnection:
-    _instance = None
-
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(DatabaseConnection, cls).__new__(cls)
-            cls._instance.initialize() # ?
-        return cls._instance
-
-    def initialize(self):
-        self.echo_message = 'Database connection established.'
-        print(self.echo_message)
-
-db1 = DatabaseConnection()
-db2 = DatabaseConnection()
-
-print(db1 is db2)

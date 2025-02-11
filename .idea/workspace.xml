@@ -47,6 +47,7 @@
     "Python.design_patterns.executor": "Run",
     "Python.file.executor": "Run",
     "Python.practice.executor": "Run",
+    "Python.python_generation.executor": "Run",
     "Python.task-lv0.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
