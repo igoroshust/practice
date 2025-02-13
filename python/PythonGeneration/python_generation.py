@@ -1,3 +1,148 @@
+"""Ход ферзём в шахматах"""
+# queen_cell_column = int(input())
+# queen_cell_row = int(input())
+#
+# request_cell_column = int(input())
+# request_cell_row = int(input())
+#
+# # Проверяем, что запрашиваемая клетка находится на доске
+# if 1 <= request_cell_column <= 8 and 1 <= request_cell_row <= 8:
+#     # Проверяем, может ли ферзь сделать такой ход
+#     if (queen_cell_column == request_cell_column) or \
+#        (queen_cell_row == request_cell_row) or \
+#        (abs(queen_cell_column - request_cell_column) == abs(queen_cell_row - request_cell_row)):
+#         print('YES')
+#     else:
+#         print('NO')
+# else:
+#     print('NO')  # Если запрашиваемая клетка вне границ доски
+
+
+"""Ход конём в шахматах"""
+# knight_cell_column = int(input())
+# knight_cell_row = int(input())
+#
+# request_cell_column = int(input())
+# request_cell_row = int(input())
+#
+# # Проверяем, что запрашиваемая клетка находится на доске
+# if 1 <= request_cell_column <= 8 and 1 <= request_cell_row <= 8:
+#     # Проверяем, может ли конь сделать такой ход
+#     if (abs(knight_cell_column - request_cell_column) == 2 and abs(knight_cell_row - request_cell_row) == 1) or \
+#        (abs(knight_cell_column - request_cell_column) == 1 and abs(knight_cell_row - request_cell_row) == 2):
+#         print('YES')
+#     else:
+#         print('NO')
+# else:
+#     print('NO')  # Если запрашиваемая клетка вне границ доски
+
+
+"""Даны две различные клетки шахматной доски. Напишите программу, которая определяет, может ли слон попасть с
+первой клетки на вторую одним ходом. Программа получает на вход четыре числа от 1 до 8 каждое,
+задающие номер столбца и номер строки сначала для первой клетки, потом для второй клетки"""
+# # Ход слона: https://skrinshoter.ru/sUAXfDSCvaR
+
+# bishop_cell_column = int(input())
+# bishop_cell_row = int(input())
+#
+# request_cell_column = int(input())
+# request_cell_row = int(input())
+#
+# # Проверяем, что запрашиваемая клетка находится на доске
+# if 1 <= request_cell_column <= 8 and 1 <= request_cell_row <= 8:
+#     # Проверяем, находится ли запрашиваемая клетка на одной диагонали со слоном
+#     if abs(bishop_cell_column - request_cell_column) == abs(bishop_cell_row - request_cell_row):
+#         print('YES')
+#     else:
+#         print('NO')
+# else:
+#     print('NO')  # Если запрашиваемая клетка вне границ доски
+
+
+
+"""Напишите программу, которая считывает целое число и выводит соответствующую ему римскую цифру.
+Если число находится вне диапазона [1;10], то программа должна вывести текст «ошибка» (без кавычек)"""
+
+# array = {
+#     1: 'I',
+#     2: 'II',
+#     3: 'III',
+#     4: 'IV',
+#     5: 'V',
+#     6: 'VI',
+#     7: 'VII',
+#     8: 'VIII',
+#     9: 'IX',
+#     10: 'X',
+# }
+#
+# num = int(input())
+#
+# if 1 <= num <= 10:
+#     for i in array:
+#         if i == num:
+#             print(array[num])
+# else:
+#     print('ошибка')
+
+
+"""Заданы две клетки шахматной доски. Напишите программу, которая определяет, имеют ли указанные клетки один цвет или нет.
+Если они покрашены в один цвет, то выведите слово «YES» (без кавычек), а если в разные цвета, то «NO» (без кавычек)."""
+# # Шахматная доска: https://skrinshoter.ru/sUAJpFeEI7L
+# a, b, c, d = int(input()), int(input()), int(input()), int(input())
+#
+# pillar_1 = [i for i in range(1, 9, 2)] # 1 3 5 7
+# pillar_2 = [i for i in range(2, 9, 2)] # 2 4 6 8
+#
+# a1_result = None
+# a2_result = None
+#
+# if a in pillar_1:
+#     if b in pillar_1:
+#         a1_result = 'white'
+#     else:
+#         a1_result = 'black'
+# elif a in pillar_2:
+#     if b in pillar_1:
+#         a1_result = 'black'
+#     else:
+#         a1_result = 'white'
+#
+# if c in pillar_1:
+#     if d in pillar_1:
+#         a2_result = 'white'
+#     else:
+#         a2_result = 'black'
+# elif c in pillar_2:
+#     if d in pillar_1:
+#         a2_result = 'black'
+#     else:
+#         a2_result = 'white'
+#
+# if a1_result == a2_result:
+#     print('YES')
+# else:
+#     print('NO')
+
+# if a in pillar_1 and b in pillar_1:
+#     a1_result = 'white'
+# elif a in pillar_2 and b in pillar_2:
+#     a1_result = 'black'
+#
+# if c in pillar_1 and d in pillar_1:
+#     a2_result = 'white'
+# else:
+#     a2_result = 'black'
+#
+# if a1_result == a2_result:
+#     print('YES')
+# else:
+#     print('NO')
+#
+# print(a1_result)
+# print(a2_result)
+
+
 """Найти границы пересечения отрезков"""
 # # Скриншот с ТЗ: https://skr.sh/sUACRNAoQsX
 # a1 = int(input())
