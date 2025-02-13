@@ -1,5 +1,44 @@
+"""Найти границы пересечения отрезков"""
+# # Скриншот с ТЗ: https://skr.sh/sUACRNAoQsX
+# a1 = int(input())
+# b1 = int(input())
+# a2 = int(input())
+# b2 = int(input())
+#
+# # Находим границы пересечения
+# start = max(a1, a2)
+# end = min(b1, b2)
+#
+# # Проверяем, есть ли пересечение
+# if start > end:
+#     print("пустое множество")
+# elif start == end:
+#     print(start)  # Общая точка
+# else:
+#     print(start, end)  # Отрезок пересечения
 
 
+"""Определение номера кармана"""
+# # Задача: https://skrinshoter.ru/sUAronFU5kZ
+# pocket = int(input())
+#
+# if pocket < 0 or pocket > 36:
+#     print('ошибка ввода')
+# else:
+#     if pocket == 0:
+#         print('зеленый')
+#     else:
+#         # Определяем диапазон и цвет
+#         if 1 <= pocket <= 10:
+#             color = 'красный' if pocket % 2 != 0 else 'черный'
+#         elif 11 <= pocket <= 18:
+#             color = 'черный' if pocket % 2 != 0 else 'красный'
+#         elif 19 <= pocket <= 28:
+#             color = 'красный' if pocket % 2 != 0 else 'черный'
+#         elif 29 <= pocket <= 36:
+#             color = 'черный' if pocket % 2 != 0 else 'красный'
+#
+#         print(color)
 
 """Калькулятор"""
 # a, b, operation = int(input()), int(input()), input()
