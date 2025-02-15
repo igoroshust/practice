@@ -1,3 +1,27 @@
+"""Вывести таблицу умножения"""
+number = int(input())
+count = 1
+
+for i in range(1, 10+1):
+    print(f'{number} x {count} = {number*count}')
+    count += 1
+
+
+"""Вывести все целые числа от m до n включительно в порядке возрастания, если m < n, иначе в обратном порядке"""
+# m = int(input()) # 10
+# n = int(input()) # 5
+#
+# if m < n:
+#     for i in range(m, n+1):
+#         print(i)
+# elif m > n:
+#     for i in range(m, n-1, -1):
+#         print(i)
+# elif m == n:
+#     print(m)
+
+
+
 """Средние значения"""
 # # ТЗ Наглядно: https://skrinshoter.ru/sUCsKOJZHAG
 # import math
