@@ -1,8 +1,47 @@
-email_input = input()
-request_char_1 = '@'
-request_char_2 = '.'
+"""Средние значения"""
+# # ТЗ Наглядно: https://skrinshoter.ru/sUCsKOJZHAG
+# import math
+#
+# a, b = float(input()), float(input())
+#
+# average_arif = (a + b) / 2
+# average_geom = math.sqrt(a * b)
+# average_garm = (a * b)*2 / (a + b)
+# average_sqrt = math.sqrt(((a**2) + (b**2)) / 2)
+#
+# print(average_arif)
+# print(average_geom)
+# print(average_garm)
+# print(average_sqrt)
 
-print('YES' if request_char_1 in email_input and request_char_2 in email_input else 'NO')
+
+"""Определить площадь круга и длину окружности по заданному радиусу"""
+# # # ТЗ наглядно: https://skrinshoter.ru/sUCDGZox5LJ
+# import math
+#
+# R = float(input())
+#
+# S = math.pi * (R**2)
+# C = (2 * math.pi) * R
+#
+# print(S)
+# print(C)
+
+
+
+"""Найти Евклидово расстояние"""
+# # ТЗ: https://skrinshoter.ru/sUCJIc6SOd5
+
+# import math
+#
+# x1, x2, y1, y2 = float(input()), float(input()), float(input()), float(input())
+#
+# result = math.sqrt(
+#     ((x1 - y1)**2) + ((x2 - y2)**2)
+# )
+#
+# print(result)
+
 
 """Проверить наличие подстроки в строке"""
 # string = input()
