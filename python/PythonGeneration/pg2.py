@@ -1,9 +1,89 @@
+email_input = input()
+request_char_1 = '@'
+request_char_2 = '.'
+
+print('YES' if request_char_1 in email_input and request_char_2 in email_input else 'NO')
+
+"""Проверить наличие подстроки в строке"""
+# string = input()
+# day1 = 'суббота'
+# day2 = 'воскресенье'
+#
+# if (day1 in string) or (day2 in string):
+#     print('YES')
+# else:
+#     print('NO')
+
+# # Упрощение кода
+# print('YES' if 'суббота' in string or 'воскресенье' in string else 'NO')
+
+"""Вводятся 3 строки в случайном порядке. Напишите программу, которая выясняет,
+ можно ли из длин этих строк построить арифметическую прогрессию."""
+
+# string1, string2, string3 = input(), input(), input()
+#
+# lengths = [len(string1), len(string2), len(string3)]
+#
+# lengths.sort()
+#
+# if 2 * lengths[1] == lengths[0] + lengths[2]:
+#     print('YES')
+# else:
+#     print('NO')
+
+"""Определение самого короткого и самого длинного города"""
+# # Вариант 1
+# city1, city2, city3 = input(), input(), input()
+#
+# cities = [city1, city2, city3]
+#
+# shortest_city = min(cities, key=len)
+# longest_city = max(cities, key=len)
+#
+# print(shortest_city)
+# print(longest_city)
+
+
+# # Вариант 2
+# cities = [input() for _ in range(3)]
+#
+# sorted_cities = sorted(cities, key=len)
+#
+# shortest_city = sorted_cities[0]
+# longest_city = sorted_cities[-1]
+#
+# print(shortest_city)
+# print(longest_city)
+
+
+
+
+
+
+# # Вариант 3
+# city1, city2, city3 = input(), input(), input()
+#
+# result = {len(city1): city1, len(city2): city2, len(city3): city3}
+#
+# # Находим максимальный и минимальный ключи
+# max_key = max(result.keys())
+# min_key = min(result.keys())
+#
+# # Получаем соответствующие значения
+# max_value = result[max_key]
+# min_value = result[min_key]
+#
+# print(min_value)
+# print(max_value)
+
+
 """Определить манхеттенское расстояние между двух домов"""
 # p1, p2, q1, q2 = int(input()), int(input()), int(input()), int(input())
 #
 # formula = abs(p1 - q1) + abs(p2 - q2)
 #
 # print(formula)
+#
 
 """Определить интересное трехзначеное число (наибольшее число - наименьшее = среднее)"""
 # num = int(input())
