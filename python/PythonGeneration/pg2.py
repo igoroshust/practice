@@ -1,10 +1,223 @@
-"""Вывести таблицу умножения"""
-number = int(input())
-count = 1
+"""Последовательности Фибоначчи"""
+# # Считываем натуральное число n
+# n = int(input("Введите количество членов последовательности Фибоначчи (n ≤ 100): "))
+#
+# # Инициализация списка для хранения чисел Фибоначчи
+# fibonacci_sequence = []
+#
+# # Генерация последовательности Фибоначчи
+# for i in range(n):
+#     if i == 0 or i == 1:
+#         fibonacci_sequence.append(1)  # Первые два числа Фибоначчи
+#     else:
+#         next_number = fibonacci_sequence[i - 1] + fibonacci_sequence[i - 2]
+#         fibonacci_sequence.append(next_number)
+#
+# # Вывод последовательности, разделенной пробелами
+# print(" ".join(map(str, fibonacci_sequence)))
 
-for i in range(1, 10+1):
-    print(f'{number} x {count} = {number*count}')
-    count += 1
+"""Проверить, все ли числа являются чётными в последовательности"""
+# Считываем 10 целых чисел
+# numbers = [int(input()) for _ in range(10)]
+# 
+# # Проверяем, являются ли все числа четными
+# all_even = True  # Флаг, который будет указывать, все ли числа четные
+# 
+# for i in numbers:
+#     if i % 2 != 0:  # Если число нечетное
+#         all_even = False  # Устанавливаем флаг в False
+#         break  # Прерываем цикл, так как мы уже знаем, что не все числа четные
+# 
+# # Выводим результат
+# if all_even:
+#     print('YES')
+# else:
+#     print('NO')
+
+"""Вывести два самых больших числа в последовательности"""
+# n = int(input())
+# 
+# numbers = [int(input()) for i in range(n)]
+# 
+# max_number_one = max(numbers)
+# numbers.remove(max_number_one)
+# max_number_two = max(numbers)
+# 
+# print(max_number_one)
+# print(max_number_two)
+
+
+"""Напишите программу вычисления знакочередующейся суммы"""
+# # Пример: https://skrinshoter.ru/sUDahHc1rZi
+# Ввод натурального числа n
+# n = int(input())
+#
+# # Инициализация переменной для хранения суммы
+# result = 0
+#
+# # Вычисление знакочередующейся суммы
+# for i in range(1, n + 1):
+#     if i % 2 == 0:  # Если i четное
+#         result -= i
+#     else:           # Если i нечетное
+#         result += i
+#
+# # Вывод результата
+# print(result)
+
+
+"""Вывести сумму всех делителей числа"""
+# n = int(input())
+# division = []
+#
+# for i in range(1, n+1):
+#     if n % i == 0:
+#         division.append(i)
+#
+# sum_division = sum(division)
+# print(sum_division)
+
+"""Напишите программу, которая считывает 10 чисел и выводит произведение отличных от нуля чисел."""
+# # Первый вариант
+# from functools import reduce
+#
+# numbers = [int(input()) for i in range(10)]
+# multiply = []
+# mult = 1
+#
+# for i in numbers:
+#     if i != 0:
+#         multiply.append(i)
+#     elif i == 0:
+#         pass
+#
+# for k in multiply:
+#     mult *= k
+#
+# print(mult)
+
+# # Вариант ИИ
+
+from functools import reduce
+
+numbers = [int(input()) for _ in range(10)]
+mult = reduce(lambda x, y: x * y if y != 0 else x, numbers, 1)
+print(mult)
+
+
+"""Высчитать факториал"""
+# # Первый вариант
+# import math
+#
+# print(math.factorial(int(input())))
+
+# # Второй вариант
+# n = int(input())
+# total = 1
+#
+# for i in range(1, n+1):
+#     total *= i
+#
+# print(total)
+
+
+
+""" Напишите программу, которая подсчитывает сумму тех чисел от 1 до n (включительно), квадрат которых оканчивается на
+2, 5 или 8"""
+# n = int(input())
+#
+# square = []
+#
+# for i in range(1, n+1):
+#     if (i**2 % 10 == 2) or (i**2 % 10 == 5) or (i**2 % 10 == 8):
+#         square.append(i)
+#
+# square_sum = sum(square)
+# print(square_sum)
+
+
+
+"""На вход программе подаётся натуральное число n.
+Напишите программу, которая вычисляет значение выражения"""
+# # Формула: https://skrinshoter.ru/sUDHiBVIhnM
+# import math
+#
+# n = int(input())
+# result = [1]
+#
+# for count in range(2, n+1):
+#     result.append(1/count)
+#
+# sum_result = sum(result)
+#
+# output = sum_result - math.log(n)
+#
+# print(output)
+
+"""На вход программе подаются натуральное число n, а затем n целых чисел, каждое на отдельной строке.
+Напишите программу, которая подсчитывает сумму введённых чисел (не включая само число n)."""
+# n = int(input())
+#
+# n_sum = [sum(int(input()) for i in range(n))]
+#
+# print(n_sum[0])
+
+"""Подсчёт количества чисел в диапазоне от a до b (включительно), куб которых оканчивается на 4 или 9"""
+# a = int(input())
+# b = int(input())
+#
+# cubes = 0
+#
+# for i in range(a, b+1):
+#     if (i**3 % 10 == 4) or (i**3 % 10 == 9):
+#         cubes += 1
+#
+# print(cubes)
+
+"""Найти наибольшее число"""
+# largest = 0
+# for _ in range(10):
+#     num = int(input())
+#     if num > largest:
+#         largest = num
+#
+# print('Наибольшее число равно', largest)
+
+
+"""Определение числа - простое или сложное"""
+# num = int(input())
+# flag = True
+#
+# for i in range(2, num):
+#     if num % i == 0:
+#         flag = False
+#
+# if num == 1:
+#     print('Это единица, она не простая и не составная')
+# elif flag == True:
+#     print('Число простое')
+# else:
+#     print('Число составное')
+
+
+"""Определить, сколько чисел больше 10"""
+# counter = 0
+#
+# for _ in range(20):
+#     if _ > 10:
+#         counter += 1
+#
+# print(f'{counter} чисел больше 10')
+
+
+
+"""Вывести таблицу умножения"""
+# number = int(input())
+# count = 1
+#
+# for i in range(1, 10+1):
+#     print(f'{number} x {count} = {number*count}')
+#     count += 1
 
 
 """Вывести все целые числа от m до n включительно в порядке возрастания, если m < n, иначе в обратном порядке"""
