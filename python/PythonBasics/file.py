@@ -317,7 +317,7 @@
 # bulk_create()
 # exclude()
 # filter(**kwargs)
-# order-by(**kwargs)
+# order_by(**kwargs)
 # values()
 # value_list()
 # aggregate()
@@ -360,7 +360,6 @@
 
 """Что такое FBV и CBV в Django?"""
 # # Пример FBV
-
 # from django.http import HttpResponse
 # from django.shortcuts import render
 #
@@ -377,7 +376,6 @@
 
 
 """Функция map"""
-
 # iter_list = [1, 2, 3, 4, 5]
 # result = map(lambda x: x * 2, iter_list)
 # print(list(result))
@@ -552,8 +550,6 @@
 """Реализуйте функцию filter_string(). Она принимает на вход строку и символ и возвращает новую строку,
 в которой удален переданный символ во всех его позициях.
 Если строка не содержит указанный символ, то она возвращается без изменений."""
-
-
 # def filter_string(text, symbol):
 #     # Удаляем все вхождения символа и обрезаем пробелы
 #     return text.replace(symbol, '').replace(symbol.lower(), '').strip()
