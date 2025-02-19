@@ -1,3 +1,124 @@
+"""Дано натуральное число.
+Напишите программу, которая определяет, является ли последовательность его цифр при просмотре справа налево упорядоченной по неубыванию"""
+# num = input()
+# reverse_result = num[::-1]
+#
+# # Проверяем, упорядочены ли цифры по неубыванию
+# for i in range(len(reverse_result) - 1):
+#     if reverse_result[i] > reverse_result[i + 1]:
+#         print('NO')
+#         break
+# else:
+#     print('YES')
+
+"""Определить, все ли значения списка равны"""
+# # Решение ИИ
+# num = input()
+#
+# if len(set(num)) == 1:
+#     print('YES')
+# else:
+#     print('NO')
+
+
+# # Моё решение:
+# num = input()
+# result = []
+#
+# for i in num:
+#     result.append(i)
+#
+# st = set(result)
+#
+# if len(st) >= 2:
+#     print('NO')
+# else:
+#     print('YES')
+
+
+"""Дано натуральное число. Напишите программу, которая вычисляет:
+сумму его цифр;
+количество цифр в нем;
+произведение его цифр;
+среднее арифметическое его цифр;
+его первую цифру;
+сумму его первой и последней цифры"""
+# num = input()
+# result = []
+# mult = 1
+#
+# for i in num:
+#     result.append(int(i))
+#
+# for k in result:
+#     mult *= int(k)
+#
+#
+# sum_digit = sum(result)
+# len_digit = len(result)
+# average = sum(result) / len(result)
+# min_max_sum = result[0] + result[-1]
+#
+#
+# print(
+#     sum_digit,
+#     len_digit,
+#     mult,
+#     average,
+#     result[0],
+#     min_max_sum,
+#     sep='\n',
+# )
+
+
+"""Дано натуральное число. Напишите программу, которая выводит его цифры в столбик в обратном порядке"""
+# num = input()
+# result = [num[::-1]]
+# test = ''.join(result)
+#
+# for i in test:
+#     print(i)
+
+
+"""Пример перебора цифр числа в обратном порядке"""
+# num = 123456789
+# total = 0
+# while num != 0:
+#     last_digit = num % 10
+#     if last_digit > 4:
+#         total += 1
+#
+#     num = num // 10 # Движение справа-налево по числу
+#
+# print(total)
+
+
+"""Программа, определяющая, есть ли в числе цифра 7"""
+# num = int(input())
+# has_seven = False # сигнальная метка
+#
+# while num != 0:
+#     last_digit = num % 10
+#     if last_digit == 7:
+#         has_seven = True
+#     num //= 10
+#
+# if has_seven == True:
+#     print('YES')
+# else:
+#     print('NO')
+
+
+"""Получение цифр шестизначного числа"""
+# number = 123456
+# n_1 = number // 100000
+# n_2 = (number // 10000) % 10
+# n_3 = (number // 1000) % 10
+# n_4 = (number // 100) % 10
+# n_5 = (number // 10) % 10
+# n_6 = number % 10
+
+
 """Всем известно, что ведьмак способен одолеть любых чудовищ, однако его услуги обойдутся недешево.
 К тому же ведьмак не принимает купюры, он принимает только чеканные монеты. В мире ведьмака существуют монеты с номиналами
 1, 5, 10, 25. Напишите программу, которая определяет, какое минимальное количество чеканных монет нужно заплатить ведьмаку"""
