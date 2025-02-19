@@ -1,3 +1,171 @@
+"""Всем известно, что ведьмак способен одолеть любых чудовищ, однако его услуги обойдутся недешево.
+К тому же ведьмак не принимает купюры, он принимает только чеканные монеты. В мире ведьмака существуют монеты с номиналами
+1, 5, 10, 25. Напишите программу, которая определяет, какое минимальное количество чеканных монет нужно заплатить ведьмаку"""
+# # Решение ИИ
+# count = int(input())
+# monets = 0
+#
+# # Список номиналов монет в порядке убывания
+# denominations = [25, 10, 5, 1]
+#
+# for denomination in denominations:
+#     if count == 0:
+#         break
+#     monets += count // denomination # Количество монет данного номинала
+#     count %= denomination # Остаток после использования монет данного номинала
+#
+# print(monets)
+
+
+# # Моё решение
+# count = int(input())
+# monets = 0
+#
+# while count != 0:
+#     if count - 25 >= 0:
+#         count -= 25
+#         monets += 1
+#     elif (count - 10 >= 0) and (count - 25 < 0):
+#         count -= 10
+#         monets += 1
+#     elif (count - 5 >= 0) and (count - 25 < 0) and (count - 10 < 0):
+#         count -= 5
+#         monets += 1
+#     elif (count - 1 >= 0) and (count - 5 < 0) and (count - 25 < 0) and (count - 10 < 0):
+#         count -= 1
+#         monets += 1
+#
+# print(monets)
+
+
+# while (count - 25) >= 0:
+#     count -= 25
+#     monets += 1
+#
+#     print(count)
+#     print(monets)
+
+
+"""Вывести количество пятёрок из списка"""
+# # Решение ИИ
+# count_of_fives = 0
+#
+# while True:
+#     try:
+#         a = int(input())
+#
+#         if a <= 0 or a > 5:
+#             break
+#
+#         if a == 5:
+#             count_of_fives += 1
+#
+#     except ValueError:
+#         continue
+#
+# print(count_of_fives)
+
+# # Моё решение
+# grades = []
+#
+# while True:
+#     a = input("Введите оценку (0 для удаления пятерок, любое другое число для выхода): ")
+#
+#     try:
+#         num = int(a)  # Пробуем преобразовать ввод в целое число
+#
+#         if 0 < num <= 5:
+#             grades.append(num)  # Добавляем как целое число
+#         elif num == 0:
+#             # Удаляем все пятерки из списка
+#             grades = [i for i in grades if i != 5]
+#             print("Оценки после удаления пятерок:", grades)
+#         else:
+#             result = ''.join(map(str, grades))  # Преобразуем оценки обратно в строки для вывода
+#             print("Количество пятерок:", result.count('5'))
+#             break
+#     except ValueError:
+#         print("Пожалуйста, введите корректное целое число.")
+
+
+"""Вывод суммы положительных чисел, поданных на вход. Выход из программы при введённых отрицательных числах"""
+# numbers = []
+#
+# while True:
+#     a = input()
+#
+#     if a == '':  # Проверка на пустую строку
+#         print("Выход из программы.")
+#         break
+#
+#     try:
+#         num = int(a)  # Пробуем преобразовать ввод в целое число
+#         if num >= 0:
+#             numbers.append(num)
+#         else:
+#             print(sum(numbers))
+#             break
+#     except ValueError:
+#         print("Пожалуйста, введите корректное целое число.")
+
+"""На вход программе подаётся последовательность целых чисел делящихся на 7, каждое число на отдельной строке. 
+Концом последовательности является любое число, не делящееся на 7"""
+# # Моё решение
+# numbers = []
+# a = None
+#
+# while True:
+#     a = input()
+#     if int(a) % 7 == 0:
+#         numbers.append(a)
+#     else:
+#         print('\n'.join(numbers))
+#         break
+
+# # Решение ИИ
+# numbers = []
+# while True:
+#     a = input(': ')
+#
+#     try:
+#         num = int(a)
+#         if num % 7 == 0:
+#             numbers.append(a)
+#         else:
+#             print('\n'.join(numbers))
+#             break
+#
+#     except ValueError:
+#         print('Пожалуйста, введите корректное целое число.')
+#         continue
+
+
+"""Вывести последовательность значений списка до введения стоп-слова"""
+# words = []
+# stop_words = {'хватит', 'стоп', 'достаточно'}
+#
+# while True:
+#     a = input().strip().lower()
+#     if a in stop_words:
+#         print(len(words))
+#         break
+#     else:
+#         words.append(a)
+
+"""Вывести элементы последовательности пока a != 'КОНЕЦ'"""
+# words = []
+#
+# while True:
+#     a = input()
+#     if a.lower() == 'конец':
+#         break
+#     words.append(a)
+#
+# print('\n'.join(words))
+
+
+
+
 """Последовательности Фибоначчи"""
 # # Считываем натуральное число n
 # n = int(input("Введите количество членов последовательности Фибоначчи (n ≤ 100): "))
@@ -97,12 +265,11 @@
 # print(mult)
 
 # # Вариант ИИ
-
-from functools import reduce
-
-numbers = [int(input()) for _ in range(10)]
-mult = reduce(lambda x, y: x * y if y != 0 else x, numbers, 1)
-print(mult)
+# from functools import reduce
+#
+# numbers = [int(input()) for _ in range(10)]
+# mult = reduce(lambda x, y: x * y if y != 0 else x, numbers, 1)
+# print(mult)
 
 
 """Высчитать факториал"""
@@ -330,10 +497,6 @@ print(mult)
 #
 # print(shortest_city)
 # print(longest_city)
-
-
-
-
 
 
 # # Вариант 3
