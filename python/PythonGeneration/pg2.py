@@ -1,3 +1,83 @@
+"""Имеется 100 рублей. Сколько быков, коров и телят можно купить на все эти деньги, если плата за быка – 10 рублей,
+за корову – 5 рублей, за телёнка – 0.5 рубля и надо купить 100 голов скота?"""
+# for B in range(1, 11):
+#     for K in range(1, 21):
+#         for T in range(1, 200):
+#             if B*10 + K*5 + T*0.5 == 100:
+#                 if B + K + T == 100:
+#                     print(B, K, T)
+
+"""Вывести пирамиду цифр"""
+# num = int(input())
+# index = 1
+#
+# for i in range(1, num+1):
+#     print(i * str(i))
+
+
+"""Равнобедренный треугольник"""
+# n = int(input())
+#
+# # Верхняя часть треугольника
+# for i in range(1, n // 2 + 2):  # От 1 до n//2 + 1 включительно
+#     print('*' * i)
+#
+# # Нижняя часть треугольника
+# for i in range(n // 2, 0, -1):  # От n//2 до 1
+#     print('*' * i)
+
+
+"""Вевести число в формате num num num - num раз"""
+# num = int(input())
+#
+# for i in range(num):  # Внешний цикл для строк
+#     for j in range(3):  # Внутренний цикл для трех чисел в строке
+#         print(num, end=' ')  # Печатаем число num с пробелом
+#     print()  # Печатаем новую строку после завершения внутреннего цикла
+
+
+"""Вывести звёздочки от меньшей к большей с помощью вложенных циклов"""
+# for i in range(8):
+#     for j in range(i + 1):
+#         print('*', end='')
+#     print()
+
+
+"""Вложенные циклы"""
+# for i in range(3):
+#     for j in range(3):
+#         print(i, j)
+
+
+"""Вывести числа от 1 до num, исключив значения danger_range"""
+# num = int(input())
+#
+# danger_range_1 = [i for i in range(5, 9+1)]
+# danger_range_2 = [i for i in range(17, 37+1)]
+# danger_range_3 = [i for i in range(78, 87+1)]
+#
+# result = []
+#
+# for i in range(1, num+1):
+#     if (i in danger_range_1) or (i in danger_range_2) or (i in danger_range_3):
+#         pass
+#     else:
+#         result.append(str(i))
+#
+# print('\n'.join(result))
+
+"""Найти наименьший делитель (кроме 1)"""
+# num = int(input())
+# division = 2
+#
+# while True:
+#     if num % division == 0:
+#         print(division)
+#         break
+#     else:
+#         division += 1
+
+
 """Дано натуральное число.
 Напишите программу, которая определяет, является ли последовательность его цифр при просмотре справа налево упорядоченной по неубыванию"""
 # num = input()
