@@ -1,3 +1,63 @@
+"""Подсчёт количества символов в нижнем регистре"""
+# text = input()
+# count = 0
+#
+# for i in text:
+#     if i.islower():
+#         count += 1
+#
+# print(count)
+
+
+"""Определить, входит ли слово 'хорош' в любом из регистров в строку"""
+# text = input()
+# formatted_text = text.lower().replace(' ', '')
+#
+# search_word = 'хорош'
+#
+# if search_word in formatted_text:
+#     print('YES')
+# else:
+#     print('NO')
+
+
+"""Определить, что имя и фамилия (поданые одной строкой с пробелом) начинаются с верхнего регистра"""
+# initiate = input()
+# space = initiate.find(' ')
+#
+# if initiate[0].isupper() and initiate[space + 1].isupper():
+#     print('YES')
+# else:
+#     print('NO')
+
+
+"""Методы строк"""
+# # capitalize() - первые символ с заглавной, остальные - с маленькой.
+# s = 'foO BaR BAZ quX'
+# print(s.capitalize())
+
+# # swapcase() - меняет регистр каждого символа на противоположный
+# s = 'foO BaR BAZ quX'
+# print(s.swapcase())
+
+# # title() - возвращает копию строки, где первый символ каждого слова переводится в верхний регистр
+# s = 'the sun also rises'
+# print(s.title())
+
+# # lower() - возвращает строку с символами в нижнем регистре
+# s = 'the sun also rises'.upper()
+# print(s.lower())
+
+# # islower() - проверяет регистр на соответствие нижнем
+
+# # upper() - возвращает строку с символами в верхнем регистре
+# s = 'the sun also rises'.lower()
+# print(s.upper())
+
+# # isupper() - проверяет регистр на соответствие верхнему
+
+
+
 """Разрезать строку на 2 равные части и переставить их местами"""
 # import math
 # num = input()
