@@ -1,3 +1,207 @@
+"""Валидация пользователя"""
+# # Правильное решение
+# s = input()
+#
+# if (
+#     s.startswith('@')
+#     and 5 <= len(s) <= 15
+#     and s[1:].isalnum()
+#     and s.islower()
+# ):
+#     print('Correct')
+# else:
+#     print('Incorrect')
+
+# # Моё решение (не прошло тесты, но корректно)
+# user_input = input()
+#
+# # Проверяем условия
+# if (user_input[0] == '@') and (5 <= len(user_input) <= 15) and (user_input[1:].islower() and user_input[1:].isalnum()):
+#     print('Correct')
+# else:
+#     print('Incorrect')
+
+
+"""Проверить номер авто на валидность"""
+# s = input()
+# flag = 'NO'
+# correct_letters = 'АВЕКМНОРСТУХ'
+#
+# if 9 <= len(s) <= 10:
+#     letters = s[0] + s[4:6]
+#     digits = s[1:4] + s[7:]
+#     underscore = s[6]
+#
+#     if digits.isdigit() and underscore == '_':
+#         flag = 'YES'
+#
+#     for c in letters:
+#         if c not in correct_letters:
+#             flag = 'NO'
+#             break
+#
+# print(flag)
+
+
+"""Удалить ненужные комментарии (пустую строку и строку с пробелами)"""
+# # Моё решение
+# comments_count = int(input())
+# result = []
+# count = 1
+#
+# for _ in range(comments_count):
+#     comment = input()
+#     if comment.isspace() or comment == '':
+#         result.append('COMMENT SHOULD BE DELETED')
+#     else:
+#         result.append(comment)
+#
+# for i in result:
+#     print(f'{count}: {i}')
+#     count += 1
+
+# # Решение ИИ
+# comments_count = int(input('Введите количество комментариев: '))
+# result = [
+#     comment for comment in (input() for _ in range(comments_count))
+#     if comment.strip() # Оставляем только непустые комментарии
+# ]
+#
+# for count, comment in enumerate(result, start=1):
+#     print(f'{count}: {comment}')
+
+
+"""На вход программе подаётся строка текста, в которой буква «h» встречается минимум два раза.
+Напишите программу, которая удаляет из этой строки первое и последнее вхождение буквы «h»,
+а также все символы, находящиеся между ними"""
+# s = input()
+#
+# a = s.find('h')
+# b = s.rfind('h')
+# c = s.replace(s[a:b+1], '')
+#
+# print(c)
+
+
+"""Вывести символ один раз (если он 1), индексы первого и последнего (если его 2), NO - если символа нет"""
+# s = input()
+# char = 'f'
+#
+# if s.count(char) == 1:
+#     print(s.index(char))
+# elif s.count(char) >= 2:
+#     print(
+#         s.find(char),
+#         s.rfind(char),
+#         sep=' '
+#     )
+# else:
+#     print('NO')
+
+
+"""Вывести самый часто встречающийся в строке символ"""
+# s = input()
+#
+# # Словарь для подсчета вхождений символов
+# char_count = {}
+#
+# # Подсчитываем количество вхождений каждого символа
+# for char in s:
+#     if char in char_count:
+#         char_count[char] += 1
+#     else:
+#         char_count[char] = 1
+#
+# # Переменные для хранения символа с максимальным количеством вхождений
+# max_char = None
+# max_count = 0
+#
+# # Находим символ с максимальным количеством вхождений
+# for char in s:
+#     if char_count[char] > max_count:
+#         max_count = char_count[char]
+#         max_char = char
+#     elif char_count[char] == max_count:
+#         max_char = char  # Обновляем, чтобы получить последний по порядку
+#
+# # Выводим результат
+# print(max_char)
+
+
+"""Определить, заканчивается ли адрес на '.com' или '.ru'"""
+# s = input()
+#
+# result = ('YES' if s.endswith('.com') or s.endswith('.ru') else 'NO')
+# print(result)
+
+
+"""Определить количество цифр в строке"""
+# # Решение ИИ
+# s = input()
+# numbers_count = sum(1 for i in s if i.isdigit())
+# print(numbers_count)
+
+
+# # Моё решение
+# s = input()
+# numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+# numbers_count = 0
+#
+# for i in s:
+#     if i in numbers:
+#         numbers_count += 1
+#
+# print(numbers_count)
+
+
+"""Найти количество непересикающихся сигналов '11' в строке"""
+# message_count = int(input())
+# odi_messages_count = 0
+# odi_signal = '11'
+#
+# for _ in range(message_count):
+#     message = input()
+#
+#     # Считаем непересекающиеся вхождения '11'
+#     count = 0
+#     index = 0 # Храним текущую позицию в строке
+#
+#     while True:
+#         index = message.find(odi_signal, index) # поиск начинается с позиции index
+#         if index == -1: # выходим из цикла, если вхождений нет
+#             break
+#         count += 1
+#         index += 2 # Пропускаем два символа, чтобы избежать пересечения
+#
+#     if count >= 3:
+#         odi_messages_count += 1
+#
+# print(odi_messages_count)
+
+
+"""Определить количество упоминаний символов в строке (ДНК)"""
+# s = input()
+# formatted_string = s.lower().strip().replace(' ', '')
+#
+# print(f'''Аденин: {formatted_string.count('а')}
+# Гуанин: {formatted_string.count('г')}
+# Цитозин: {formatted_string.count('ц')}
+# Тимин: {formatted_string.count('т')}''')
+
+
+"""Подсчитать количество слов в тексте"""
+# # Решение ИИ
+# s = input()
+# words = s.split()
+# words_count = len(words)
+# print(words_count)
+
+# # Моё решение
+# s = input()
+# space = s.count(' ')
+# print(space + 1)
+
+
 """Подсчёт количества символов в нижнем регистре"""
 # text = input()
 # count = 0
