@@ -1,3 +1,110 @@
+s = input()
+transform_string = ''
+s1 = []
+s2 = []
+
+russian = ['е', 'у', 'о', 'р', 'а', 'х', 'с', 'Е', 'Т', 'О', 'Р', 'А', 'Н', 'Х', 'С', 'В', 'М']
+english = ['e', 'y', 'o', 'p', 'a', 'x', 'c', 'E', 'T', 'O', 'P', 'A', 'H', 'X', 'C', 'B', 'M']
+
+for i in s:
+    if i.lower() in english:
+        dex = english.index(i)
+        transform_string = s.replace(i, russian[dex])
+
+
+for i in s:
+    s1.append(ord(i))
+
+for i in transform_string:
+    s2.append(ord(i))
+
+result_sum1 = sum(s1) * 3
+result_sum2 = sum(s2) * 3
+
+print(f"""Текст сообщения: '{s}'
+Старая стоимость: {result_sum1}🐝
+Новая стоимость: {result_sum2}🐝""")
+
+
+
+"""Подсчитать стоимость сообщения"""
+# s = input()
+# s1 = []
+#
+# for i in s:
+#     s1.append(ord(i))
+#
+# result_sum = sum(s1) * 3
+#
+# print(f"""Текст сообщения: '{s}'
+# Стоимость сообщения: {result_sum}🐝""")
+
+
+"""Под "тяжестью" слова будем понимать сумму кодов по таблице Unicode всех символов этого слова.
+Напишите программу, которая принимает 4 слова и находит среди них самое тяжёлое слово.
+Если самых тяжёлых слов будет несколько, то программа должна вывести первое из них."""
+# # Моё решение
+# s, d, v, g = input(), input(), input(), input()
+#
+# s1 = []
+# d1 = []
+# v1 = []
+# g1 = []
+#
+# test = []
+#
+# for i in s:
+#     s1.append(ord(i))
+#
+# for i in d:
+#     d1.append(ord(i))
+#
+# for i in v:
+#     v1.append(ord(i))
+#
+# for i in g:
+#     g1.append(ord(i))
+#
+# result = {s: sum(s1), d: sum(d1), v: sum(v1), g: sum(g1)}
+#
+# result_max = max(result.values())
+#
+# max_key = [key for key, value in result.items() if value == result_max] # находим ключ максимального значения
+#
+# if len(max_key) > 1:
+#     print(''.join(max_key[0]))
+# else:
+#     print(''.join(max_key))
+
+# # Решение ИИ
+# def get_word_weight(word):
+#     """Возвращает сумму кодов символов слова по таблице Unicode."""
+#     return sum(ord(char) for char in word)
+#
+# def main():
+#     words = [input() for _ in range(4)]
+#     max_weight = -1
+#     heaviest_word = ""
+#
+#     for word in words:
+#         weight = get_word_weight(word)
+#         if weight > max_weight:
+#             max_weight = weight
+#             heaviest_word = word
+#
+#     print(heaviest_word)
+#
+# if __name__ == '__main__':
+#     main()
+
+
+"""Вывод кода всех символов строки"""
+# s = input()
+# formatted_s = s.strip()
+#
+# for i in formatted_s:
+#     print(ord(i), end=' ')
+
 """Вывести символ каждого значения диапазона от a до b"""
 # a, b = int(input()), int(input())
 #
