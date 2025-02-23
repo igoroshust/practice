@@ -1,3 +1,45 @@
+"""Вывести символ каждого значения диапазона от a до b"""
+# a, b = int(input()), int(input())
+#
+# result = []
+# for i in range(a, b+1):
+#     result.append(chr(i))
+#
+# print(' '.join(result))
+
+
+"""Вывести соседнюю буквы русского алфавита"""
+# char = input()
+# ord_char = ord(char)
+# start_word = 'а'
+# result = []
+# result_char = ord_char + 1
+#
+# for i in range(32):
+#     result.append((chr(ord(start_word) + i).upper()))
+#
+# if char == result[-1]:
+#     print('Дальше букв нет')
+# else:
+#     print(chr(result_char))
+
+
+"""Вывод всех заглавных букв английского алфавита"""
+# for i in range(26):
+#     print(chr(ord('A') + i))
+
+"""Функции"""
+# # ord() - позволяет определить код некоторого символа в таблица символов Unicode. Аргументом является одиночный символ
+# num = ord('A')
+# print(num) # 65
+
+# # chr() - позволяет определить по коду символа сам символ. Аргументом является численный код
+# chr1 = chr(65)
+# chr2 = chr(75)
+# chr3 = chr(110)
+# print(chr1, chr2, chr3) # A K n
+
+
 """Валидация пользователя"""
 # # Правильное решение
 # s = input()

@@ -1,3 +1,76 @@
+"""Рассчитать вес худеющего к лету Гвидо"""
+# # Скриншот ТЗ: https://skrinshoter.ru/sUK1AoBTxD4
+# # Моё решение
+# day = int(input())
+# gvidos_current_weight = float(input())
+# start_weight = 99.8
+#
+# result = []
+# summer_days = [i for i in range(1, 61)]
+#
+# for i in summer_days:
+#     result.append({i: round(start_weight, 2)})
+#     start_weight -= 0.2
+#
+# # Получаем цель по весу для указанного дня
+# # Извлекаем первое (и единственное) значение из dict_values, чтобы использовать его в выводе
+# target_weight = list(result[day - 1].values())[0]
+#
+# if target_weight >= gvidos_current_weight:
+#     print('Всё идёт по плану')
+#     print(f'#{day} ДЕНЬ: ТЕКУЩИЙ ВЕС = {gvidos_current_weight} кг, ЦЕЛЬ по ВЕСУ = {target_weight} кг')
+# else:
+#     print('Что-то пошло не так')
+#     print(f'#{day} ДЕНЬ: ТЕКУЩИЙ ВЕС = {gvidos_current_weight} кг, ЦЕЛЬ по ВЕСУ = {target_weight} кг')
+
+
+# # Решение ИИ
+# def get_target_weight(day, start_weight=99.8, weight_loss_per_day=0.2):
+#     """Вычисляем целевой вес для заданного дня"""
+#     return round(start_weight - (day - 1) * weight_loss_per_day, 2)
+#
+# def main():
+#     day = int(input('Введите номер дня (1-60): '))
+#     gvidos_current_weight = float(input('Введите текущий вес: '))
+#
+#     if day < 1 or day > 60:
+#         print('Номер дня должен быть в диапазоне от 1 до 60.')
+#         return
+#
+#     target_weight = get_target_weight(day)
+#
+#     if target_weight >= gvidos_current_weight:
+#         print('Всё идёт по плану')
+#     else:
+#         print('Что-то пошло не так')
+#
+#     print(f'#{day} ДЕНЬ: ТЕКУЩИЙ ВЕС = {gvidos_current_weight} кг, ЦЕЛЬ по ВЕСУ = {target_weight} кг')
+#
+# if __name__ == "__main__":
+#     main()
+
+
+
+"""Вывести сумму кубов и куб суммы"""
+# a = int(input())
+# b = int(input())
+#
+# sum_of_cubes = (a**3) + (b**3)
+# cube_of_the_sum = (a + b)**3
+#
+# print(f'''Для чисел {a} и {b}
+#     Сумма кубов: {a}**3 + {b}**3 = {sum_of_cubes}
+#     Куб суммы: ({a} + {b})**3 = {cube_of_the_sum}''')
+
+"""Палиндром в функциональном представлении"""
+# def ispalindrome(text):
+#     formatted_text = text.lower().strip().replace(' ', '')
+#     return formatted_text == formatted_text[::-1]
+#
+# result = ispalindrome('радар')
+# print(result)
+
+
 """Вывести пирамиду чисел"""
 # n = int(input())
 #
@@ -414,15 +487,15 @@
 """Проверить, все ли числа являются чётными в последовательности"""
 # Считываем 10 целых чисел
 # numbers = [int(input()) for _ in range(10)]
-# 
+#
 # # Проверяем, являются ли все числа четными
 # all_even = True  # Флаг, который будет указывать, все ли числа четные
-# 
+#
 # for i in numbers:
 #     if i % 2 != 0:  # Если число нечетное
 #         all_even = False  # Устанавливаем флаг в False
 #         break  # Прерываем цикл, так как мы уже знаем, что не все числа четные
-# 
+#
 # # Выводим результат
 # if all_even:
 #     print('YES')
@@ -431,13 +504,13 @@
 
 """Вывести два самых больших числа в последовательности"""
 # n = int(input())
-# 
+#
 # numbers = [int(input()) for i in range(n)]
-# 
+#
 # max_number_one = max(numbers)
 # numbers.remove(max_number_one)
 # max_number_two = max(numbers)
-# 
+#
 # print(max_number_one)
 # print(max_number_two)
 
