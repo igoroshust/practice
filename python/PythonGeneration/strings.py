@@ -1,3 +1,159 @@
+
+
+
+
+"""Сортировка строк в лексикографическом порядке"""
+# s1, s2, s3 = input().strip(), input().strip(), input().strip()
+#
+# # Собираем слова в список
+# words = [s1, s2, s3]
+#
+# # Сортируем слова в лексикографическом порядке
+# words.sort()
+#
+# # Выводим отсортированные слова, разделяя их пробелами
+# print(' '.join(words))
+
+
+"""На вход программе подаются 2 строки. Вам необходимо сравнить эти строки посимвольно, не учитывая регистр и игнорируя все небуквенные символы"""
+# # Решение ИИ
+# s1, s2 = input().strip(), input().strip()
+#
+#
+# def clean_string(s):
+#     cleaned = ''
+#     for char in s:
+#         if char.isalpha():  # Проверяем, является ли символ буквой
+#             cleaned += char.lower()  # Приводим к нижнему регистру и добавляем к результату
+#     return cleaned
+#
+#
+# # Очищаем обе строки
+# cleaned_s1 = clean_string(s1)
+# cleaned_s2 = clean_string(s2)
+#
+# # Сравниваем очищенные строки
+# if cleaned_s1 == cleaned_s2:
+#     print('YES')
+# else:
+#     print('NO')
+
+
+"""Название класса. В школе BEEGEEK названия учебных классов необычные. Они имеют следующий формат:
+<номер класса><буква класса>
+где <номер класса> должен находиться в диапазоне от 0 (как и все у программистов) до 9 включительно,
+а буквой класса могут быть все буквы в диапазоне от «А» до «П» включительно."""
+# # Решение ИИ
+# import re
+#
+# # Читаем количество классов
+# n = int(input())
+#
+# # Регулярное выражение для проверки формата класса
+# pattern = r'^[0-9][A-П]$'
+#
+# results = []
+#
+# for _ in range(n):
+#     class_name = input().upper().strip()
+#     if re.match(pattern, class_name):
+#         results.append('YES')
+#     else:
+#         results.append('NO')
+#
+# # Выводим результаты
+# for result in results:
+#     print(result)
+
+
+# # Моё решение
+# echo_num = int(input())
+# echo_str = ''
+# dex = 0
+#
+# alphabet = []
+# # alphabet = [chr(i) for i in range(ord('А'), ord('П') + 1)] - можно и так сделать
+# numbers = [i for i in range(10)]
+# result = []
+# start_char = 'а'
+#
+# for i in range(16):
+#     alphabet.append(chr(ord(start_char) + i).upper())
+#
+# while dex < echo_num:
+#     echo_str = input()
+#     result.append(echo_str)
+#     dex += 1
+#
+# for i in result:
+#     if len(i) >= 3:
+#         if i[0].isdigit() and i[1].isdigit():
+#             num = str(i[0] + i[1])
+#             if (int(num) in numbers) and i[2] in alphabet:
+#                 print('YES')
+#             else:
+#                 print('NO')
+#         else:
+#             print('NO')
+#
+#     elif len(i) == 2:
+#         if i[0].isdigit() and i[1].isalpha():
+#             if (int(i[0]) in numbers) and (i[1].upper() in alphabet):
+#                 print('YES')
+#             else:
+#                 print('NO')
+#         else:
+#             print('NO')
+#
+#     elif len(i) <= 1:
+#         print('NO')
+#
+#     else:
+#         print('NO')
+
+
+"""В некотором наборе слов Сэм находит "волшебное" число по следующему алгоритму: берет самую "маленькую" и самую "большую"
+строки, перемножает Unicode-коды последних символов этих строк и возводит полученное число в квадрат.
+Результатом и является "волшебное" число"""
+
+# lst = [input() for i in range(4)]
+#
+# result = (ord(min(lst)[-1]) * ord(max(lst)[-1]))**2
+#
+# print(result)
+
+
+"""Определить максимальную и минимальную строку"""
+# # Решение ИИ
+# result = []
+#
+# while True:
+#     s = input().strip()
+#     if s == 'КОНЕЦ':
+#         break
+#     result.append(s)
+#
+# if result: # проверяем, что список не пустой
+#     print(f'Минимальная строка ⬇️: {min(result)}')
+#     print(f'Максимальная строка ⬆️: {max(result)}')
+# else:
+#     print("Не было введено ни одной строки.")
+
+
+# # Моё решение
+# s = ''
+# result = []
+#
+# while s != 'КОНЕЦ':
+#     s = input()
+#     result.append(s)
+#
+# result = result[:-1]
+#
+# print(f'Минимальная строка ⬇️: {min(result)}')
+# print(f'Максимальная строка ⬆️: {max(result)}')
+
+
 """Кодировка символов"""
 # # Ввод: Hello, my name is [u-1061][u-1072][u-1082][u-1080]!
 # # Вывод: Hello, my name is Хаки!
@@ -457,7 +613,6 @@
 # # isupper() - проверяет регистр на соответствие верхнему
 
 
-
 """Разрезать строку на 2 равные части и переставить их местами"""
 # import math
 # num = input()
@@ -560,8 +715,6 @@
 #     index += 1
 #
 # print(count)
-
-
 
 
 """Определить, сколько раз символы '+' и '*' встречаются в строке"""
