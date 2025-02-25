@@ -1,0 +1,31 @@
+{% extends 'chat/main.html' %}
+
+{% block title %} QuickChat - Удаление группы {% endblock %}
+{% block header %} <h2 class="text-lg font-semibold h-9 mt-3"> Удаление группы </h2>{% endblock header %}
+
+{% block content %}
+    <div class="flex-1 p-4 overflow-y-auto">
+        <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+            <p class="mb-4">
+                Вы действительно хотите удалить группу? Отменить это действие будет невозможно.
+            </p>
+            <form method="POST" action="{% url 'delete_group' group.id %}">
+                {% csrf_token %}
+                <div class="flex items-center justify-between">
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        Удалить
+                    </button>
+                    <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" id="cancelDeleteChat">
+                        Отменить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('cancelDeleteChat').addEventListener('click', function() {
+            window.history.back();
+        });
+    </script>
+{% endblock %}

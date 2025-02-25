@@ -1,0 +1,194 @@
+<!-- Sidebar -->
+<div class="w-1/4 bg-white border-r border-gray-200 hidden md:flex flex-col justify-between">
+    <div>
+        <div class="p-4 border-b border-gray-200">
+            <div class="flex items-center">
+                <img alt="User  avatar placeholder" class="w-10 h-10 rounded-full" height="50" src="{{ user.photo.url }}" width="50"/>
+                <div class="ml-3">
+                    <h2 class="text-lg font-semibold">{{ user.username }}</h2>
+                    <button class="text-sm text-gray-500" onclick="window.location.href='{% url 'edit_profile' %}'">Профиль</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2">Чаты</h3>
+            <ul id="chatList">
+                <li class="mb-2"></li>
+            </ul>
+            <div id="loading" class="hidden text-center">Загрузка...</div>
+            <div id="error" class="hidden text-red-500 text-center">Ошибка загрузки чатов.</div>
+        </div>
+
+        <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2">Группы</h3>
+            <ul id="groupList">
+                <li class="mb-2"></li>
+            </ul>
+            <div id="loadingGroups" class="hidden text-center">Загрузка групп...</div>
+            <div id="errorGroups" class="hidden text-red-500 text-center">Ошибка загрузки групп.</div>
+        </div>
+    </div>
+
+    <div class="p-4">
+        <button class="w-full bg-green-500 text-white py-2 px-4 rounded-lg mb-4" id="viewUser ListButton" style="margin-bottom: 10px" onclick="window.location.href='{% url 'user_list' %}'">Написать сообщение</button>
+        <button class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg" id="createGroupChatButton" onclick="window.location.href='{% url 'create_group' %}'">Создать группу</button>
+    </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const chatList = document.getElementById('chatList');
+    const loading = document.getElementById('loading');
+    const errorDiv = document.getElementById('error');
+
+    const groupList = document.getElementById('groupList');
+    const loadingGroups = document.getElementById('loadingGroups');
+    const errorGroupsDiv = document.getElementById('errorGroups');
+
+    // Флаг для отслеживания первой загрузки
+    let isFirstLoad = true;
+
+    // Получаем текущего собеседника из URL
+    const pathParts = window.location.pathname.split('/');
+    const currentChatUser  = pathParts[pathParts.length - 2]; // Извлекаем предпоследний элемент для личного чата
+    const currentGroupId = pathParts[pathParts.length - 2]; // Извлекаем предпоследний элемент для группового чата (проверьте структуру URL)
+
+    // Функция для загрузки чатов
+    function loadChats() {
+        console.log('Текущий собеседник:', currentChatUser ); // Отладка
+
+        if (isFirstLoad) {
+            loading.classList.remove('hidden'); // Показать индикатор загрузки только при первой загрузке
+        }
+
+        // Проверяем, что имя собеседника не пустое
+        if (currentChatUser ) {
+            fetch(`${window.location.origin}/api/chats/?current_chat_user=${currentChatUser }`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Сетевой запрос не выполнен');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Личная переписка:', data);  // Для отладки
+                    chatList.innerHTML = ''; // Очищаем список перед добавлением новых элементов
+                    if (isFirstLoad) {
+                        loading.classList.add('hidden'); // Скрыть индикатор загрузки после первой загрузки
+                        isFirstLoad = false; // Установить флаг, что первая загрузка завершена
+                    }
+
+                    if (data.length === 0) {
+                        chatList.innerHTML = '<li class="mb-2"><div class="flex items-center p-2 bg-gray-100 rounded-lg"><img alt="Chat avatar placeholder" class="w-8 h-8 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/vIklsEX1eOwUOqsLl9kWfEdCBmyAxwxgOUN0AeaeYWHsseOgC.jpg" width="40"/><span class="ml-3 text-gray-500">Чатов нет</span></div></li>';
+                    } else {
+                        data.forEach(chat => {
+                            const li = document.createElement('li');
+                            li.className = 'mb-2';
+                            li.innerHTML = `
+                                <a class="flex items-center justify-between p-2 bg-gray-100 rounded-lg" href="/personal-chat/${chat.user_username}/">
+                                    <div class="flex items-center">
+                                        <img alt="Chat avatar" class="w-8 h-8 rounded-full" src="${chat.user_avatar || 'default_avatar_url.jpg'}" />
+                                        <span class="ml-3 text-gray-500">${chat.user_username || 'Сообщений нет'}</span>
+                                    </div>
+                                    ${currentChatUser  === chat.user_username ? '' : (chat.unread_count > 0 ? `
+                                        <span class="flex items-center justify-center bg-blue-500 text-white rounded-full w-5 h-5 ml-2 text-xs unread-count">
+                                            ${chat.unread_count}
+                                        </span>
+                                    ` : '')}
+                                </a>
+                            `;
+                            chatList.appendChild(li);
+                        });
+                    }
+                })
+                .catch(error => {
+                    loading.classList.add('hidden'); // Скрыть индикатор загрузки при ошибке
+                    errorDiv.classList.remove('hidden'); // Показать сообщение об ошибке
+                    console.error('Error fetching chats:', error);
+                });
+        } else {
+            console.warn('Текущий собеседник не найден в URL');
+        }
+    }
+
+    // Функция для загрузки групп
+    function loadGroups() {
+        if (isFirstLoad) {
+            loadingGroups.classList.remove('hidden'); // Показать индикатор загрузки групп только при первой загрузке
+        }
+
+        fetch(`${window.location.origin}/api/groups/`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Сетевой запрос не выполнен');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Группа:', data);  // Для отладки
+                groupList.innerHTML = ''; // Очистите список перед добавлением новых элементов
+                loadingGroups.classList.add('hidden'); // Скрыть индикатор загрузки групп после завершения загрузки
+
+                if (data.length === 0) {
+                    groupList.innerHTML = '<li class="mb-2"><div class="flex items-center p-2 bg-gray-100 rounded-lg"><img alt="Chat avatar placeholder" class="w-8 h-8 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/vIklsEX1eOwUOqsLl9kWfEdCBmyAxwxgOUN0AeaeYWHsseOgC.jpg" width="40"/><span class="ml-3 text-gray-500">Групп нет</span></div></li>';
+                } else {
+                    data.forEach(group => {
+                        const li = document.createElement('li');
+                        li.className = 'mb-2';
+                        li.innerHTML = `
+                            <a class="flex items-center justify-between p-2 bg-gray-100 rounded-lg" href="/group-chat/${group.id}/">
+                                <div class="flex items-center">
+                                    <img alt="Group avatar" class="w-8 h-8 rounded-full" src="${group.group_image || 'default_group_avatar_url.jpg'}" />
+                                    <span class="ml-3 text-gray-500">${group.group_name || 'Без названия'}</span>
+                                </div>
+                                ${currentGroupId == group.id ? '' : (group.unread_count > 0 ? `
+                                    <span class="flex items-center justify-center bg-blue-500 text-white rounded-full w-5 h-5 ml-2 text-xs">
+                                        ${group.unread_count}
+                                    </span>
+                                ` : '')}
+                            </a>
+                        `;
+                        groupList.appendChild(li);
+                    });
+                }
+            })
+            .catch(error => {
+                loadingGroups.classList.add('hidden'); // Скрыть индикатор загрузки групп при ошибке
+                errorGroupsDiv.classList.remove('hidden'); // Показать сообщение об ошибке
+                console.error('Error fetching groups:', error);
+            });
+    }
+
+    // Первоначальная загрузка данных
+    loadChats();
+    loadGroups();
+
+    // Устанавливаем интервал для периодической загрузки данных
+    setInterval(() => {
+        loadChats();
+        loadGroups();
+    }, 5000); // 5000 миллисекунд = 5 секунд
+
+    // Отправляем запрос на сервер для обновления непрочитанных сообщений при выходе из чата
+    window.addEventListener('beforeunload', function() {
+        if (currentChatUser ) {
+            fetch(`${window.location.origin}/api/chats/mark_messages_as_read/?current_chat_user=${currentChatUser }`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken') // Если используете CSRF-токены
+                }
+            });
+        } else if (currentGroupId) {
+            fetch(`${window.location.origin}/api/groups/update-unread-count/?current_group_id=${currentGroupId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken') // Если используете CSRF-токены
+                }
+            });
+        }
+    });
+});
+
+</script>
