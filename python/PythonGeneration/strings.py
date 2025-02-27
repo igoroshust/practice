@@ -1,3 +1,26 @@
+"""Виды форматирования строк наглядно"""
+# from string import Template
+#
+# name = 'Igor'
+# age = 28
+#
+# template = Template('Меня зовут $name, мой возраст: $age')
+# formatted_string = template.substitute(name=name, age=age)
+#
+# print(
+#     f'Меня зовут {name}, мой возраст: {age}',
+#     'Меня зовут {}, мой возраст: {}'.format(name, age),
+#     'Меня зовут %s, мой возраст: %d' % (name, age),
+#     formatted_string,
+#     sep='\n'
+# )
+
+
+"""Вывести каждый символ на отдельной строчке"""
+# numbers = '1 2 3 4 5 6 7'
+# print('\n'.join(numbers.split()))
+
+
 """Среднее арифметическое элементов списка"""
 # evens = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 # average = sum(evens) / len(evens)
