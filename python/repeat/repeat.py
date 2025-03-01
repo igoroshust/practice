@@ -1,5 +1,152 @@
-list
+"""Оператор '*' (распаковка)"""
+# a = [1, 2, 3]
+# b = [*a, 4, 5, 6]
+# print(b)
 
+"""Области видимости"""
+# ОВ определяют, в какой части программ ымы можем работать с той или иной переменной, функцией и т.д.
+# LEGB (Local, ENCLOSING (nonlocal), Global, Bulit-in (print, len, list, etc) - механизм описания порядка поиска имён в различных областях видимости.
+# Локальная - ограничена конструкцией.
+# def local():
+#     x = 5
+#     print(x)
+#
+# x = 10
+# local() # 5
+# print(x) # 10
+
+# Глобальная - переменная доступная на уровне модуля.
+# def local():
+#     print(x)
+#
+# x = 10
+# local()
+# print(x)
+
+# Нелокальная область видимости. Появилась в Python3 вместе с ключевым словом nonlocal.
+# nonlocal используется чаще всего во вложенных функциях, когда мы хотим дать интерпертатору понять, что для вложенной функции
+# определённая переменная не является локальной, но она и не является глобальной в общем смысле.
+# def get_mul_func(m):
+#     nonlocal_m = m
+#     def local_mul(n):
+#         return n * nonlocal_m
+#
+#     return local_mul
+#
+# two_mul = get_mul_func(2)
+# two_mul(5)
+
+# Функции образуют локальную область видимости, а скрипты - программную.
+
+
+"""Функция подсчёта символов в тексте"""
+# def char_frequency(text):
+#
+#     formatted_text = text.lower().replace(' ', '').replace('\n', '')
+#     count = {}
+#
+#     for char in formatted_text:
+#         if char in count:
+#             count[char] += 1
+#         else:
+#             count[char] = 1
+#
+#     for char, cnt in count.items():
+#         print(f'Символ {char} встречается {cnt} раз')
+#
+# char_frequency('''Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+#     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+#     when an unknown printer took a galley of type and scrambled it to make a type specimen book''')
+
+
+"""Continue"""
+# Оператор `continue` в Python используется внутри циклов для пропуска текущей итерации и перехода к следующей.
+# continue выполняет немедленное завершение текущей итерации цикла.
+# Это полезно, когда мы хотим выполнить определённые условия, не прерывая весь цикл.
+
+# for i in range(1, 20+1):
+#     if i % 2 == 0:
+#         continue
+#     print(i) # Выводим только нечётные числа.
+
+
+"""Функция Enumerate"""
+# Функция, возвращающая кортежи, где на первом месте стоит индекс элемента, а на втором - его значение.
+# enumerate(iterable, start=0) позволяет итерироваться по элементам последовательности и одновременно получать индекс текущего элемента.
+# list_ = [-5, 2, 4, 8, 12, -7, 5]
+#
+# for i, value in enumerate(list_):
+#     print("Индекс элемента: ", i)
+#     print("Значение элемента: ", value)
+#     print("---")
+# else:
+#     print('Конец цикла')
+
+# fruits = ['apple', 'banana', 'cherry']
+# for index, fruit in enumerate(fruits):
+#     print(f'Index: {index}, Fruit: {fruit}')
+
+
+
+"""Дана двумерная матрица 3х3. Необходимо определить максимум и минимум каждой строки и их индексы"""
+# # Моё решение:
+# random_matrix = [
+#     [9, 2, 1],
+#     [2, 5, 3],
+#     [4, 8, 5],
+# ]
+#
+# results = []
+#
+# for row in random_matrix:
+#     for element in row:
+#         print(element, end=' ')
+#         results.append(element)
+#     print()
+#
+# max_results = max(results)
+# min_results = min(results)
+# print(
+#     f'''Максимальный элемент: {max_results}
+# Индекс максимального элемента: {results.index(max_results)}
+# Минимальный элемент: {min_results}
+# Индекс минимального элемента: {results.index(min_results)}'''
+# )
+
+
+"""Вложенные циклы и двумерные массивы"""
+# Вложенные циклы чаще нужно для реализации сортировок, работы с двумерными и многомерными массивами, обходах дерева и для некоторых алгоритмов.
+# Двумерный массив (матрица) - обычная таблица. Одномерная матрица - списоок, двумерная - список списков.
+
+# Пример двумерного массива
+# matrix = [
+#     [1, 2],
+#     [3, 4],
+#     [5, 6]
+# ]
+#
+# # Вложенный цикл для перебора элементов матрицы
+# for row in matrix: # перебирает строки (обход строк)
+#     for element in row: # перебирает элементы в строке
+#         print(element, end=" ")
+#     print() # это нужно для вывода в более "табличном" виде. В конце каждой строчки ставим перенос строки.
+
+# Также перебирать элементы матрицы можно по индексам строки и столбца. Индекс строк - i, столбцов - j.
+# Пример с использованием i'тых и j'тых элементов
+# ROWS = 4
+# COLS = 3
+#
+# matrix = [
+#     [1, 2, 3],
+#     [3, 4, 3],
+#     [5, 6, 3],
+#     [15, 16, 3],
+# ]
+#
+# for i in range(ROWS):
+#     for j in range(COLS):
+#         print(matrix[i][j], end=" ")
+#     print()
 
 
 
