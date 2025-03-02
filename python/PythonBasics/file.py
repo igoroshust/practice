@@ -1,3 +1,103 @@
+"""Авторизация (Вход, Регистрация)"""
+# Вход
+
+# 1. Добавляем Urls приложения 'django.contrib.auth'
+# project/urls.py
+# path('accounts/', include('django.contrib.auth.urls'))
+# Теперь становятся доступны новые пути: accounts/login, /logout и т.д.
+
+# 2. Создаём форму регистрации
+# 3. Устанавливаем LOGIN_REDIRECT_URL
+
+# --------------------- Регистрация --------------------
+# 1. python manage.py startapp accounts
+# 2. Создаём форму регистрации пользователя в accounts/forms.py
+# from django import forms
+# from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.models import User
+#
+# class SignUpForm(UserCreationForm):
+#     email = forms.EmailField(label='Email')
+#     first_name = forms.CharField(label='Имя')
+#     last_name = forms.CharField(label='Фамилия')
+#
+#     class Meta:
+#         model = User
+#         fields = (
+#             "username",
+#             "first_name",
+#             "last_name",
+#             "email",
+#             "password1",
+#             "password2",
+#         )
+
+# 3. В accounts/views создаём представление на основе дженерика
+# from django.contrib.auth.models import User
+# from django.views.generic.edit import CreateView
+# from .forms import SignUpForm
+#
+# class SignUp(CreateView):
+#     model = User
+#     form_class = SignUpForm
+#     success_url = '/accounts/login'
+#     template_name = 'registration/signup.html'
+
+# 4. Создаём шаблон
+# <form method="post">
+# {% csrf_token %}
+#     {{ form.as_p }}
+#     <input type='submit' value='sign up'>
+# </form>
+
+# 5. Подключаем URLS в accounts/urls.py
+# from django.urls import path
+# from .views import SignUp
+# urlpatterns = [
+#     path('signup/', SignUp.as_view(), name='signup')
+# ]
+
+# 6. Подключаем URLS в project/urls.py
+# urlpatterns = [
+#     path("accounts/", include("accounts.urls")),
+# ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ---------------------------------------------------------------------------------------------------------------------#
+
+
+"""Разграничение прав просмотра"""
+# # С помощью декоратора login_required
+# from django.contrib.auth.decorators import login_required
+#
+# @login_required
+# def show_protected_page(request):
+#     // do something protected
+
+# # С помощью миксина LoginRequiredMixin
+# from django.contrib.auth.mixins import LoginRequiredMixin
+# class ProductCreate(LoginRequiredMixin, CreateView):
+#     raise_exception = True # вызываем ошибку
+#     form_class = ProductForm
+#     model = Product
+#     template_name = 'product_edit.html'
+
+
 """pprint"""
 # Модуль Python, предоставляющий функции для "красивого" (pretty-print) форматирования и вывода сложных типов данных.
 # import pprint
@@ -38,6 +138,7 @@
 #     ordering = 'name'
 #     template_name = 'products.html'
 #     context_object_name = 'products'
+#     paginate_by = 2
 #
 #     def get_context_data(self, **kwrags):
 #         """Получаем данные для отображения в шаблоне"""
@@ -52,6 +153,46 @@
 
 """Контекст"""
 # context - это словарь, который мы передаём в template
+
+
+"""Пагинация"""
+# Постраничный вывод информации.
+# page_obj - это объект, в котором содержится информация о текущей странице. Сам он приходит из класса Paginator,
+# который приходит из класса ListView.
+
+# В page_obj мы имеем доступ к следующим переменным:
+# has_previous - существует ли предыдущая страницa
+# previous_page_number - номер предыдущей страницы
+# number - номер текущей страницы
+# has_next - существует ли следующая страница
+# next_page_number - номер следующей страницы
+# paginator.num_pages - объект paginator содержит информацию о количестве страниц в переменной num_pages.
+
+
+#    {# Добавляем пагинацию на страницу #}
+#
+#    {# Информация о предыдущих страницах #}
+#    {% if page_obj.has_previous %}
+#        <a href="?page=1">1</a>
+#        {% if page_obj.previous_page_number != 1 %}
+#            ...
+#            <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+#        {% endif %}
+#    {% endif %}
+#
+#    {# Информация о текущей странице #}
+#    {{ page_obj.number }}
+#
+#    {# Информация о следующих страницах #}
+#    {% if page_obj.has_next %}
+#        <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+#        {% if paginator.num_pages != page_obj.next_page_number %}
+#            ...
+#            <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+#        {% endif %}
+#    {% endif %}
+#
+# {% endblock content %}
 
 
 """Получить информацию об операционной системе"""
