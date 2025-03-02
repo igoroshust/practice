@@ -1,4 +1,4 @@
-# # Методы создания объектов
+# # Методы создания объектов (менеджер модели)
 create(**kwargs) # Создание объекта
 Book.objects.create(title='New Book', author='Author Name', published_date='2023-01-01')
 

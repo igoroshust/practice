@@ -1,3 +1,59 @@
+"""pprint"""
+# Модуль Python, предоставляющий функции для "красивого" (pretty-print) форматирования и вывода сложных типов данных.
+# import pprint
+#
+# pp = pprint.PrettyPrinter(width=10)
+# data = {'name': 'Alice', 'age': 30, 'hobbies': ['reading', 'hiking', 'coding']}
+# pp.pprint(data)
+
+
+"""Views (Django)"""
+# from django.views.generic import ListView
+# from .models import Product
+#
+# class ProductsList(ListView):
+#     # Указываем модель, объекты которой будем выводить
+#     model = Product
+#     # Поле, используемое для сортировки объектов
+#     ordering = 'name'
+#     # Имя шаблона со структурой отображаемых пользователю объектов
+#     template = 'products.html'
+#     # Имя списка, в котором будут лежать все объекты. Его надо указывать, чтобы обратиться к списку объектов в html-шаблоне
+#     context_object_name = 'products'
+
+# Использование дженерика ListView подразумевает:
+# 1. Создать свой класс, наследуемый от ListView
+# 2. Указать модель, из которой будет выводить данные
+# 3. Указываем поле сортировки данных модели (необязательно)
+# 4. Записываем название шаблона
+# 5. Объявляем, как хотим назвать переменную в шаблоне.
+# 6. Переходим в app/urls.py, пишем: path(''), ProdcutsList.as_view()).
+# 7. Переходим в project/urls.py, пишем: path('/products'), include('app.urls')).
+
+
+"""get_context_data (views method)"""
+# get_context_data позволяет нам получать дополнительные данные, которые будут переданы в шаблон.
+# class ProductsList(ListView):
+#     model = Product
+#     ordering = 'name'
+#     template_name = 'products.html'
+#     context_object_name = 'products'
+#
+#     def get_context_data(self, **kwrags):
+#         """Получаем данные для отображения в шаблоне"""
+#         # Посредством super() обращаемся к родительским классам и вызываем у них аналогичный метод с теми же аргументами
+#         # Что и были переданы нам. В ответе получаем словарь.
+#         context = super().get_context_data(**kwargs)
+#         # К словарю добавим текущую дату в ключ 'time_now'
+#         context['time_now'] = datetime.utcnow()
+#         # Добавим ещё одну пустую переменнную, чтобы на её примере рассмотреть работу ещё одного фильтра:
+#         context['next_sale'] = None
+#         return context
+
+"""Контекст"""
+# context - это словарь, который мы передаём в template
+
+
 """Получить информацию об операционной системе"""
 # import platform
 #
