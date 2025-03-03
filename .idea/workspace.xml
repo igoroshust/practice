@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dj_project/interview/javacode.py" beforeDir="false" afterPath="$PROJECT_DIR$/interview/javacode.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/repeat/what_is.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/repeat/what_is.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,9 +46,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "Python tests.Python tests in _test.py.executor": "Run",
+    "Python tests.Python tests in calc.py.executor": "Run",
     "Python.Unnamed.executor": "Run",
     "Python.design_patterns.executor": "Run",
     "Python.file.executor": "Run",
+    "Python.javacode.executor": "Run",
     "Python.lists.executor": "Run",
     "Python.pg2.executor": "Run",
     "Python.practice.executor": "Run",
@@ -61,7 +65,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Python313/projects/practice",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "copyright"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -69,8 +73,11 @@
       <recent name="C:\Python313\projects\practice\python" />
       <recent name="C:\Python313\projects\practice\python\Archive" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Python313\projects\practice" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.javacode">
     <configuration name="file" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="practice" />
       <option name="ENV_FILES" value="" />
@@ -85,6 +92,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/PythonBasics/file.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="javacode" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="practice" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interview" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/interview/javacode.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -118,6 +147,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.javacode" />
         <item itemvalue="Python.file" />
       </list>
     </recent_temporary>
