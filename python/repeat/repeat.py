@@ -1,17 +1,3 @@
-def my_decorator(func):
-    def wrapper():
-        print('1')
-        func()
-        print('3')
-    return wrapper
-
-@my_decorator
-def say_hello():
-    print('2')
-
-say_hello()
-
-
 """Измерение качества архитектуры"""
 # 1. Гибкость;
 # 2. Масштабируемость;
