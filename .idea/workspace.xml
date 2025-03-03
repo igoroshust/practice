@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/django/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/PythonBasics/file.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/PythonBasics/file.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/repeat/what_is.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/repeat/what_is.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
