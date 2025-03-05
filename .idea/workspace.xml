@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/interview/_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/javacode.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/interview/javacode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/interview/javacode.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/interview/javacode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/interview/red.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/interview/red.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,7 @@
     "Python tests.Python tests in _test.py.executor": "Run",
     "Python tests.Python tests in calc.py.executor": "Run",
     "Python.Unnamed.executor": "Run",
+    "Python.algorythms.executor": "Run",
     "Python.design_patterns.executor": "Run",
     "Python.file.executor": "Run",
     "Python.javacode.executor": "Run",
