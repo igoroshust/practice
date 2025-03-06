@@ -593,13 +593,14 @@
 #
 #     return sum_
 # print(adder(1, 2, 3, 10))
-
-# Пример kwargs
+#
+# # Пример kwargs
 # def print_info(**kwargs):
 #     for key, value in kwargs.items():
 #         print(f'{key}: {value}')
 #
 # print_info(name='Alice', age=30, city='New York')
+#
 
 
 """Функции"""

@@ -1268,3 +1268,18 @@
 # print(count) # 0
 # increment()
 # print(count) # 1
+
+
+"""Побочный эффект"""
+# Побочный эффект - это изменение состоянияи или взаимодействие с внешним миром, которые проихоит в результате выполнения функции, помимо возвращаемого значения
+
+# counter = 0
+# def increment_counter():
+#     global counter
+#     counter += 1
+#
+# # Вызов функции
+# increment_counter()
+# increment_counter()
+#
+# print("Counter: ", counter)
