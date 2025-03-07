@@ -1,3 +1,40 @@
+"""Вывести лесенку звёздочек от 1 до 10"""
+# # Моё решение
+# def draw_triangle(ast, count):
+#     while count <= 10:
+#         print(ast * count)
+#         count += 1
+#
+# draw_triangle('*', 1)
+
+# # Решение ИИ
+# def draw_triangle(symbol, height):
+#     """Рисуем треугольник"""
+#     for count in range(1, height + 1):
+#         print(symbol * count)
+#
+# # Вызов функции с высотой 10
+# draw_triangle('*', 10)
+
+
+"""Сделать прямоугольник с вырезом"""
+# def draw_box(width, height):
+#     # Печатаем верхнюю границу
+#     print('*' * width)
+#
+#     # Печатаем боковые границы
+#     for _ in range(height - 2):
+#         print(f'*{(width - 2) * ' '}*')
+#         # print('*' + ' ' * (width - 2) + '*')
+#
+#     # Печатаем нижнюю границу
+#     print('*' * width)
+#
+# # Вызов функции
+# draw_box(10, 14)
+
+
+
 """Поисковый запрос"""
 # n = int(input())
 # lines = []
@@ -17,9 +54,6 @@
 #         results.append(line)
 #
 # print('\n'.join(results))
-
-
-
 
 
 
