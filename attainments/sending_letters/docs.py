@@ -58,25 +58,67 @@
 # форматами содержимого, такими как текст и HTML. Это полезно, когда мы хотим по-разному отображать оформление письма в зависимостей от возможностей почтового клиента получателя.
 
 # # accounts/forms
-from allauth.account.forms import SignupForm
-from django.core.mail import EmailMultiAlternatives
+# from allauth.account.forms import SignupForm
+# from django.core.mail import EmailMultiAlternatives
 
-class CustomSignupForm(SignupForm):
-    def save(self, request):
-        user = super().save(request)
+# class CustomSignupForm(SignupForm):
+#     def save(self, request):
+#         user = super().save(request)
+#
+#         subject = 'Добро пожаловать на наш сайт!'
+#         text = f'{user.username}, вы успешно зарегистрировались на сайте!'
+#         html = (
+#             f'<b>{user.username}</b>, вы успешно зарегистрировались на сайте '
+#             f'<a href="http://127.0.0.1:8000/main">сайте</a>!'
+#         )
+#         msg = EmailMultiAlternatives(
+#             subject=subject, body=text, from_email=None, to=[user.email]
+#         )
+#         # метод для добавления альтернативного формата содержимого к письму
+#         # attach_alternative(html-код, "text/html")
+#         msg.attach_alternative(html, "text/html")
+#         msg.send()
+#
+#         return user
 
-        subject = 'Добро пожаловать на наш сайт!'
-        text = f'{user.username}, вы успешно зарегистрировались на сайте!'
-        html = (
-            f'<b>{user.username}</b>, вы успешно зарегистрировались на сайте '
-            f'<a href="http://127.0.0.1:8000/main">сайте</a>!'
-        )
-        msg = EmailMultiAlternatives(
-            subject=subject, body=text, from_email=None, to=[user.email]
-        )
-        # метод для добавления альтернативного формата содержимого к письму
-        # attach_alternative(html-код, "text/html")
-        msg.attach_alternative(html, "text/html")
-        msg.send()
+"""Рассылка менеджерам и администраторам"""
+# Django предоставляет специальные функции для отправки сообщения набору администраторов и менеджеров.
+# Для этого в настройках проекта нужно создать и описать группу администраторов и менеджеров, после чего вызвать функцию
+# mail_admins или mail_managers. Они отвечают за отправку писем.
 
-        return user
+# Шаг 1.
+# Добавим переменную SERVER_EMAIL, где будет содержаться адрес почты, от имени которой будет отправляться письмо при вызове mail_admin и mail_manager.
+# Переменная MANAGERS хранит список имён менеджеров и адресов их почтовых ящиков.
+# в файле projects/settings.py
+# SERVER_EMAIL = 'example@yandex.ru'
+# MANAGERS = (
+#     ('Ivan', 'ivan@xx.xx'),
+#     ('Igor', 'igor@xx.xx'),
+# )
+
+# Шаг 2. Формируем отправку сообщения в файле accounts/forms.py
+# from django.core.mail import mail_managers (добавлено)
+# # Добавляем в CustomSignupForm
+# mail_managers(
+#     subject='Новый пользователь',
+#     message=f'Пользователь {user.username} зарегистрировался на сайте'
+# )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ SECRET_KEY = 'django-insecure-#lb!butzi^-6uvc(80k+thplz1+!-woqpp^r76ztd6on5y4iv^
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -73,7 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dj_project.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -83,7 +80,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -103,7 +99,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -114,7 +109,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -129,10 +123,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # ------------------------ Настройка Почтового Сервиса -----------------------------
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_PORT = 465 # 587
+EMAIL_PORT = 465  # 587
 EMAIL_HOST_USER = 'igoroshust@yandex.ru'
 EMAIL_HOST_PASSWORD = 'jvmomfcuxqthocxj'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
-# DEFAULT_FROM_EMAIL = 'igoroshust@yandex.ru'
+# SERVER_MAIL = 'igoroshust@yandex.ru'
+#
+# MANAGERS = (
+#     ('Igor', 'igoroshust@yandex.ru'),
+# )
+
+DEFAULT_FROM_EMAIL = 'igoroshust@yandex.ru'
