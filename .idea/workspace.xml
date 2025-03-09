@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attainments/sending_letters/docs.py" beforeDir="false" afterPath="$PROJECT_DIR$/attainments/sending_letters/docs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dj_project/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dj_project/accounts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dj_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/dj_project/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dj_project/dj_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dj_project/dj_project/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/PythonGeneration/file.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/PythonGeneration/file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/interview/patterns.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/interview/patterns.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

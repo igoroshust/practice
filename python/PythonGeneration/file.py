@@ -1,3 +1,38 @@
+import time
+class HeavyResource:
+    def __init__(self):
+        print('Загружаем данные тяжёлого ресурса...')
+        time.sleep(2)
+        self.data = 'Данные большого ресурса'
+
+    def get_data(self):
+        return self.data
+
+
+class LazyLoader:
+    def __init__(self):
+        self._heavy_recource = None
+
+    @property
+    def heavy_resource(self):
+        if self._heavy_recource is None:
+            print('Поступил запрос на создание ресурса')
+            time.sleep(2)
+            print('Создаём тяжёлый ресурс...')
+            time.sleep(2)
+            self._heavy_recource = HeavyResource()
+        return self._heavy_recource
+
+if __name__ == "__main__":
+    loader = LazyLoader()
+
+    print('Ресурс ещё не создан...')
+    time.sleep(2)
+    resource = loader.heavy_resource
+    print(resource.get_data())
+
+
+
 """Вывести сумму чисел введённого числа"""
 # # Решение ИИ
 # def print_digit_sum(num: int) -> None: # None указывает, что функция ничего не возвращает.
