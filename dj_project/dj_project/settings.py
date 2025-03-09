@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'app',
+    'allauth',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ------------------------ Настройка Почтового Сервиса -----------------------------
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465 # 587
+EMAIL_HOST_USER = 'igoroshust@yandex.ru'
+EMAIL_HOST_PASSWORD = 'jvmomfcuxqthocxj'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+# DEFAULT_FROM_EMAIL = 'igoroshust@yandex.ru'

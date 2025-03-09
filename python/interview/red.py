@@ -11,7 +11,9 @@
 
 
 
-
+# Микросервисы
+# Celery, Rabbit
+# Sentry, NewRelic
 # Ключевые слова (pass, continue, etc...)
 # Виды ошибок в Python
 # PEP8
