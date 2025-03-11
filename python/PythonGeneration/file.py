@@ -1,34 +1,37 @@
 import time
+
 class HeavyResource:
     def __init__(self):
-        print('Загружаем данные тяжёлого ресурса...')
+        print('Загружаем большие данные...')
         time.sleep(2)
-        self.data = 'Данные большого ресурса'
+        self.data = 'Большие данные'
 
     def get_data(self):
         return self.data
 
-
 class LazyLoader:
     def __init__(self):
-        self._heavy_recource = None
+        self._heavy_resource = None
 
     @property
     def heavy_resource(self):
-        if self._heavy_recource is None:
-            print('Поступил запрос на создание ресурса')
+        if self._heavy_resource is None:
+            print('Произошло событие для загрузки больших данных')
             time.sleep(2)
-            print('Создаём тяжёлый ресурс...')
+            print('Обращаемся к загрузчику больших данных')
             time.sleep(2)
-            self._heavy_recource = HeavyResource()
-        return self._heavy_recource
+            self._heavy_resource = HeavyResource()
+        return self._heavy_resource
+
 
 if __name__ == "__main__":
     loader = LazyLoader()
 
-    print('Ресурс ещё не создан...')
+    print('Большие данные не загружены')
     time.sleep(2)
+
     resource = loader.heavy_resource
+    
     print(resource.get_data())
 
 
