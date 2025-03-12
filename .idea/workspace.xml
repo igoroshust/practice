@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/PythonGeneration/file.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/PythonGeneration/file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/interview/patterns.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/interview/patterns.py" afterDir="false" />
-    </list>
+    <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +78,7 @@
       <recent name="C:\Python313\projects\practice" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.practice">
+  <component name="RunManager">
     <configuration name="file" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="practice" />
       <option name="ENV_FILES" value="" />
