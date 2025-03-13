@@ -1,38 +1,27 @@
-import time
-
-class HeavyResource:
-    def __init__(self):
-        print('Загружаем большие данные...')
-        time.sleep(2)
-        self.data = 'Большие данные'
-
-    def get_data(self):
-        return self.data
-
-class LazyLoader:
-    def __init__(self):
-        self._heavy_resource = None
-
-    @property
-    def heavy_resource(self):
-        if self._heavy_resource is None:
-            print('Произошло событие для загрузки больших данных')
-            time.sleep(2)
-            print('Обращаемся к загрузчику больших данных')
-            time.sleep(2)
-            self._heavy_resource = HeavyResource()
-        return self._heavy_resource
+"""Преобразовать расстояние из киллометров в мили"""
+# def convert_to_miles(km):
+#     if len(str(km * 0.6214)) <= 7:
+#         return km * 0.6214
+#     else:
+#         return round(km * 0.6214, 3)
+#
+# print(convert_to_miles(1))
+# print(convert_to_miles(5))
+# print(convert_to_miles(10))
 
 
-if __name__ == "__main__":
-    loader = LazyLoader()
 
-    print('Большие данные не загружены')
-    time.sleep(2)
 
-    resource = loader.heavy_resource
-    
-    print(resource.get_data())
+# x = 5
+#
+# def add():
+#     global x
+#     x = 3
+#     x = x + 5
+#     print(x)
+#
+# add()
+# print(x)
 
 
 
