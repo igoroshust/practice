@@ -1,3 +1,70 @@
+"""Определить, является ли число простым"""
+# # Моё решение
+# def is_prime(num):
+#
+#     lst = [i for i in range(1, num + 1)]
+#     count = 0
+#
+#     for i in lst:
+#         if num % i == 0:
+#             count += 1
+#
+#     if count == 2:
+#         return True
+#     else:
+#         return False
+#
+# print(is_prime(int(input())))
+
+# # Решение ИИ
+# def is_prime(num):
+#     if num < 2:
+#         return False
+#     for i in range(2, int(num**0.5) + 1):
+#         if num % i == 0:
+#             return False
+#     return True
+#
+# print(is_prime(int(input())))
+
+# # Решение ИИ (sympy)
+# from sympy import isprime # pip install sympy
+# print(isprime(int(input())))
+
+# # Решение ИИ (any). any() - проверяет, что в итерируемом объекте есть хотя бы 1 True и возвращает True, иначе False
+# def is_prime(num):
+#     if num < 2:
+#         return False
+#     return not any(num % i == 0 for i in range(2, int(num**0.5) + 1))
+#
+# print(is_prime(29))
+# print(is_prime(30))
+
+
+"""Определить невырожденный треугольник"""
+# # Моё решение
+# def is_valid_triangle(side1, side2, side3):
+#     if (a + b > c) and (a + c > b) and (b + c > a):
+#         return True
+#     else:
+#         return False
+#
+# # считываем данные
+# a, b, c = int(input()), int(input()), int(input())
+#
+# # вызываем функцию
+# print(is_valid_triangle(a, b, c))
+
+# # Решение ИИ
+# def is_valid_triangle(a, b, c):
+#     return (a + b > c) and (a + c > b) and (b + c > a)
+#
+# # Вызываем функцию
+# print(is_valid_triangle(int(input()), int(input()), int(input())))
+
+
+
+
 """Объединение строк в отсортированный список"""
 # # Моё решение
 # def merge():
