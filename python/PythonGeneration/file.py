@@ -1,3 +1,155 @@
+"""Объединение строк в отсортированный список"""
+# # Моё решение
+# def merge():
+#     n = int(input())
+#     combined = []
+#
+#     for _ in range(n):
+#         text = input().split()
+#         for i in text:
+#             combined.append(int(i))
+#
+#     combined.sort()
+#     return ' '.join(map(str, combined))
+#
+# print(merge())
+
+# # Решение ИИ
+# def merge():
+#     n = int(input())
+#
+#     # Используем генератор для чтения и преобразования входных данных
+#     combined = (int(i) for _ in range(n) for i in input().split())
+#
+#     # Сортируем и объединяем в строку
+#     return ' '.join(map(str, sorted(combined)))
+#
+# print(merge())
+
+
+
+"""Слияние списоков"""
+# # Решение ИИ
+# def merge(list1, list2):
+#     # Объединяем списки и преобразуем элементы в целые числа
+#     combined = [int(x) for x in list1 + list2]
+#     # Сортируем объединённый список
+#     combined.sort()
+#     return combined
+#
+# print(merge(input('Введите первый список: ').split(), input('Введите второй список: ').split()))
+
+
+# # Моё решение
+# def merge(list1, list2):
+#     results = list1 + list2
+#     res = list(map(int, results))
+#     res.sort()
+#     return res
+#
+# print(merge(input().split(), input().split()))
+
+
+
+"""Вывести индексы совпадений в строке"""
+# # Моё решение
+# def find_all(target, symbol):
+#     words = []
+#
+#     for index, char in enumerate(target):
+#         if char.lower() == symbol.lower():
+#             words.append(index)
+#
+#     return words
+#
+# print(find_all(input(), input()))
+
+
+# # Решение ИИ
+# def find_all(target_string, target_symbol):
+#     return [index for index, char in enumerate(target_string) if char.lower() == target_symbol.lower()]
+#
+# print(find_all('abracadabra', 'a'))
+
+
+"""Вернуть список всех делителей числа"""
+# # Моё решение
+# def get_factors(num):
+#     divisions = []
+#     divide = [i for i in range(1, num+1)]
+#
+#     for i in divide:
+#         if num % i == 0:
+#             divisions.append(i)
+#
+#     return divisions
+#
+# print(
+#     get_factors(1)
+# )
+
+# # Решение ИИ
+# def get_factors(num):
+#     divisions = []
+#
+#     for i in range(1, int(num**0.5) + 1):
+#         if num % i == 0:
+#             divisions.append(i)
+#             if i != num // i: # Добавляем парный делитель, если он не равен i
+#                 divisions.append(num // i)
+#
+#     divisions.sort()
+#     return divisions
+#
+# print(get_factors(1))
+
+
+"""Определить количество дней в месяце"""
+# # Решение ИИ
+# def get_days(number):
+#     sequence = {
+#         1: 31,
+#         3: 31,
+#         5: 31,
+#         7: 31,
+#         8: 31,
+#         10: 31,
+#         12: 31,
+#         4: 30,
+#         6: 30,
+#         9: 30,
+#         11: 30,
+#         2: 28,
+#     }
+#
+#     result = sequence.get(number)
+#
+#     if result is None:
+#         print('Некорректное значение')
+#     return result
+#
+# print(get_days(int(input())))
+
+
+# # Моё решение
+# def get_days(number):
+#     result = None
+#
+#     if number in (1, 3, 5, 7, 8, 10, 12):
+#         result = 31
+#     elif number in (4, 6, 9, 11):
+#         result = 30
+#     elif number == 2:
+#         result = 28
+#     else:
+#         print('Некорректное значение')
+#
+#     return result
+#
+# print(get_days(int(input())))
+
+
+
 """Преобразовать расстояние из киллометров в мили"""
 # def convert_to_miles(km):
 #     if len(str(km * 0.6214)) <= 7:
@@ -8,20 +160,6 @@
 # print(convert_to_miles(1))
 # print(convert_to_miles(5))
 # print(convert_to_miles(10))
-
-
-
-
-# x = 5
-#
-# def add():
-#     global x
-#     x = 3
-#     x = x + 5
-#     print(x)
-#
-# add()
-# print(x)
 
 
 
