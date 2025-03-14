@@ -1,0 +1,26 @@
+SQL
+PostgreSQL
+MongoDB и нереляционные БД
+NoSQL
+Redis
+RabbitMQ
+Docker
+Docker Compose
+Kubernetes
+Kafka
+Unit-test, интеграционные тесты
+Postman
+Pydantic
+Pytes
+RESTAPI
+Celery
+asyncio/aiohttp
+Многопоточность, асинхронность
+GIL
+Парсинг
+Django (бэкенд) - задачи
+FastAPI
+OpenAPI
+Git
+Linux
+k8s
