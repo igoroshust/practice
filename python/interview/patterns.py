@@ -110,78 +110,229 @@
 # На примере создания объекта Pizza с различными параметрами (размер, тип теста, начинка)
 
 # Продукт
-class Pizza:
-    def __init__(self):
-        self.size = None
-        self.dough = None
-        self.toppings = []
+# class Pizza:
+#     def __init__(self):
+#         self.size = None
+#         self.dough = None
+#         self.toppings = []
+#
+#     def __str__(self):
+#         return f"Pizza(size={self.size}, dough={self.dough}, toppings={self.toppings})"
+#
+# # Интерфейс строителя
+# class PizzaBuilder:
+#     def set_size(self, size):
+#         raise NotImplementedError
+#
+#     def set_dough(self, dough):
+#         raise NotImplementedError
+#
+#     def add_topping(self, topping):
+#         raise NotImplementedError
+#
+#     def build(self):
+#         raise NotImplementedError
+#
+# # Конкретный строитель
+# class ConcretePizzaBuilder(PizzaBuilder):
+#     def __init__(self):
+#         self.pizza = Pizza()
+#
+#     def set_size(self, size):
+#         self.pizza.size = size
+#
+#     def set_dough(self, dough):
+#         self.pizza.dough = dough
+#
+#     def add_topping(self, topping):
+#         self.pizza.toppings.append(topping)
+#
+#     def build(self):
+#         return self.pizza
+#
+#
+# # Директор
+# class PizzaDirector:
+#     def __init__(self, builder):
+#         self.builder = builder
+#
+#     def make_margherita(self):
+#         self.builder.set_size("Medium")
+#         self.builder.set_dough("Thin")
+#         self.builder.add_topping("Tomato")
+#         self.builder.add_topping("Mozzarella")
+#         self.builder.add_topping("Basil")
+#
+#     def make_pepperoni(self):
+#         self.builder.set_size("Large")
+#         self.builder.set_dough("Thick")
+#         self.builder.add_topping("Tomato")
+#         self.builder.add_topping("Mozzarella")
+#         self.builder.add_topping("Pepperoni")
+#
+# # Использование
+# builder = ConcretePizzaBuilder()
+# director = PizzaDirector(builder)
+#
+# # Создаём пиццу Маргарита
+# director.make_margherita()
+# pizza1 = builder.build()
+# print(pizza1)
+#
+# # Создаём пиццу Пепперони
+# builder = ConcretePizzaBuilder() # Сбрасываем строителя
+# director = PizzaDirector(builder)
+# director.make_pepperoni()
+# pizza2 = builder.build()
+# print(pizza2)
 
-    def __str__(self):
-        return f"Pizza(size={self.size}, dough={self.dough}, toppings={self.toppings})"
 
-# Интерфейс строителя
-class PizzaBuilder:
-    def set_size(self, size):
-        raise NotImplementedError
+"""Фабрика"""
+# Паттерн проектирования Фабрика относится к категории порождающих паттернов.
+# Он используется для создания объектов, не указывая конкретный класс создаваемого объекта.
+# Это позволяет делегировать создание объектов подклассам, что упрощает код и делает его более гибким и расширяемым.
 
-    def set_dough(self, dough):
-        raise NotImplementedError
+# Существует несколько разновидностей паттерна Фабрика, включая:
+# Фабричный метод (Factory Method): определяет интерфейс для создания объекта, но позволяет подклассам изменять тип создаваемого объекта.
+# Абстрактная фабрика (Abstract Factory): предоставляет интерфейс для создания семейств связанных или зависимых объектов без указания их конкретных классов.
 
-    def add_topping(self, topping):
-        raise NotImplementedError
+# Какие проблемы решаются благодаря Фабрике:
 
-    def build(self):
-        raise NotImplementedError
+# 1. Сокрытие сложности создания объектов.
+# Фабрика позволяет скрыть детали создания объектов от клиента. Вместо того чтобы создавать экземпляры классов напрямую, клентский код взаимодействует с фабрикой,
+# которая берёт на себя ответственность за создание объектов. Это упрощает клиентский код и делает его более понятным.
 
-# Конкретный строитель
-class ConcretePizzaBuilder(PizzaBuilder):
-    def __init__(self):
-        self.pizza = Pizza()
+# 2. Упрощение кода. Когда создание объектов сосредоточено в одном месте (фабрике), это упрощает управление зависимостями и уменьшает количество повторяющегося кода.
+# Если в будущем потребуется изменить способ создания объектов, это можно сделать в одном месте, не затрагивая остальной код.
 
-    def set_size(self, size):
-        self.pizza.size = size
+# 3. Гибкость и расширяемость. Фабрика позволяет добавлять новые типы объектов без изменения существующего кода.
+# Например, Если мы хотим добавить новый тип автомобиля, нам нужно только создать новый класс и соответствующую фабрику, не изменяя код, который использует фабрики.
 
-    def set_dough(self, dough):
-        self.pizza.dough = dough
+# 4. Инкапсуляция логики создания объектов. Фабрика может содержать логику, необходимую для создания объектов, н-р, выбор конкретного класса на основе параметров или конфигурации.
+# Это позволяет более гибко управлять процессом создания объектов.
 
-    def add_topping(self, topping):
-        self.pizza.toppings.append(topping)
+# 5. Поддержка принципа открытости/закрытости. Поддерживает принцип (Open/Closed Principle), гласящий, что классы должны быть открыты для расширения, но закрыты для модификации.
+# Мы можем добавлять новые классы и фабрики, не изменяя существующий код.
 
-    def build(self):
-        return self.pizza
+# 6. Упрощение тестирования. Поскольку можно легко подменять реальные фабрики на моки или стабы. Это позволяет изолировать тестируемый код и контролировать, какие объекты создаются.
+
+# Пример применения: приложение работает с различными типами платежей (кредитные карты, PayPal, криптовалюты и т.д.). Вместо того чтобы создавать объекты платежей напрямую в коде, можно использовать фабрику,
+# которая будет создавать нужный тип платежа в зависимости от условий (например, тип платежа, выбранного пользователем). Это делает код более чистым и лёгким для изменения.
 
 
-# Директор
-class PizzaDirector:
-    def __init__(self, builder):
-        self.builder = builder
+# На примере создания фабрики для различных типов автомобилей
 
-    def make_margherita(self):
-        self.builder.set_size("Medium")
-        self.builder.set_dough("Thin")
-        self.builder.add_topping("Tomato")
-        self.builder.add_topping("Mozzarella")
-        self.builder.add_topping("Basil")
+# from abc import ABC, abstractmethod
+#
+# # Интерфейс продукта
+# class Car(ABC):
+#     @abstractmethod
+#     def drive(self):
+#         """Метод для вождения автомобиля (должен быть реализован в подклассах)"""
+#         pass
+#
+# # Конкретные продукты
+# class Sedan(Car):
+#     def drive(self):
+#         """Реализация метода для седана"""
+#         return "Driving a sedan."
+#
+# class SUV(Car):
+#     def drive(self):
+#         """Реализация метода для внедорожника"""
+#         return "Driving an SUV."
+#
+# # Фабрика - определяет интерфейс для создания объектов типа `Car`
+# class CarFactory(ABC):
+#     @abstractmethod
+#     def create_car(self) -> Car:
+#         """Метод для создания автомобиля (должен быть реализован в подклассах)"""
+#         pass
+#
+# # Конкретные фабрики - реализуют метод `create_car`, создавая конкретные типы автомобилей.
+# class SedanFactory(CarFactory):
+#     def create_car(self) -> Car:
+#         """Создаёт и возвращает объект типа Sedan."""
+#         return Sedan()
+#
+# class SUVFactory(CarFactory):
+#     def create_car(self) -> Car:
+#         """Создаём и возвращает объект типа SUV"""
+#         return SUV()
+#
+# # Клиентский код
+# def client_code(factory: CarFactory):
+#     """Функция, использующая фабрика для создания автомобиля и его вождения"""
+#     car = factory.create_car() # Создаём автомобиль через фабрику
+#     print(car.drive())
+#
+# # Использование
+# if __name__ == "__main__":
+#     # Создаём фабрику для седанов
+#     sedan_factory = SedanFactory()
+#     client_code(sedan_factory) # Вывод: Driving a sedan.
+#
+#     # Создаём фабрику для внедорожников
+#     suv_factory = SUVFactory()
+#     client_code(suv_factory) # Вывод: Driving an SUV.
 
-    def make_pepperoni(self):
-        self.builder.set_size("Large")
-        self.builder.set_dough("Thick")
-        self.builder.add_topping("Tomato")
-        self.builder.add_topping("Mozzarella")
-        self.builder.add_topping("Pepperoni")
 
-# Использование
-builder = ConcretePizzaBuilder()
-director = PizzaDirector(builder)
 
-# Создаём пиццу Маргарита
-director.make_margherita()
-pizza1 = builder.build()
-print(pizza1)
+from abc import ABC, abstractmethod
 
-# Создаём пиццу Пепперони
-builder = ConcretePizzaBuilder() # Сбрасываем строителя
-director = PizzaDirector(builder)
-director.make_pepperoni()
-pizza2 = builder.build()
-print(pizza2)
+class Car(ABC):
+    @abstractmethod
+    def drive(self):
+        pass
+
+class Sedan(Car):
+    def drive(self):
+        return "Driving a Sedan."
+
+class SUV(Car):
+    def drive(self):
+        return "Driving a SUV."
+
+class CarFactory(ABC):
+    @abstractmethod
+    def create_car(self):
+        pass
+
+class SedanFactory(CarFactory):
+    def create_car(self):
+        return Sedan()
+
+class SUVFactory(CarFactory):
+    def create_car(self):
+        return SUV()
+
+def client_code(factory: CarFactory):
+    car = factory.create_car()
+    print(car.drive())
+
+
+if __name__ == "__main__":
+    # Создать экземпляр седана
+    sedan_factory = SedanFactory()
+    client_code(sedan_factory)
+
+    # Создать экземпляр внедорожника
+    suv_factory = SUVFactory()
+    client_code(suv_factory)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
