@@ -1,3 +1,115 @@
+"""Корни уравнения"""
+# import math
+#
+# def solve(a, b, c):
+#     # Вычисляем дискриминант
+#     D = b**2 - 4*a*c
+#
+#     # Находим корни в зависимости от значения дискриминанта
+#     if D > 0:
+#         x1 = (-b + math.sqrt(D)) / (2 * a)
+#         x2 = (-b - math.sqrt(D)) / (2 * a)
+#         return f"{min(x1, x2)} {max(x1, x2)}"  # Возвращаем корни в порядке возрастания, разделенные пробелом
+#     elif D == 0:
+#         x = -b / (2 * a)
+#         return f"{x} {x}"  # Возвращаем двойной корень дважды
+#
+# # Пример использования
+# print(solve(int(input()), int(input()), int(input())))
+
+
+"""Вернуть длину окружности и площадь круга"""
+# from math import pi
+#
+# def get_circle(r):
+#     return 2 * pi * r, pi * (r ** 2)
+#
+# # Получаем значения из функции
+# circumference, area = get_circle(float(input()))
+#
+# print(circumference, area)
+
+
+"""Найти середину отрезка"""
+# def get_middle_point(x1, y1, x2, y2):
+#     return (x_1 + x_2) / 2, (y_1 + y_2) / 2
+#
+# # считываем данные
+# x_1, y_1 = int(input()), int(input())
+# x_2, y_2 = int(input()), int(input())
+#
+# # вызываем функцию
+# x, y = get_middle_point(x_1, y_1, x_2, y_2)
+# print(x, y)
+
+
+"""Написать функцию, которая возвращает первое простое число больше поданого на вход"""
+# def is_prime(num):
+#
+#     lst = [i for i in range(1, num + 1)]
+#     count = 0
+#
+#     for i in lst:
+#         if num % i == 0:
+#             count += 1
+#
+#     if count == 2:
+#         return True
+#     else:
+#         return False
+#
+#
+# def get_next_prime(num):
+#     current = num + 1
+#
+#     while True:
+#         if is_prime(current):
+#             return current
+#         current += 1
+#
+# print(get_next_prime(int(input())))
+
+
+
+"""Напишите, пожалуйста, программу (функцию или метод), которая будет печатать числа от 0 до 1000, кратные трём и не кратные пяти, сумма цифр в которых меньше десяти."""
+# Моё решение
+# def show_numbers():
+#
+#     numbers = [i for i in range(1001) if i % 3 == 0 and i % 5 != 0]
+#     correct_result = []
+#
+#     for i in numbers:
+#         if len(str(i)) < 2: # Подразумевается, что числа меньше 10 по умолчанию попадают в correct_result
+#             correct_result.append(i)
+#
+#         elif len(str(i)) == 2: # Проверяем условие для двухзначных чисел
+#             if int(str(i)[0]) + int(str(i)[1]) < 10:
+#                 correct_result.append(i)
+#
+#         elif len(str(i)) == 3: # Проверяем условие для трёхзначных чисел
+#             if int(str(i)[0]) + int(str(i)[1]) + int(str(i)[2]) < 10:
+#                 correct_result.append(i)
+#
+#     return correct_result
+#
+# result = show_numbers()
+# print(result)
+
+
+# Решение ИИ
+# def sum_of_digits(n):
+#     return sum(int(digit) for digit in str(n))
+#
+# def show_numbers():
+#     correct_result = []
+#     for i in range(1001):
+#         if i % 3 == 0 and i % 5 != 0 and sum_of_digits(i) < 10:
+#             correct_result.append(i)
+#     return correct_result
+#
+# result = show_numbers()
+# print(result)
+
 """Определить, является ли число простым"""
 # # Моё решение
 # def is_prime(num):
