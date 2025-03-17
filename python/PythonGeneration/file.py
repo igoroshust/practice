@@ -1,3 +1,103 @@
+"""Предикат-палиндром с заменой знаков препинания"""
+# def is_palindrome(text: str) -> bool:
+#     # Создаём таблицу перевода для удаления нежелательных символов
+#     translation_table = str.maketrans('', '', '.,!?-')
+#
+#     # Форматируем текст: приводим к нижнему регистру, удаляем пробелы и нежелательные символы
+#     formatted_text = text.lower().replace(' ', '').translate(translation_table)
+#
+#     return formatted_text == formatted_text[::-1]
+#
+# print(
+#     is_palindrome(input())
+# )
+
+
+
+"""Вернуть True, если строки равны и отличаются на 1 символ"""
+# def is_one_away(word1, word2):
+#     # Проверяем, равны ли длины слов
+#     if len(word1) != len(word2):
+#         return False
+#
+#     difference_count = 0
+#
+#     # Итерируемся по символам обоих слов
+#     for char1, char2 in zip(word1, word2):
+#         if char1 != char2:
+#             difference_count += 1
+#             # Если различий больше 1, возвращаем False
+#             if difference_count > 1:
+#                 return False
+#
+#     # Возвращаем True, если различий ровно 1
+#     return difference_count == 1
+#
+# print(is_one_away(input(), input()))
+
+
+
+"""Пример распаковки кортежей с помощью zip()"""
+# zipped = [(1, 'a'), (2, 'b'), (3, 'c')]
+# list1, list2 = zip(*zipped)
+# print(list1)
+# print(list2)
+
+
+
+"""Проверить корректность пароля: длина менее 8 символв, заглавная буква, строчная буква, цифра"""
+# # Решение ИИ
+# def is_password_good(password):
+#     if len(password) < 8:
+#         return False
+#
+#     has_upper = False
+#     has_lower = False
+#     has_digit = False
+#
+#     for char in password:
+#         if char.isupper():
+#             has_upper = True
+#         elif char.islower():
+#             has_lower = True
+#         elif char.isdigit():
+#             has_digit = True
+#
+#         if has_upper and has_lower and has_digit:
+#             return True
+#
+#     return False
+#
+# print(is_password_good(input("Введите пароль: ")))
+
+
+# # Моё решение
+# def is_password_good(password):
+#
+#     isupper_count = 0
+#     islower_count = 0
+#     isdigit_count = 0
+#
+#     if len(password) >= 8:
+#         for i in password:
+#             if i.isupper():
+#                 isupper_count += 1
+#             elif i.islower():
+#                 islower_count += 1
+#             elif i.isdigit():
+#                 isdigit_count += 1
+#
+#     if isupper_count and islower_count and isdigit_count:
+#         return True
+#     else:
+#         return False
+#
+# print(is_password_good(input()))
+
+
+
+
+
 """Корни уравнения"""
 # import math
 #
