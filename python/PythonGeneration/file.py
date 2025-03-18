@@ -1,3 +1,60 @@
+"""Вывести количество плюсов"""
+# # Моё решение
+# def return_plus(text):
+#
+#     formatted_text = text.split()
+#     asterisks = []
+#
+#     for i in formatted_text:
+#         asterisks.append("+" * int(i))
+#
+#     return '\n'.join(asterisks)
+#
+# print(return_plus(input()))
+
+# # Решение ИИ
+# def return_plus(text):
+#     return '\n'.join('+' * int(i) for i in text.split())
+#
+# print(return_plus(input(': ')))
+
+
+
+"""Вывести разделы адресной строки"""
+# Например: C:\Windows\Users.... вывести C: WINDOWS USERS
+# def result_paths(path):
+#
+#     result = '\n'.join(path.split('\\'))
+#
+#     return result
+#
+# print(result_paths(input()))
+
+"""Вывести ФИО"""
+# # Моё решение
+# fio = input()
+#
+# formatted_fio = fio.split()
+#
+# print(''.join(f'{formatted_fio[0][0]}.{formatted_fio[1][0]}.{formatted_fio[2][0]}.'))
+
+
+# # Решение ИИ
+# fio = input("Введите ФИО: ")
+#
+# formatted_fio = fio.split()
+# initials = []
+#
+# for name in formatted_fio:
+#     initials.append(name[0] + '.')
+#
+# print(' '.join(initials))
+
+
+"""Вывести слова предложения построчно"""
+# print((text := '\n'.join(input().split())))
+
+
 """Преобразовать строку из CamelCase в snake_case"""
 # def convert_to_python_case(text: str) -> str:
 #
