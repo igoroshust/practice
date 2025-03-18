@@ -1,3 +1,97 @@
+"""Преобразовать строку из CamelCase в snake_case"""
+# def convert_to_python_case(text: str) -> str:
+#
+#     results_string = []
+#
+#     for i in text:
+#         if i.isupper():
+#             if results_string: # Если это не первый символ, добавляем _
+#                 results_string.append('_')
+#             results_string.append(i.lower())
+#         else:
+#             results_string.append(i)
+#
+#     return ''.join(results_string)
+#
+# print(
+#     convert_to_python_case(input())
+# )
+
+"""Корректность скобочной последовательности"""
+# def is_correct_bracket(text):
+#     balance = 0 # Счётчик для отслеживания баланса скобок
+#
+#     for char in text:
+#         if char == '(':
+#             balance += 1 # Увеличиваем счётчик для открывающейся скобки
+#         elif char == ')':
+#             balance -= 1 # Уменьшаем счётчик для закрывающей скобки
+#
+#         if balance < 0: # Если баланс становится отрицательным, значит, есть лишняя скобка
+#             return 0
+#
+#     # В конце баланс должен быть равен нулю
+#     return balance == 0
+#
+# print(
+#     is_correct_bracket(input())
+# )
+
+
+
+"""Проверка значений в строке"""
+# # Задача: https://skrinshoter.ru/sUhc2hDtCgF
+
+# def is_prime(num):
+#     """Проверка, является ли число простым"""
+#     if num < 2:
+#         return False
+#     for i in range(2, int(num**0.5) + 1):
+#         if num % i == 0:
+#             return False
+#     return True
+#
+# def is_palindrome(text: str) -> bool:
+#     """Проверка, является ли число палиндромом"""
+#     # Создаём таблицу перевода для удаления нежелательных символов
+#     translation_table = str.maketrans('', '', '.,!?-')
+#
+#     # Форматируем текст: приводим к нижнему регистру, удаляем пробелы и нежелательные символы
+#     formatted_text = text.lower().replace(' ', '').translate(translation_table)
+#
+#     return formatted_text == formatted_text[::-1]
+#
+# def is_valid_password(password):
+#     """Проверяем валидацию пароля"""
+#
+#     # Проверяем количество двоеточий
+#     if password.count(':') != 2:
+#         return False
+#
+#     l = password.find(':')
+#     r = password.rfind(':')
+#
+#     count = 0
+#     for i in password:
+#         if i == ':':
+#             count += 1
+#
+#     first_number = password[:l]
+#     second_number = password[l+1:r]
+#     third_number = password[r+1:]
+#
+#
+#     if is_palindrome(first_number) and is_prime(int(second_number)) and (int(third_number) % 2 == 0):
+#         return True
+#     else:
+#         return False
+#
+# print(
+#     is_valid_password('1221:101:22:0000')
+# )
+
+
+
 """Предикат-палиндром с заменой знаков препинания"""
 # def is_palindrome(text: str) -> bool:
 #     # Создаём таблицу перевода для удаления нежелательных символов
