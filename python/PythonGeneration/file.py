@@ -1,3 +1,54 @@
+"""Переставить min и max местами"""
+# # Моё решение
+# entry = list(map(int, input().split()))
+#
+# min_entry = min(entry)
+# max_entry = max(entry)
+#
+# t1 = entry.index(min_entry)
+# t2 = entry.index(max_entry)
+#
+# entry[t1], entry[t2] = entry[t2], entry[t1]
+#
+# print(' '.join(map(str, entry)))
+
+
+# # Решение ИИ
+# entry = list(map(int, input().split()))
+#
+# min_index = 0
+# max_index = 0
+#
+# # Находим индексы min и max
+# for i in range(1, len(entry)):
+#     if entry[i] < entry[min_index]:
+#         min_index = i
+#     elif entry[i] > entry[max_index]:
+#         max_index = i
+#
+# # Переставляем min и max местами
+# entry[min_index], entry[max_index] = entry[max_index], entry[min_index]
+#
+# # Выводим результат
+# print(' '.join(map(str, entry)))
+
+
+
+"""Работа с методами списков"""
+# # Описание ТЗ: https://skrinshoter.ru/sUiZqX6qyVv
+# # Моё решение
+# numbers = [8, 9, 10, 11]
+#
+# numbers[1] = 17
+# numbers.extend([4, 5, 6]) # Добавляем 4 5 6 в конец списка
+# numbers.pop(0)
+# numbers += numbers # Удаваиваем список
+# numbers.insert(3, 25)
+#
+# print(numbers)
+
+
+
 """Прочитать входные данные и создать из них список чисел"""
 # numbers = list(map(int, input().split())) # 1 2 3 4 5
 # print(numbers) # [1, 2, 3, 4, 5]
