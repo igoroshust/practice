@@ -1,3 +1,101 @@
+"""Прочитать входные данные и создать из них список чисел"""
+# numbers = list(map(int, input().split())) # 1 2 3 4 5
+# print(numbers) # [1, 2, 3, 4, 5]
+
+
+"""Определить количество совпадающих пар"""
+# # Решение ИИ
+
+# Читаем входные данные и создаём список чисел
+# numbers = list(map(int, input().split()))
+#
+# # Инициализируем переменную для подсчёта пар
+# count = 0
+#
+# # Проходим по каждому уникальному элементу
+# for i in set(numbers):
+#     # Подсчитываем количество вхождений текущего элемента
+#     occurrences = numbers.count(i)
+#     # Если вхождений больше 1, добавляем количество пар
+#     if occurrences > 1:
+#         count += occurrences * (occurrences - 1) // 2
+#
+# print(count)
+
+
+
+
+"""Вставить сепаратор между символами строки"""
+# # Моё решение
+# string = [i for i in input()]
+# separator = input()
+#
+# results = []
+#
+# for i in string:
+#     results.append(i)
+#     results.append(separator)
+#
+# print(''.join(results[:-1]))
+
+# # Решение ИИ
+# string = input()
+# separator = input()
+#
+# # Используем join для добавления разделителя между символами
+# result = separator.join(string)
+#
+# print(result)
+
+
+
+"""Проверить корректность IP-адреса"""
+# # Моё решение
+# def correct_ip(string):
+#
+#     flag = ''
+#
+#     for i in string:
+#         if int(i) <= 255:
+#             flag = 'ДА'
+#         else:
+#             flag = 'НЕТ'
+#             break
+#
+#     return flag
+#
+#
+# print(correct_ip(input().split('.')))
+
+# string = ['ДА' if (int(i) <= 255) for i in input().split('.') else 'НЕТ']
+# print(string)
+
+# # Решение ИИ
+# def correct_ip(string):
+#     # Проверяем, что строка состоит из 4 частей
+#     parts = string.split('.')
+#     if len(parts) != 4:
+#         return 'НЕТ'
+#
+#     for part in parts:
+#         # Проверяем, что часть является числом и в диапазоне от 0 до 255
+#         if not part.isdigit() or not (0 <= int(part) <= 255):
+#             return 'НЕТ'
+#         # Проверяем, что часть не имеет ведущих нулей (например, 01)
+#         if len(part) > 1 and part[0] == '0':
+#             return 'НЕТ'
+#
+#     return 'ДА'
+#
+# print(correct_ip(input()))
+
+
+# # Решение ИИ в одной строке
+# def correct_ip(string):
+#     return 'ДА' if len(parts := string.split('.')) == 4 and all(part.isdigit() and 0 <= int(part) <= 255 and (len(part) == 1 or part[0] != '0') for part in parts) else 'НЕТ'
+#
+# print(correct_ip(input()))
+
 """Вывести количество плюсов"""
 # # Моё решение
 # def return_plus(text):
