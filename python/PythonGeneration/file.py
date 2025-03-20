@@ -1,3 +1,68 @@
+"""Вывести список цифр поданных на вход строки в порядке возрастания и убывания"""
+# # Моё решение
+# numbers = sorted(list(map(int, input().split())))
+#
+# print(
+#     ' '.join(map(str, numbers)),
+#     ' '.join(map(str, sorted(numbers, reverse=True))),
+#     sep='\n'
+# )
+
+# # Решение ИИ
+# input_numbers = input().split()
+# numbers = [int(num) for num in input_numbers]
+#
+# sorted_numbers_asc = sorted(numbers)
+# sorted_numbers_desc = sorted(numbers, reverse=True)
+#
+# print(' '.join(map(str, sorted_numbers_asc)))
+# print(' '.join(map(str, sorted_numbers_desc)))
+
+
+"""Удалить комментарии из кода"""
+# def remove_comments():
+#     # Читаем первую строку, которая содержит символ решётки и число n
+#     first_line = input()
+#     n = int(first_line[1:]) # Извлекаем количество строк
+#
+#     # Обрабатываем каждую строку кода
+#     for _ in range(n):
+#         line = input()
+#         # Находим индекс символа # (если он есть)
+#         comment_index = line.find('#')
+#         if comment_index != -1:
+#             # Удаляем комменатрий и обрезаем пробелы в конце
+#             line = line[:comment_index].rstrip()
+#         else:
+#             # Если комментария нет, просто обрезаем пробелы в конце
+#             line = line.strip()
+#
+#         # Выводим обработанную строку
+#         if line:
+#             print(line)
+#
+# # Запускаем функцию
+# remove_comments()
+
+
+
+"""Подсчитать количество артиклей в тексте"""
+# def articles_count(text: str) -> int:
+#     # Приводим текст к нижнему регистру и разбиваем на слова
+#     words = text.lower().split()
+#
+#     # Список артиклей
+#     articles = ['a', 'an', 'the']
+#
+#     # Подсчитываем количество артиклей
+#     count = sum(word in articles for word in words)
+#
+#     return count
+#
+# # Ввод текст и вывод результата
+# print(f'Общее количество артиклей: {articles_count(input())}')
+
+
 """Переставить min и max местами"""
 # # Моё решение
 # entry = list(map(int, input().split()))
