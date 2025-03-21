@@ -4,6 +4,10 @@
 # print(' '.join(map(str, [int(i)**2 for i in input().split() if int(i) % 2 == 0 and not str(int(i)**2).endswith('4')])))
 
 
+
+
+
+
 """Вывести только чифры (дробные и целые) """
 # print(''.join([i for i in input() if i.replace('.', '', 1).isdigit() and i.count('.') <= 1]))
 
