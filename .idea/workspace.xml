@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/PythonBasics/design_patterns.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/PythonBasics/design_patterns.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/PythonGeneration/conspect.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/PythonGeneration/conspect.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
