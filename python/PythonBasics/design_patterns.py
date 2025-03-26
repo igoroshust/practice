@@ -247,40 +247,113 @@
 # Создадим `Adapter`, который позволит `OldSystem` работать с `NewSystem`.
 
 # Устаревшая система с несовместимым интерфейсом
+# class OldSystem:
+#     def specific_request(self):
+#         return 'Данные из устаревшей системы'
+#
+# # Новый интерфейс, который мы хотим использовать
+# class NewSystem:
+#     def request(self):
+#         return 'Данные из новой системы'
+#
+# # Адаптер, который позволяет OldSystem работать с NewSystem
+# class Adapter:
+#     def __init__(self, old_system):
+#         self.old_system = old_system
+#
+#     def request(self):
+#         # Преобразуем вызов из нового интерфейса в старый
+#         return self.old_system.specific_request()
+#
+#
+# # Пример использования
+# if __name__ == "__main__":
+#     # Создаём экземпляр устаревшей системы
+#     old_system = OldSystem()
+#
+#     # Создаём адаптер для устаревшей системы
+#     adapter = Adapter(old_system)
+#
+#     # Теперь мы можем использовать адаптер как новый интерфейс
+#     print("Используем адаптер для получения данных:")
+#     print(adapter.request())
+#
+#     # Пример использования нового интерфейса
+#     new_system = NewSystem()
+#     print("Используем новую систему напрямую:")
+#     print(new_system.request())
+
+
+"""Декоратор"""
+# Паттерн проектирования Decorator (Декоратор) - это структурный паттерн, который позволяет динамически добавлять объектам новые обязанности, оборачивая их в другие объекты.
+# Этот паттерн предоставляет гибкий способ расширения функциональности объектов, не изменяя их исходный код.
+# Паттерн Декоратор позволяет гибко добавлять новые возможности к объектам, не изменяя их исходный код.
+
+# Зачем нужен паттерн:
+# 1. Расширяемость. Позволяет добавлять новые функциональные возможности к объектам без изменения их структуры.
+# 2. Композиция. Позволяет комбинировать различные декораторы для создания сложных объектов с множеством обязанностей.
+# 3. Избежание наследования. Уменьшает необходимость создания большого количества подклассов для добавления функциональности.
+
+## Пример. У нас есть базовый класс `Coffee`, и мы хотим добавить различные добавки (молоко, сахар), используя паттерн Декоратор.
+
+# class Coffee:
+#     def cost(self):
+#         return 5 # базовая цена кофе
+#
+# class MilkDecorator:
+#     def __init__(self, coffee):
+#         self._coffee = coffee
+#
+#     def cost(self):
+#         return self._coffee.cost() + 1 # добавляем стоимость молока
+#
+# class SugarDecorator:
+#     def __init__(self, coffee):
+#         self._coffee = coffee
+#
+#     def cost(self):
+#         return self._coffee.cost() + 0.5 # добавляем стоимость сахара
+#
+# # Использование
+#
+# if __name__ == "__main__":
+#     # Заказ обычного кофе
+#     my_coffee = Coffee()
+#     print('Стоимость обычного кофе:', my_coffee.cost())
+#
+#     # Заказ кофе с молоком
+#     my_coffee_with_milk = MilkDecorator(my_coffee)
+#     print('Стоимость кофе с молоком:', my_coffee_with_milk.cost())
+#
+#     # Заказ кофе с сахаром
+#     my_coffee_with_sugar = SugarDecorator(my_coffee_with_milk)
+#     print('Стоимость кофе с сахаром:', my_coffee_with_sugar.cost())
+
+
+
 class OldSystem:
     def specific_request(self):
-        return 'Данные из устаревшей системы'
+        return 'Данные старой системы'
 
-# Новый интерфейс, который мы хотим использовать
 class NewSystem:
     def request(self):
-        return 'Данные из новой системы'
+        return 'Данные новой системы'
 
-# Адаптер, который позволяет OldSystem работать с NewSystem
 class Adapter:
     def __init__(self, old_system):
         self.old_system = old_system
 
     def request(self):
-        # Преобразуем вызов из нового интерфейса в старый
         return self.old_system.specific_request()
 
-
-# Пример использования
 if __name__ == "__main__":
-    # Создаём экземпляр устаревшей системы
     old_system = OldSystem()
 
-    # Создаём адаптер для устаревшей системы
-    adapter = Adapter(old_system)
+    print('Выводим данные с помощью адаптера:')
 
-    # Теперь мы можем использовать адаптер как новый интерфейс
-    print("Используем адаптер для получения данных:")
+    adapter = Adapter(old_system)
     print(adapter.request())
 
-    # Пример использования нового интерфейса
     new_system = NewSystem()
-    print("Используем новую систему напрямую:")
+
     print(new_system.request())
-
-
