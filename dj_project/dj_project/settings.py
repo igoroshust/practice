@@ -37,9 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.sites', # Управление несколькими сайтами в одном Django-приложении. Каждому сайту присваивается ID в таблице `Site`
+    'django.contrib.flatpages', # Управление статическими страницами через админку Django.
     'app',
     'allauth',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', # обработка запросов к статическим страницам `django.contrib.flatpages`.
 ]
 
 ROOT_URLCONF = 'dj_project.urls'
@@ -56,7 +62,7 @@ ROOT_URLCONF = 'dj_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # путь до папки templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
