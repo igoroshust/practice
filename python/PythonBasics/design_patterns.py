@@ -329,31 +329,60 @@
 #     my_coffee_with_sugar = SugarDecorator(my_coffee_with_milk)
 #     print('Стоимость кофе с сахаром:', my_coffee_with_sugar.cost())
 
+"""Facade"""
+# Паттерн проектирования Facade (фасад) - это структурный паттерн, который предоставляет упрощённый интерфейс к сложной системе классов, библиотек
+# или фреймворков. Он служит для скрытия сложности системы и упрощения взаимодействия с ней.
 
+# Основные цели и преимущества использования паттерна Facade:
+# 1. Упрощение интерфейса. Facade предоставляет более простой и понятный интерфейс для работы с сложной системой, что делает её использование более удобным.
+# 2. Скрытие сложности. Паттерн позволяет скрыть детали реализации и внутренние взаимодействия между компонентами системы, что делает код более чистым и понятным.
+# 3. Снижение зависимости. Использование фасада помогает уменьшить количество зависимостей между клиентским кодом и сложной системой, что улучшает тестирование и модификацию кода.
+# 4. Улучшение читаемости. Код становится более читаемым и поддерживаемым, так как разработчики могут работать с выокоуровневым интерфейсом, не углубляясь в детали реализации.
 
-class OldSystem:
-    def specific_request(self):
-        return 'Данные старой системы'
+# Пример использования.
+# Допустим, у нас есть сложная система для обработки заказов, которая включает в себя классы для управления пользователями, продуктами, платежами и доставкой.
+# Вместо того чтобы взаимодействовать с каждым из этих классов напрямую, вы можете создать фасад, который будет предоставлять методы для выполнения общих операций,
+# таких как создание заказа, обработка платежа и организация доставки.
 
-class NewSystem:
-    def request(self):
-        return 'Данные новой системы'
+# class User:
+#     def login(self, username, password):
+#         pass
+#
+# class Product:
+#     def __init__(self):
+#         # Пример базы данных продуктов
+#         self.products = {
+#             123: 'Product A',
+#             456: 'Product B',
+#         }
+#
+#     def get_product_details(self, product_id):
+#         return self.products.get(product_id, None)
+#
+# class Payment:
+#     def process_payment(self, amount):
+#         pass
+#
+# class Delivery:
+#     def schedule_delivery(self, address):
+#         pass
+#
+# class OrderFacade:
+#     def __init__(self):
+#         self.user = User()
+#         self.product = Product()
+#         self.payment = Payment()
+#         self.delivery = Delivery()
+#
+#     def create_order(self, username, password, product_id, amount, address):
+#         self.user.login(username, password)
+#         product_details = self.product.get_product_details(product_id)
+#         self.payment.process_payment(amount)
+#         self.delivery.schedule_delivery(address)
+#         return f"Order for {product_details} has been created and will be delivered to {address}."
+#
+# # Использование фасада
+# order_facade = OrderFacade()
+# result = order_facade.create_order("user1", "password", 123, 100, "123 Main St")
+# print(result)
 
-class Adapter:
-    def __init__(self, old_system):
-        self.old_system = old_system
-
-    def request(self):
-        return self.old_system.specific_request()
-
-if __name__ == "__main__":
-    old_system = OldSystem()
-
-    print('Выводим данные с помощью адаптера:')
-
-    adapter = Adapter(old_system)
-    print(adapter.request())
-
-    new_system = NewSystem()
-
-    print(new_system.request())
