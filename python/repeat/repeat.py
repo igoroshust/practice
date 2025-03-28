@@ -1,3 +1,37 @@
+"""Получить данные по API и записать их в отдельный файл"""
+# import aiohttp
+# import asyncio
+#
+# async def fetch(url):
+#
+#     async with aiohttp.ClientSession() as session:
+#         async with session.get(url) as response:
+#             return await response.json()
+#
+# async def main():
+#     url = 'https://jsonplaceholder.typicode.com/posts'
+#     posts = await fetch(url)
+#
+#     # Собираем данные в строку
+#     output = ""
+#
+#     for post in posts[:10]:
+#         output += f'''Post ID: {post['id']}
+# Title: {post['title']}
+# {post['body']}
+# ----------------------------------------------------
+# '''
+#
+#     return output # Возвращаем собранные данные
+#
+#
+# if __name__ == "__main__":
+#     with open('text.txt', 'w') as file:
+#         text = asyncio.run(main()) # Получаем данные
+#         file.write(text)
+
+
+
 """Измерение качества архитектуры"""
 # 1. Гибкость;
 # 2. Масштабируемость;
