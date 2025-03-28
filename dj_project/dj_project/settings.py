@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     'django.contrib.sites', # Управление несколькими сайтами в одном Django-приложении. Каждому сайту присваивается ID в таблице `Site`
     'django.contrib.flatpages', # Управление статическими страницами через админку Django.
+    'fpages',
     'app',
     'allauth',
 ]
@@ -120,6 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

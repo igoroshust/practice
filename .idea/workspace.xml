@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/PythonBasics/design_patterns.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/PythonBasics/design_patterns.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dj_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/dj_project/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dj_project/dj_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dj_project/dj_project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dj_project/templates/flatpages/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/dj_project/templates/flatpages/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dj_project/templates/flatpages/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/dj_project/templates/flatpages/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django/file.py" beforeDir="false" afterPath="$PROJECT_DIR$/django/file.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -66,6 +70,7 @@
     &quot;Python.strings.executor&quot;: &quot;Run&quot;,
     &quot;Python.strings_methods.executor&quot;: &quot;Run&quot;,
     &quot;Python.task-lv0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.urls.executor&quot;: &quot;Run&quot;,
     &quot;Python.what_is.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -80,6 +85,7 @@
       <recent name="C:\Python313\projects\practice\python\Archive" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Python313\projects\practice\dj_project\static" />
       <recent name="C:\Python313\projects\practice\python" />
       <recent name="C:\Python313\projects\practice" />
     </key>
