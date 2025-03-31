@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/repeat/repeat.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/repeat/repeat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/show/file.py" beforeDir="false" afterPath="$PROJECT_DIR$/show/file.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -56,6 +54,7 @@
     "Python.conspect.executor": "Run",
     "Python.design_patterns.executor": "Run",
     "Python.file.executor": "Run",
+    "Python.first.executor": "Run",
     "Python.javacode.executor": "Run",
     "Python.lists.executor": "Run",
     "Python.patterns.executor": "Run",
@@ -72,7 +71,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Python313/projects/QuickChat",
+    "last_opened_file_path": "C:/Python313/projects/practice",
     "settings.editor.selected.configurable": "copyright"
   }
 }]]></component>
