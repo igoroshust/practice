@@ -1,3 +1,79 @@
+"""Связи в реляционных БД"""
+# 1. Связь 1:1
+# Каждой записи в одной таблице соответствует ровно одна запись в другой таблице.
+# Пример: Таблицы `Users` и `User Profiles`. Один студен может записаться на несколько курсов, и один курс может быть посещаем несколькими студентами.
+
+# from django.db import models
+#
+# class User(models.Model):
+#     username = models.CharField(max_length=100)
+#     email = models.EmailField()
+#
+# class UserProfile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     first_name = models.CharField(max_length=100)
+#     last_name = models.CharField(max_length=100)
+
+
+# 2. Связь 1:M
+# Одной записи в одной таблице может соответствовать несколько записей в другой таблице.
+# Пример: Таблицы `Authors` и `Books`
+
+# from django.db import models
+
+# class Author(models.Model):
+#     name = models.CharField(max_length=100)
+#
+# class Book(models.Model):
+#     title = models.CharField(max_length=100)
+#     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
+#     # related_name=books позволяет получить доступ к книгам автора через author.books.all()
+
+
+# 3. Связь M:M
+# Одной записи в одной таблице может соответствовать несколько записей в другой таблице, и наоборот.
+# Для реализации такого типа связей используется промежуточная таблица.
+# Пример: таблицы `Students` и `Courses`
+
+# Таблица `Students`:
+# studentID (PK)
+# name
+
+# Таблица `Cources`:
+# courseID (PK)
+# courseName
+
+# Промежуточная таблица `Enrollments` (зачисления):
+# enrollmentID (PK)
+# studentID (FK)
+# courseID (FK)
+
+
+# class Student(models.Model):
+#     name = models.CharField(max_length=100)
+#
+#     def __str__(self):
+#         return self.name
+#
+# class Course(models.Model):
+#     course_name = models.CharField(max_length=200)
+#
+#     def __str__(self):
+#         return self.course_name
+#
+# class Enrollments(models.Model):
+#     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+#     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+#     enrollment_date = models.DateField()
+#
+#     class Meta:
+#         unique_together = ('student', 'course') # Уникальная пара студент-курс
+#
+#     def __str__(self):
+#         return f'{self.student.name} enrolled in {self.course.course_name} on {self.enrollment_date}'
+
+
+
 """Асинхронное программирование"""
 # import asyncio
 #
@@ -13,9 +89,6 @@
 #
 # # Запуск асинхронной функции
 # asyncio.run(main())
-
-
-
 
 
 """Получить данные по API и записать их в отдельный файл"""

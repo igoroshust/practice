@@ -26,3 +26,54 @@
 # Пример нереляционных БД: MongoDB, Cassandra, Redis.
 # 3. Объектно-ориентированные. Данные хранятся в виде объектов, как в объектно-ориентированном программировании. Пример: db4o.
 # 4. Графовые. Оптимизированы для работы с графами и связями между данными. Пример: Neo4j.
+
+
+"""Реализация различных типов связей в SQL"""
+# # 1:1
+# CREATE TABLE Users (
+#     UserID INT PRIMARY KEY,
+#     Username VARCHAR(100),
+#     Email VARCHAR(100)
+# );
+#
+# CREATE TABLE UserProfiles (
+#     ProfileID INT PRIMARY KEY,
+#     UserID INT UNIQUE, -- Уникальный внешний ключ
+#     FirstName VARCHAR(100),
+#     LastName VARCHAR(100),
+#     FOREIGN KEY (User ID) REFERENCES Users(UserID) ON DELETE CASCADE
+# );
+
+# # 1:M
+# CREATE TABLE Authors (
+#     AuthorID INT PRIMARY KEY,
+#     Name VARCHAR(100)
+# );
+#
+# CREATE TABLE Books (
+#     BookID INT PRIMARY KEY,
+#     Title VARCHAR(200),
+#     AuthorID INT,
+#     FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID) ON DELETE CASCADE
+# );
+
+# # M:M
+# CREATE TABLE Students (
+#     StudentID INT PRIMARY KEY,
+#     Name VARCHAR(100)
+# );
+#
+# CREATE TABLE Courses (
+#     CourseID INT PRIMARY KEY,
+#     CourseName VARCHAR(200)
+# );
+#
+# CREATE TABLE Enrollments (
+#     EnrollmentID INT PRIMARY KEY,
+#     StudentID INT,
+#     CourseID INT,
+#     EnrollmentDate DATE,
+#     FOREIGN KEY (StudentID) REFERENCES Students(StudentID) ON DELETE CASCADE,
+#     FOREIGN KEY (CourseID) REFERENCES Cources(CourseID) ON DELETE CASCADE,
+#     UNIQUE (StudentID, CourseID) -- уникальная пара студент-курс
+# );
