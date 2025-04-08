@@ -1,3 +1,23 @@
+"""Асинхронное программирование"""
+# import asyncio
+#
+# async def fetch_data():
+#     print('Начинаем загрузку данных...')
+#     await asyncio.sleep(2) # Имитация асинхронной операции
+#     print('Данные загружены!')
+#     return {"id": 1, "name": "John"}
+#
+# async def main():
+#     data = await fetch_data() # Ожидание завершения fetch_data
+#     print(data)
+#
+# # Запуск асинхронной функции
+# asyncio.run(main())
+
+
+
+
+
 """Получить данные по API и записать их в отдельный файл"""
 # import aiohttp
 # import asyncio
