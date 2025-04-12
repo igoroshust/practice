@@ -84,7 +84,6 @@ CREATE TABLE spendings (
 );
 
 
-
 ## Добавить колонку в существующую таблицу
 ALTER TABLE <название колонки>
 ADD COLUMN user_id BIGINT NOT NULL;
@@ -262,5 +261,65 @@ WHERE email IS NULL;
 SELECT * FROM Users
 WHERE email IS NOT NULL;
 
+
+### ORDER BY
+ORDER BY необходим для задания порядка вывода строк в запросе.
+ВАЖНО: ORDER BY идёт после применения всех условий в WHERE.
+- `ASC` - явное указание сортировки ПО ВОЗРАСТАНИЮ (ascending - восходящий). Используется по умолчанию
+- `DESC` - явное указание сортировки ПО УБЫВАНИЮ (descending - нисходящий)
+
+В ORDER BY можно указывать расположение пустых значений (NULL) в начале или в конце с помощью:
+- `NULLS FIRST`
+- `NULLS LAST`
+
+- Задача: отсортировать фильмы по названию в алфавитном порядке
+SELECT *
+FROM sql.kinopoisk
+ORDER BY movie_title
+
+SELECT *
+FROM sql.kinopoisk
+ORDER BY movie_title ASC
+
+- Можно сортировать результат запроса по нескольким таблицам
+SELECT 
+    director,
+    movie_title
+FROM sql.kinopoisk
+ORDER BY year, rating DESC
+
+- Для упрощения работы с ORDER BY можно использовать не названия столбцов, а их номера из вывода.
+- Сортировку по номеру столбца стоит использовать с осторожностью, поскольку при изменении вывода в SELECT всё может сбиться. 
+- При добавлении новых столбцов в SELECT нужно проверить и при необходимости поправить номера столбцов в ORDER BY.
+
+SELECT
+    director,
+    movie_title, 
+    year
+FROM sql.kinopoisk
+ORDER BY 1, 3 DESC
+
+
+### LIMIT
+- LIMIT - ограничение вывода результатов запроса. Ключевое слово используется в самом конце запроса.
+- Может использоваться для вывода топа для какого-либо показателя. 
+
+Задача: ограничить вывод первыми 10 строками
+SELECT *
+FROM sql.kinopoisk
+LIMIT 10
+
+
+### OFFSET
+- OFFSET - ОБРЕЗАЕТ указанное число первых строк, в то время как LIMIT - ОСТАВЛЯЕТ.
+- LIMIT и OFFSET можно использовать вместе, их порядок неважен
+
+Задача: вывести название и рейтинг фильмов с 4 по 8 место
+SELECT
+    movie_title,
+    rating
+FROM sql.kinopoisk
+ORDER BY rating DESC
+OFFSET 3 LIMIT 5 - (LIMIT отсчитывает количество строк после указанной в OFFSET строки)
 
 

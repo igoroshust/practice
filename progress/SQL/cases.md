@@ -84,3 +84,132 @@ SELECT movie_title, year
 FROM sql.kinopoisk
 WHERE director LIKE 'Дэвид%'
 AND rating >= 8;
+
+### Отсортировать фильмы по названию в алфавитном порядке (по возрастанию)
+SELECT *
+FROM sql.kinopoisk
+ORDER BY movie_title
+
+Вышестоящая запись аналогична этой:
+SELECT *
+FROM Users
+ORDER BY movie_title ASC
+
+
+### Вывести названия, имена режисёров и сценаристов, и дату фильмов, выпущенных в СССР + отсортировать по убыванию
+SELECT
+    movie_title,
+    director,
+    screenwriter,
+    year
+FROM sql.kinopoisk
+WHERE country = 'СССР'
+ORDER BY rating DESC
+
+
+### Напишите запрос, который выведет столбцы с названием фильма, его описанием и годом выхода в прокат. 
+- Оставьте только те фильмы, у которых рейтинг не ниже 8.2 и страна производства — не США. 
+- Отсортируйте вывод по году выхода фильма в порядке убывания.
+
+SELECT
+    movie_title,
+    overview,
+    year
+FROM sql.kinopoisk
+WHERE rating >= 8.2 AND country <> 'США'
+ORDER BY year DESC;
+
+
+### Напишите запрос, чтобы вывести названия всех фильмов (столбец Название фильма), у которых рейтинг выше 8.3 и страна производства — Франция. 
+- Отсортируйте по рейтингу в порядке убывания, далее — по году выхода в прокат (также в порядке убывания).
+
+SELECT movie_title
+FROM sql.kinopoisk
+WHERE rating >= 8.3 AND country = 'Франция'
+ORDER BY rating DESC, year DESC;
+
+
+### Ограничить вывод первыми 10 строками
+SELECT *
+FROM sql.kinopoisk
+LIMIT 10
+
+
+### Вывести ТОП-5 фильмов по рейтингу, сперва отсортировав их по убыванию, оставив только верхние 5 строк
+SELECT 
+    movie_title,
+    rating
+FROM sql.kinopoisk
+ORDER BY rating DESC
+LIMIT 5;
+
+
+### Напишите запрос, который выводит информацию (Режиссёр, Название фильма и Актёры) 
+- по ТОП-20 самых старых (определяем по году выхода в прокат) фильмов из таблицы kinopoisk.
+
+SELECT
+    director,
+    movie_title,
+    actors
+FROM sql.kinopoisk
+ORDER BY year ASC
+LIMIT 20;
+
+
+### Вывести название и рейтинг фильмов с 4 по 8 место
+SELECT
+    movie_title,
+    rating
+FROM sql.kinopoisk
+ORDER BY rating DESC
+OFFSET 3 LIMIT 5 - (LIMIT отсчитывает количество строк после указанной в OFFSET строки)
+
+
+### Напишите запрос, чтобы вывести названия фильмов, которые вышли в прокат после 1990 года и были сняты не в России. 
+- Из этого списка оставьте только те фильмы, которые занимают с 20 по 47 места в рейтинге. 
+- Отсортируйте результат по убыванию рейтинга фильмов.
+
+SELECT 
+    movie_title
+FROM sql.kinopoisk
+WHERE (county <> 'Россия' AND year > 1990)
+ORDER BY rating DESC
+OFFSET 19 LIMIT 28;
+
+
+### Какой режиссёр снял самый старый фильм в списке?
+SELECT director
+FROM sql.kinopoisk
+ORDER BY year
+LIMIT 1;
+
+
+### В каком году был выпущен фильм, который занимает 111 строку в списке, отсортированном по рейтингу в порядке убывания?
+SELECT year 
+FROM sql.kinopoisk
+ORDER BY rating DESC
+OFFSET 110 LIMIT 1
+
+
+### Напишите запрос, который выводит столбцы «Название фильма» (movie_title), «Режиссёр» (director), «Сценарист» (screenwriter), «Актёры» (actors). 
+Оставьте только те фильмы, у которых:
+- рейтинг между 8 и 8.5 (включительно) ИЛИ год выхода в прокат до 1990;
+- есть описание;
+- название начинается не с буквы 'Т';
+- название состоит ровно из 12 символов.
+- Оставьте только топ-7 фильмов, отсортированных по убыванию рейтинга.
+
+SELECT 
+    movie_title,
+    director,
+    screenwriter,
+    actors
+FROM sql.kinopoisk
+WHERE (
+        (rating BETWEEN 8 AND 8.5) OR (year < 1990)
+      ) AND
+    overview IS NOT NULL AND
+    movie_title NOT LIKE 'Т%' AND
+    LENGTH(movie_title) = 12
+ORDER BY rating DESC
+LIMIT 7;
