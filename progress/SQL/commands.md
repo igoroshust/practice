@@ -179,3 +179,88 @@ ALTER TABLE spendings ADD CONSTRAINT category_fk FOREIGN KEY (category_id) REFER
 
 ALTER TABLE spendings ADD COLUMN category_id BIGINT;
 ALTER TABLE spendings ADD CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES categories (id);
+
+### AS 
+Используется для переименования столбца
+rating AS difference - столбец будет difference
+Новое имя является псевдонимом или алиасом - оно временное и не меняет реального имени столбца в БД
+Если в алиасе есть пробелы, нужно заключать слово в двойные кавычки
+rating AS "view difference"
+
+
+### Неравенство <>
+Проверяет, не равны ли два значения. Если значения не равны -> True, иначе -> False
+Выбор всех пользователей КРОМЕ 30-летних
+
+SELECT * FROM Users
+WHERE age <> 30
+
+### Комбинирование условий (AND и OR)
+SELECT *
+FROM sql.kinopoisk
+WHERE year >= 2000
+AND rating >= 8
+
+SELECT
+    year,
+    movie_title,
+    director
+FROM sql.kinopoisk
+WHERE (rating > 8.5 AND year < 2000) - скобки наделяют приоритетом
+OR year >= 2000
+
+
+### NOT (переворачивает следующий за ним оператор)
+SELECT *
+FROM sql.kinopoisk
+WHERE year NOT BETWEEN 1965 AND 1980;
+
+
+### IN
+Оператор IN в SQL используется для проверки, содержится ли значение в заданном списке значений или подзапросе.
+Это позволяет упростить запросы, когда нужно проверить несколько значений в одном условии.
+
+Выбор пользователей с определённым идентификатором:
+SELECT *
+FROM Users
+WHERE UserID IN (1, 2, 3);
+
+
+### LIKE
+Используется для поиска строк, которые соответствуют определённому шаблону.
+Он часто применяется в условиях с `WHERE` для фильтрации данных на основе частичного совпадения
+Используется, когда мы незначем наверняка, какое значение ищем
+
+Синтаксис
+SELECT column1, column2, ...
+FROM table_name
+WHERE column_name LIKE pattern;
+
+В шаблонах, используемых с оператором LIKE, можно использовать следующие символы подстановки
+- `%` - соответствует любому количеству символов (включая ноль)
+- `_` - соответствует ровно одному символу
+
+Задача: получить название всех фильмов, начинающихся на кириллическую 'A'
+SELECT *
+FROM sql.kinopoisk
+WHERE movie_title LIKE 'A%'
+
+- WHERE movie_title LIKE '%а%б%' выведет все фильмы, в названии которых встречается строчная 'a' и где-то после неё - 'б'.
+
+
+### NULL
+Специальное значение, указывающее на отсутствие данных или неизвестное значение. Равнозначно нолю или пустой строке.
+Используется для обозначения отсутствия данных в столбце.
+- `IS NULL` - проверяет, является ли значение `NULL`
+- `IS NOT NULL` - проверяет, не является ли значение `NULL`
+
+Задача: вернуть список пользователей с отсутствующим email
+SELECT * FROM Users
+WHERE email IS NULL;
+
+Задача: вернуть список пользователей с email
+SELECT * FROM Users
+WHERE email IS NOT NULL;
+
+
+
