@@ -377,3 +377,12 @@ FROM sql.pokemon;
 
 ### HAVING
 HAVING используется для фильтрации уже агрегированных данных.
+HAVING работает аналогично WHERE, только для агрегатных функций.
+HAVING пишется в самом конце, даже после GROUP BY.
+
+SELECT
+    pet,
+    count(*)
+FROM for_aggregation
+GROUP BY pet
+HAVING COUNT(quantity) < 1

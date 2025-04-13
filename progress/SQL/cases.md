@@ -285,6 +285,90 @@ SELECT
     AVG(hp) AS avg_hp,
     SUM(attack) AS attack_sum
 FROM sql.pokemon
-WHERE type2 IS NOT NULL
 GROUP BY type1
 ORDER BY additional_types_count DESC, primary_type ASC;
+
+
+### Фильтрация с помощью HAVING (вывести покемонов, которых больше 50)
+SELECT
+    type1,
+    COUNT(*)
+FROM sql.pokemon
+GROUP BY type1
+HAVING COUNT(*) > 50
+ORDER BY COUNT(*) -- сортировка по количеству
+
+
+### Выведем типы покемонов и их средний показатель атаки, при этом оставим только тех, у кого средняя атака больше 90.
+SELECT
+    type1 AS primary_type,
+    AVG(attack) AS avg_attack
+FROM sql.pokemon
+GROUP BY primary_type
+HAVING AVG(attack) > 90
+
+
+### Напишите запрос, который выведет основной и дополнительный типы покемонов (столбцы primary_type и additional_type) для тех, 
+у кого средний показатель атаки больше 100 и максимальный показатель очков здоровья меньше 80.
+
+SELECT
+    type1 primary_type,
+    type2 additional_type
+FROM sql.pokemon
+GROUP BY type1, type2
+HAVING AVG(attack) > 100 AND MAX(hp) < 80;
+
+
+### Напишите запрос, чтобы для покемонов, чьё имя (name) начинается с S, 
+- вывести столбцы с их основным типом (primary_type) и общим числом покемонов этого типа (pokemon_count). 
+- Оставьте только те типы, у которых средний показатель защиты больше 80. Выведите топ-3 типов по числу покемонов в них.
+
+SELECT
+    type1 primary_type,
+    COUNT(type1) pokemon_count
+FROM sql.pokemon
+WHERE name LIKE 'S%'
+GROUP BY primary_type
+HAVING AVG(defense) > 80
+ORDER BY pokemon_count DESC
+LIMIT 3;
+
+
+### Сколько различных значений показателей атаки есть у покемонов с типом Water (основным или дополнительным)?
+SELECT
+    COUNT (DISTINCT attack)
+FROM sql.pokemon
+WHERE type1 = 'Water' OR type2 = 'Water';
+
+
+### Напишите запрос, который выведет основной и дополнительный типы покемонов и средние значения по каждому показателю 
+- (столбцы avg_hp, avg_attack, avg_defense, avg_speed).
+- Оставьте только те пары типов, у которых сумма этих четырёх показателей более 400.
+
+SELECT
+    type1,
+    type2,
+    AVG(hp) avg_hp,
+    AVG(attack) avg_attack,
+    AVG(defense) avg_defense,
+    AVG(speed) avg_speed
+FROM sql.pokemon
+GROUP BY type1, type2
+HAVING AVG(hp) + AVG(attack) + AVG(defense) + AVG(speed) > 400;
+
+
+### Напишите запрос, который выведет столбцы с основным типом покемона и общим количеством покемонов этого типа. 
+- Учитывайте только тех покемонов, у кого или показатель атаки, или показатель защиты принимает значение между 50 и 100 включительно.
+- Оставьте только те типы покемонов, у которых максимальный показатель здоровья не больше 125. 
+- Выведите только тот тип, который находится на пятом месте по количеству покемонов.
+
+SELECT
+    type1,
+    COUNT(type1)
+FROM sql.pokemon
+WHERE attack BETWEEN 50 AND 100
+OR defense BETWEEN 50 AND 100
+GROUP BY type1
+HAVING MAX(hp) < 125
+ORDER BY COUNT (type1)
+OFFSET 5 LIMIT 1;
