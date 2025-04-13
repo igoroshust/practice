@@ -213,3 +213,78 @@ WHERE (
     LENGTH(movie_title) = 12
 ORDER BY rating DESC
 LIMIT 7;
+
+
+### Подсчитать количество строк в таблице (используем агрегатные функции)
+SELECT
+    COUNT(*) -- звёздочка означет подсчёт всех строк, которые возвращает запрос
+FROM sql.pokemon
+
+
+### Подсчитать количество уникальных значений
+SELECT
+    COUNT(DISTINCT type1)
+FROM sql.pokemon;
+
+
+### Определить среднее количество очков здоровья у покемонов-драконов
+SELECT
+    AVG(hp)
+FROM sql.pokemon
+WHERE type1 = 'Dragon';
+
+
+### Несколько агрегатных функций в одном запросе
+SELECT
+    COUNT(*) AS 'Всего травяных покемонов',
+    COUNT(type2) AS 'Покемонов с дополнительным типом',
+    AVG(attack) AS 'Средняя атака',
+    AVG(defense) AS 'Средняя защита'
+FROM sql.pokemon
+WHERE type1 = 'Grass'
+
+
+### Напишите запрос, который выведет:
+- количество покемонов (столбец pokemon_count),
+- среднюю скорость (столбец avg_speed),
+- максимальное и минимальное число очков здоровья (столбцы max_hp и min_hp)
+- для электрических (Electric) покемонов, имеющих дополнительный тип и показатели атаки или защиты больше 50.
+
+SELECT
+    COUNT(pokemon) AS "pokemon_count",
+    AVG(speed) AS "avg_speed",
+    MAX(hp) AS "max_hp",
+    MIN(hp) AS "min_hp"
+FROM sql.pokemon
+WHERE type1 = 'Electric'
+    AND type2 IS NOT NULL
+    AND (attack > 50 OR defense > 50);
+
+
+### Подсчитать количество типов покемонов
+SELECT
+    type1,
+    type2,
+    COUNT(*)
+FROM sql.pokemon
+GROUP BY type1, type2
+ORDER BY type1, type2 NULLS FIRST -- сортировка по алфавиту (необзяательно)
+-- ORDER BY COUNT(*) DESC -- сортировка в обратном порядке по количеству
+
+
+### Напишите запрос, который выведет:
+- число различных дополнительных типов (столбец additional_types_count),
+- среднее число очков здоровья (столбец avg_hp),
+- сумму показателей атаки (столбец attack_sum) в разбивке по основным типам (столбец primary_type).
+- Отсортируйте результат по числу дополнительных типов в порядке убывания, при равенстве — по основному типу в алфавитном порядке. 
+- Столбцы к выводу (обратите внимание на порядок!): primary_type, additional_types_count, avg_hp, attack_sum.
+
+SELECT
+    type1 AS primary_type,
+    COUNT(DISTINCT type2) AS additional_types_count,
+    AVG(hp) AS avg_hp,
+    SUM(attack) AS attack_sum
+FROM sql.pokemon
+WHERE type2 IS NOT NULL
+GROUP BY type1
+ORDER BY additional_types_count DESC, primary_type ASC;
