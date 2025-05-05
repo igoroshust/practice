@@ -263,7 +263,7 @@
 |-----------------------|------------------------------------|-------------------------------------------|
 | $sum | Суммирует указанные значения всех документов коллекции | db.collection.aggregate([{$group: {_id: "$title", total_salary: {$sum: "$salary"}}}])|
 | $avg | Рассчитывает среднее значение указанного поля для всех документов коллекции | db.collection.aggregate([{$group: {_id: "$title", avg_salary: {$avg: "$salary"}}}])                            |
-| $min | Получает минимальное значение указанного поля документа в коллекции | db.collection.aggregate([{$group: {_id: "$title", min_salary: {$min: "$salary"})}])                           |
+| $min | Получает минимальное значение указанного поля документа в коллекции | db.collection.aggregate([{$group: {_id: "$title", min_salary: {$min: "$salary"}}}])                           |
 | $max | Получает максимальное значение указанного поля документа в коллекции      | db.collection.aggregate([{$group: {_id: "$title", max_salary: {$max: "$salary"}}}])                         |
 | $push | Вставляет значение в массив в результирующем документе | db.collection.aggregate([{$group: {_id: "$title", skills: {$push: "$skills"}}}])    |
 | $addToSet | Вставляет значение в массив в результирующем документе, но не создаёт дубликаты       | db.collections.aggregate([{$group: {_id: "$title", skills: {$addToSet: "$skills"}}}])                       |
