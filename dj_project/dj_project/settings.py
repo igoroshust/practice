@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     'django.contrib.sites', # Управление несколькими сайтами в одном Django-приложении. Каждому сайту присваивается ID в таблице `Site`
     'django.contrib.flatpages', # Управление статическими страницами через админку Django.
+    'django_extensions',
     'fpages',
     'app',
     'allauth',

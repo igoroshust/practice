@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/progress/SQL/cases.md" beforeDir="false" afterPath="$PROJECT_DIR$/progress/SQL/cases.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progress/SQL/commands.md" beforeDir="false" afterPath="$PROJECT_DIR$/progress/SQL/commands.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dj_project/dj_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dj_project/dj_project/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +27,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../Lib/asyncio/base_events.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Lib/asyncio/tasks.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/dj_project/dj_project/settings.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/dj_project/run.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/interview_questions/auto_tests.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/python/PythonBasics/file.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/python/questions.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/python/repeat/what_is.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/python/theory.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -42,96 +46,66 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python tests.Python tests in _test.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in calc.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in file.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in red.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Python.algorithms.executor&quot;: &quot;Run&quot;,
-    &quot;Python.algorythms.executor&quot;: &quot;Run&quot;,
-    &quot;Python.conspect.executor&quot;: &quot;Run&quot;,
-    &quot;Python.design_patterns.executor&quot;: &quot;Run&quot;,
-    &quot;Python.file.executor&quot;: &quot;Run&quot;,
-    &quot;Python.first.executor&quot;: &quot;Run&quot;,
-    &quot;Python.javacode.executor&quot;: &quot;Run&quot;,
-    &quot;Python.lists.executor&quot;: &quot;Run&quot;,
-    &quot;Python.patterns.executor&quot;: &quot;Run&quot;,
-    &quot;Python.pg2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.practice.executor&quot;: &quot;Run&quot;,
-    &quot;Python.python_generation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.red.executor&quot;: &quot;Run&quot;,
-    &quot;Python.repeat.executor&quot;: &quot;Run&quot;,
-    &quot;Python.strings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.strings_methods.executor&quot;: &quot;Run&quot;,
-    &quot;Python.task-lv0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.urls.executor&quot;: &quot;Run&quot;,
-    &quot;Python.what_is.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Python313/projects/practice&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python tests.Python tests for auto_test_open_file.TestFileOpen.executor": "Run",
+    "Python tests.Python tests for auto_test_open_file.TestFileOpen.test_read_file.executor": "Run",
+    "Python tests.Python tests for auto_tests.TestAddFunction.executor": "Run",
+    "Python tests.Python tests for auto_tests.TestAddFunction.test_in.executor": "Run",
+    "Python tests.Python tests for auto_tests.TestAddFunction.test_none.executor": "Run",
+    "Python tests.Python tests for auto_tests.TestAddFunction.test_true.executor": "Run",
+    "Python tests.Python tests for auto_tests.TestDivision.executor": "Run",
+    "Python tests.Python tests for auto_tests.TestDivision.test_divistion_by_zero.executor": "Run",
+    "Python tests.Python tests for test_user_validator.TestUserValidatorReal.executor": "Run",
+    "Python tests.Python tests for test_user_validator.TestUserValidatorReal.test_valid_user.executor": "Run",
+    "Python tests.Python tests in _test.py.executor": "Run",
+    "Python tests.Python tests in auto_test_open_file.py.executor": "Run",
+    "Python tests.Python tests in auto_tests.py.executor": "Run",
+    "Python tests.Python tests in calc.py.executor": "Run",
+    "Python tests.Python tests in file.py.executor": "Run",
+    "Python tests.Python tests in red.py.executor": "Run",
+    "Python.Unnamed.executor": "Run",
+    "Python.algorithms.executor": "Run",
+    "Python.algorythms.executor": "Run",
+    "Python.conspect.executor": "Run",
+    "Python.design_patterns.executor": "Run",
+    "Python.file.executor": "Run",
+    "Python.first.executor": "Run",
+    "Python.javacode.executor": "Run",
+    "Python.lists.executor": "Run",
+    "Python.patterns.executor": "Run",
+    "Python.pg2.executor": "Run",
+    "Python.practice.executor": "Run",
+    "Python.python_generation.executor": "Run",
+    "Python.red.executor": "Run",
+    "Python.repeat.executor": "Run",
+    "Python.run.executor": "Run",
+    "Python.strings.executor": "Run",
+    "Python.strings_methods.executor": "Run",
+    "Python.task-lv0.executor": "Run",
+    "Python.urls.executor": "Run",
+    "Python.what_is.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Python313/projects/practice",
+    "settings.editor.selected.configurable": "copyright"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Python313\projects\practice\python" />
       <recent name="C:\Python313\projects\practice\python\Archive" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Python313\projects\practice\dj_project" />
       <recent name="C:\Python313\projects\practice\dj_project\static" />
       <recent name="C:\Python313\projects\practice\python" />
       <recent name="C:\Python313\projects\practice" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.practice">
-    <configuration name="file" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="practice" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python/PythonBasics" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/PythonBasics/file.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="javacode" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="practice" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interview" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/interview/javacode.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="practice" type="PythonConfigurationType" factoryName="Python">
       <module name="practice" />
       <option name="ENV_FILES" value="" />
@@ -155,10 +129,88 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for auto_test_open_file.TestFileOpen" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="practice" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interview_questions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;auto_test_open_file.TestFileOpen&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for auto_test_open_file.TestFileOpen.test_read_file" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="practice" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interview_questions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;auto_test_open_file.TestFileOpen.test_read_file&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for interview_questions.UserValidatorExample.tests.test_user_validator.TestUserValidatorReal" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="practice" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interview_questions/UserValidatorExample/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;interview_questions.UserValidatorExample.tests.test_user_validator.TestUserValidatorReal&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for interview_questions.UserValidatorExample.tests.test_user_validator.TestUserValidatorReal.test_valid_user" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="practice" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interview_questions/UserValidatorExample/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;interview_questions.UserValidatorExample.tests.test_user_validator.TestUserValidatorReal.test_valid_user&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in auto_test_open_file.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="practice" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interview_questions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/interview_questions/auto_test_open_file.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.javacode" />
-        <item itemvalue="Python.file" />
+        <item itemvalue="Python tests.Python tests for interview_questions.UserValidatorExample.tests.test_user_validator.TestUserValidatorReal" />
+        <item itemvalue="Python tests.Python tests for interview_questions.UserValidatorExample.tests.test_user_validator.TestUserValidatorReal.test_valid_user" />
+        <item itemvalue="Python tests.Python tests for auto_test_open_file.TestFileOpen" />
+        <item itemvalue="Python tests.Python tests in auto_test_open_file.py" />
+        <item itemvalue="Python tests.Python tests for auto_test_open_file.TestFileOpen.test_read_file" />
       </list>
     </recent_temporary>
   </component>
