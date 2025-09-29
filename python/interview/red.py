@@ -1,16 +1,6 @@
 # maketrans(), translate() - str
 
 
-
-
-
-
-
-
-
-
-
-
 # Микросервисы
 # Celery, Rabbit
 # Sentry, NewRelic
