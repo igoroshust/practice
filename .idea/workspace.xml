@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview_questions/auto_test_open_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/interview_questions/unittest_workdir/auto_test_open_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interview_questions/auto_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/interview_questions/unittest_workdir/auto_tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +30,9 @@
     <setting file="file://$PROJECT_DIR$/../../Lib/asyncio/tasks.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dj_project/dj_project/settings.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/dj_project/run.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/interview_questions/auto_tests.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/interview_questions/asyn/DOC.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/interview_questions/asyn/run.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/interview_questions/unittest_workdir/auto_tests.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/python/PythonBasics/file.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/python/questions.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/python/repeat/what_is.py" root0="SKIP_INSPECTION" />
@@ -102,13 +106,14 @@
       <recent name="C:\Python313\projects\practice\python\Archive" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Python313\projects\practice\interview_questions\unittest_workdir" />
       <recent name="C:\Python313\projects\practice\dj_project" />
       <recent name="C:\Python313\projects\practice\dj_project\static" />
       <recent name="C:\Python313\projects\practice\python" />
       <recent name="C:\Python313\projects\practice" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_math_utils.test_fetch_user">
+  <component name="RunManager" selected="Python.run">
     <configuration name="practice" type="PythonConfigurationType" factoryName="Python">
       <module name="practice" />
       <option name="ENV_FILES" value="" />
@@ -132,19 +137,26 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for interview_questions.UserValidatorExample.tests.test_user_validator.TestUserValidatorReal" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="practice" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interview_questions/UserValidatorExample/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/interview_questions/asyn" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;interview_questions.UserValidatorExample.tests.test_user_validator.TestUserValidatorReal&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/interview_questions/asyn/run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests for test_math_utils.test_add_parametrized" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -209,11 +221,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run" />
         <item itemvalue="Python tests.Python tests for test_math_utils.test_fetch_user" />
         <item itemvalue="Python tests.Python tests in test_math_utils.py" />
         <item itemvalue="Python tests.Python tests for test_math_utils.test_add_parametrized" />
         <item itemvalue="Python tests.Python tests for test_math_utils.test_add_positive" />
-        <item itemvalue="Python tests.Python tests for interview_questions.UserValidatorExample.tests.test_user_validator.TestUserValidatorReal" />
       </list>
     </recent_temporary>
   </component>
