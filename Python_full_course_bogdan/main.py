@@ -1,15 +1,7 @@
-class Person:
-    def __init__(self, age):
-        self.age = age  # Публичная
-        self._age = age  # Защищённая
-        self.__age = age  # Приватная
+import copy
+lst1 = [1, 2, 3, 4]  # Создаётся mutable объект list
+lst2 = copy.copy(lst1)  # Поверхностная копия
+lst1.append(5)
 
-# Доступ к переменным
-person = Person(25)
-print(
-    person.age,  # 25
-    person._age,  # 25
-    # person.__age,  # AttributeError
-    person._Person__age,  # 25
-    sep='\n'
-)
+print(lst1, lst2)  # [1, 2, 3, 4, 5] [1, 2, 3, 4]
+print(id(lst1), id(lst2))  # id(lst1) != id(lst2)
