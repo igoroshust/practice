@@ -1,7 +1,15 @@
-# name, surname, city = input("Enter your name: "),  input("Enter your surname: "),  input("Enter your city: ")
-# print(name, surname, city)
+class Person:
+    def __init__(self, age):
+        self.age = age  # Публичная
+        self._age = age  # Защищённая
+        self.__age = age  # Приватная
 
-text = 'tutorial'
-table = str.maketrans('aeiou', '43105')
-result = text.translate(table)
-print(result)
+# Доступ к переменным
+person = Person(25)
+print(
+    person.age,  # 25
+    person._age,  # 25
+    # person.__age,  # AttributeError
+    person._Person__age,  # 25
+    sep='\n'
+)
