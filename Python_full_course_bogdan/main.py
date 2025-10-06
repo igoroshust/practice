@@ -1,7 +1,14 @@
-import copy
-lst1 = [1, 2, 3, 4]  # Создаётся mutable объект list
-lst2 = copy.copy(lst1)  # Поверхностная копия
-lst1.append(5)
+# complex_a = 3 + 5j  # 3 - действительная часть, 5 - мнимая + j
+# complex_b = 4 + 7j
 
-print(lst1, lst2)  # [1, 2, 3, 4, 5] [1, 2, 3, 4]
-print(id(lst1), id(lst2))  # id(lst1) != id(lst2)
+# complex_a = 10 + 7j  # 3 - действительная часть, 5 - мнимая + j
+# complex_b = 3 + 3j
+
+complex_a = 3 + 5j  # 3 - действительная часть, 5 - мнимая + j
+complex_b = 4 + 7j
+
+div = complex_a / complex_b
+
+print(
+    div,
+)
