@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/DOC.md" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/DOC.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_full_course_bogdan/SPEC.md" beforeDir="false" afterPath="$PROJECT_DIR$/Python_full_course_bogdan/SPEC.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_full_course_bogdan/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python_full_course_bogdan/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +70,7 @@
     &quot;Python tests.Python tests in auto_tests.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in calc.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in file.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in main.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in red.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in test_math_utils.py.executor&quot;: &quot;Run&quot;,
     &quot;Python.Unnamed.executor&quot;: &quot;Run&quot;,
@@ -125,7 +127,7 @@
       <recent name="C:\Python313\projects\practice" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.practice">
+  <component name="RunManager">
     <configuration name="file" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="practice" />
       <option name="ENV_FILES" value="" />
