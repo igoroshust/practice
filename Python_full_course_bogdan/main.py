@@ -1,5 +1,11 @@
-my_nums = [10, 50, 0, 5, 5, 100]
-my_nums.append('123')  # [10, 50, 0, 5, 5, 100, '123']
-my_nums.extend('123')  # [10, 50, 0, 5, 5, 100, '1', '2', '3']
+my_dict = {
+    'brand': 'Ducati',
+    'price': 390_000_00,
+    'vol': 1.2,
+}
 
-print(my_nums)
+print(
+    my_dict.setdefault('test', 'asd'),  # asd
+    my_dict,  # {'brand': 'Ducati', 'price': 39000000, 'vol': 1.2, 'test': 'asd'} (добавляет 'test': 'asd')
+    sep='\n'
+)

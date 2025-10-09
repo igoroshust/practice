@@ -789,6 +789,264 @@ print(
 )
 ```
 
+Вставить один элемент (список) в произвольное место в другом списке
+```python
+lst = [True, 1, 2.0, 'abc', {'a': 2}]
+lst1 = [{1, 2}, 4+7j]
+
+insert_pos = 3  # Индекс, куда вставляем (после первых 2 элементов)
+lst[insert_pos:insert_pos] = lst1  # Заменяем пустой срез на lst1
+
+#  lst[1:3] = lst1  # Заменяем пустой срез на lst1 
+
+print(lst)
+```
+
+3 способа перевернуть список
+```python
+lst = [True, 1, 2.0, 'abc', {'a': 2}]
+
+lst1 = lst[::-1]
+lst2 = list(reversed(lst))
+lst.reverse()
+
+print(
+    lst,
+    lst1,
+    lst2,
+    sep='\n'
+)
+```
+
+
+#### Словари (dict)
+Словари - объекты, создающиеся на основании встроенного в Python класса dict
+Словарь - набор элементов по типу ключ:значение
+В словаре не может быть двух ключей с одинаковым названием
+Порядок элементов в словаре не имеет значения (у них нет индексов)
+
+**Добавление/Удаление пары ключ:значние в существующий словарь**
+```python
+my_motorbike = {
+    'brand': 'Ducati',
+    'price': 25000,
+    'engine_vol': 1.2
+}
+
+# Добавление
+my_motorbike['is_new'] = True # {'brand': 'Ducati', 'exte': 'Ducati', 'price': 25000, 'engine_vol': 1.2, 'is_new': True}
+
+# Удаление
+del my_motorbike['engine_vol']
+
+# Доступ к значению с помощью переменной
+key_name = 'brand'
+my_motorbike[key_name] = 'BMW'
+```
+
+Найти ключ по значению в словаре
+```python
+my_motorbike = {
+    'brand': 'Ducati',
+    'price': 25000,
+    'engine_vol': 1.2
+}
+
+```
+
+```python
+"""Основное решение - инвертируемый список"""
+from collections import defaultdict  
+# defaultdict не вызывает keyerror, а автоматически создаёт и возвращает значение по умолчанию
+
+reverse_dict = {value: key for key, value in my_motorbike.items()}
+print(reverse_dict)  # {'NewDuc': 'brand', 25000: 'price', 1.2: 'engine_vol'}
+
+key = reverse_dict.get('NewDuc')
+print(key)  # brand
+
+# Если значения могут дублироваться (список ключей)
+my_motorbike = {
+    'brand': 'NewDuc',
+    'model': 'NewDuc',
+    'price': 25000,
+    'engine_vol': 1.2
+}
+
+reverse_dict_multi = defaultdict(list)  # Default: пустой list() для новых ключей
+for key, value in my_motorbike.items():
+    reverse_dict_multi[value].append(key)
+
+keys = reverse_dict_multi['NewDuc']
+print(keys)  # ['brand'] или ['brand', 'model'] (если есть дубли)
+```
+
+```python
+"""Вариант-1"""
+key = next(filter(lambda kv: kv[1] == 'NewDuc', my_motorbike.items()), None)[0] if any(kv[1] == 'NewDuc' for kv in my_motorbike.items()) else None
+```
+
+```python
+"""Вариант-2"""
+#  pip insall bidict
+from bidict import bidict
+bi_dict = bidict(my_motorbike)
+key = bi_dict.inverse['NewDuc']  # brand
+```
+
+**defaultdict - приимер подсчёта элементов в списке**
+```python
+from collections import defaultdict
+
+words = ['apple', 'banana', 'apple', 'cherry']
+count = defaultdict(int)  # Default: 0
+
+for word in words:
+    count[word] += 1  # Авто-создаёт 0, если нет, затем +1
+
+print(count)  # defaultdict(<class 'int'>, {'apple': 2, 'banana': 1, 'cherry': 1})
+```
+
+**Работа со вложенностью в словаре**
+```python
+my_motorbike = {
+    'brand': 'Ducati',
+    'engine_vol': 1.2,
+    'price_info': {
+        'price': 25000,
+        'is_available': True,
+        'test': {
+            'asd': 2,
+        }
+    },
+}
+
+print(
+    my_motorbike.keys(),
+    my_motorbike.values(),
+    my_motorbike.items(),
+    my_motorbike['price_info']['price'],  # 25000
+    my_motorbike['price_info']['test']['asd'],  # 2
+    sep='\n'
+)
+```
+
+**Использование переменных для создания значений в словарях**
+```python
+brand = 'Ducatti'
+bike_price = 25000
+engine_volume = 1.2
+
+my_motorbike = {
+    'brand': brand,
+    'price': bike_price,
+    'engine_vol': engine_volume,
+}
+
+print(my_motorbike)
+```
+
+**Методы словарей**
+- get(key, default) - возвращает значение по ключу. Если ключа нет, возвращает None или default
+`print(my_motorbike.get('brand'))`
+Если вызвать `my_motorbike['brand']`, и такого ключа не будет - вызовется ошибка, в отличие от get.
+
+- setdefault(key, default=None) - возвращает значение по ключу (если ключа нет, добавляего с default и возвращает default)
+Отличие от get в том, что setdefault добавялет ключ с default, если его нет (мутирует словарь), а .get не добавляет.
+get - только чтение, setdefault - чтение + автодобавление
+
+- items() - возвращает объекта класса dict_items([(key, value)]) с ключами и значениями элемента в кортеже
+
+- keys() - возвращает список ключей
+
+- values() - возвращает список значений
+
+- pop(key[, default]) - удаляет ключ и возвращает его значение. Если ключа нет, возвращает default или KeyError
+
+- popitem() - удаляет из словаря последнюю пару "ключ:значение".
+Не рекомендуется к использованию, т.к. словарь - неупорядоченная последовательность элементов, а popitem() удаляет последний
+добавленный ключ, но мы не всегда знаем, какой ключ был добавлен последним, поэтому прогнозировать трудно. Лучше удалять через del.
+
+- clear() - очищает словарь, удаляя из него все ключи.
+
+- copy() - копирование словаря (новый объект). Необходимо использовать, когда нужны операции со словарём, не изменяя
+оригинальный объект.
+
+
+Пример добавления нового значения
+```python
+my_dict = {
+    'brand': 'Ducati',
+    'price': 390_000_00,
+    'vol': 1.2,
+}
+
+print(
+    my_dict.setdefault('test', 'asd'),  # asd
+    my_dict,  # {'brand': 'Ducati', 'price': 39000000, 'vol': 1.2, 'test': 'asd'} (добавляет 'test': 'asd')
+    sep='\n'
+)
+```
+
+- fromkeys(iterable[, value=None]) - создаёт новый словарь из итерируемого списка ключей, все с одним значением.
+Например, подходит для быстрой инициализации (счётчики или дефолты для множества ключей). Статический метод, не меняет
+оригинал.
+`dict.fromkeys(keys, value)`
+
+```python
+keys = ['color', 'size', 'year']
+new_dict = dict.fromkeys(keys, 'unknown')
+print(new_dict)
+```
+
+- update([other=()], /, **kwargs) - обновляет dict парами из другого iterable (dict, list of tuples) или kwargs.
+Новые ключи добавляются в конец, новые - перезаписываются. Либо меняет значение существующего ключа, а если его нет, добавляет
+новую запись
+```python
+my_dict = {
+    'brand': 'Ducati',
+    'price': 390_000_00,
+    'vol': 1.2,
+}
+
+my_dict.update({'price': 28000, 'color': 'red'})
+my_dict.update(model='V4')
+
+print(my_dict)  # {'brand': 'Ducati', 'price': 28000, 'vol': 1.2, 'color': 'red', 'model': 'V4'}
+```
+
+- del d[key]
+
+
+**Создание словаря из других типов данных**
+```python
+my_list = [['first', 1], ['second', True]]
+#  my_list = [('first', 1), ('second', True)]  # Аналогично сработает с кортежами
+#  my_list = [['first', 1], ('second', True)]  # Аналогично сработает со списком + кортежем
+
+print(
+  dict(my_list)  # {'first': 1, 'second': True}
+)
+```
+
+**Задача: добавить в словарь введённые пользователем пары ключ:значение**
+```python
+(key_1, value_1, key_2,
+ value_2, key_3, value_3) = (input('Введите первый ключ: '),
+                             input('Введите первое значение: '),
+                             input('Введите второй ключ: '),
+                             input('Введите второе значение: '),
+                             input('Введите третий ключ: '),
+                             input('Введите третие значение: '),)
+
+my_dict = {
+    key_1: value_1,
+    key_2: value_2,
+    key_3: value_3,
+}
+
+print(my_dict)
+```
 
 
 #### Стек и куча (heap)
