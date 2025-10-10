@@ -1,11 +1,35 @@
-my_dict = {
-    'brand': 'Ducati',
-    'price': 390_000_00,
-    'vol': 1.2,
-}
+# # my_fruits = ('apple', 'banana', 'lime')
+# # other_fruits = ('banana', 'apple', 'lime')
+# #
+# # print(my_fruits[0])
+#
+# users = (
+#     {
+#         'user_id': 134,
+#         'user_name': 'Alice'
+#     },
+#     {
+#         'user_id': 831,
+#         'user_name': 'Bob'
+#     }
+# )
+#
+# print(users[1]['user_id'])  # 831
+#
+# users[1]['user_id'] = 100  # Изменяем словарь
+#
+# print(users[1]['user_id'])  # 100
 
-print(
-    my_dict.setdefault('test', 'asd'),  # asd
-    my_dict,  # {'brand': 'Ducati', 'price': 39000000, 'vol': 1.2, 'test': 'asd'} (добавляет 'test': 'asd')
-    sep='\n'
-)
+
+
+my_set = {'abc', 'd', 'f', 'y'}
+
+my_set.clear()
+
+print(my_set)
+
+
+
+
+
+

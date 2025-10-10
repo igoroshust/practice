@@ -1048,6 +1048,254 @@ my_dict = {
 print(my_dict)
 ```
 
+#### Кортеж
+Кортеж - упорядоченная последовательность элементов. Кортеж изменять нельзя. Порядок следования важен. Нельзя использовать del.
+```python
+my_fruits = ('apple', 'banana', 'lime')
+other_fruits = ('banana', 'apple', 'lime')
+
+print(my_fruits == other_fruits)  # False
+```
+
+Пример словарей в кортежах
+```python
+# my_fruits = ('apple', 'banana', 'lime')
+# other_fruits = ('banana', 'apple', 'lime')
+#
+# print(my_fruits[0])
+
+users = (
+    {
+        'user_id': 134,
+        'user_name': 'Alice'
+    },
+    {
+        'user_id': 831,
+        'user_name': 'Bob'
+    }
+)
+
+print(users[1]['user_id'])  # 831
+
+users[1]['user_id'] = 100  # Изменяем словарь
+
+print(users[1]['user_id'])  # 100
+```
+
+**Методы кортежей**
+- count() - подсчёт количества определённых элементов в кортеже
+- index(value, start) - поиск индекса определённого элемента
+
+**Добавление элемента в кортеж с преобразованием в список**
+```python
+my_tuple = (1, 2, 3, 3, 2, 2)
+
+my_list = list(my_tuple)
+my_list.append(7)
+my_tuple = tuple(my_list)
+
+print(my_tuple)
+```
+
+Посимвольная запись строки в кортеже
+```python
+my_tuple = tuple('abdc')
+
+print(my_tuple)  # ('a', 'b', 'c', 'd')
+```
+
+Преобразования словаря в кортеж (запишутся только ключи)
+```python
+my_tuple = tuple({'first': 1, 'second': True})
+
+print(my_tuple)
+```
+
+#### Множества (набор)
+Множества - неупорядоченная последовательность уникальных элементов (нет индексов). Обычно в наборах однотипные данные.
+
+Порядок в наборах не важен
+```python
+my_fruits = {'apple', 'banana', 'lime'}
+other_fruits = {'banana', 'apple', 'lime'}
+#  Это одинаковые наборы
+```
+
+Индексов в множествах нет. Нельзя использовать del.
+
+В множества нельзя добавлять изменяемые объекты (списки, словари, множества), потому что для каждого элемента формируется 
+hash, а при изменении hash тоже будет меняться:
+```python
+lists_set = {[1, 2], [20, 5]}
+# TypeError: unhashable type: 'list'
+```
+
+Хэш-значение - это уникальное числовое представлние объекта, которое генерируется на основании его содержимого. 
+Это цифровой отпечаток объекта по типу: 2910710401598742315.
+
+В множества можно добавлять кортежи
+```python
+my_set = {(10, 10), 5, 15, 15}
+```
+
+**Методы множеств**
+- add()
+```python
+photo_sizes = {'1920x1080', '800x600'}
+photo_sizes.add('1024x768')
+
+print(photo_sizes)  # {'1024x768', '1920x1080', '800x600'}
+```
+
+- union() - объединение наборов (уникальные элементы в обоих множествах, включая их пересечение) [ (///)///(///) ] 
+Можно использовать `|` вместо union. При вызове оригинальные наборы не изменяются.
+```python
+photo_sizes = {'1920x1080', '800x600'}
+other_sizes = {'1024x768', '800x600'}
+
+all_sizes = photo_sizes.union(other_sizes)
+#  all_sizes = photo_sizes | other_sizes
+
+print(all_sizes)  # {'800x600', '1024x768', '1920x1080'}
+```
+
+- intersection() - пересечение двух множеств, общие элементы в двух наборах [ ()///() ]
+Можно использовать `&`. При вызове оригинальные наборы не изменяются.
+```python
+photo_sizes = {'1920x1080', '800x600'}
+other_sizes = {'1024x768', '800x600'}
+
+common_sizes = photo_sizes.intersection(other_sizes)
+#  common_sizes = photo_sizes & other_sizes
+
+print(common)  # {'800x600'}
+```
+
+- issubset() - проверяет, включен ли один набор в другой. Возвращает True или False.
+Является ли множество "A" подмножеством (входит в состав другого множества) "B"
+```python
+nums = {10, 5, 35}
+other_nums = {20, 5, 12, 10, 35}
+
+res = nums.issubset(other_nums)
+
+print(res)  # True
+```
+
+- issuperset() - проверяет, является ли элемент супермножеством другого набора
+```python
+nums = {10, 5, 35}
+other_nums = {20, 5, 12, 10, 35}
+
+res = other_nums.issuperset(nums)
+
+print(res)  # True
+```
+
+- difference() - показывает разницу между множествами (есть в только в одном).
+Можно использовать `-`
+```python
+"""Есть только в my_set, и нет в other_set"""
+my_set = {'abc', 'd', 'f', 'y'}
+other_set = {'a', 'f', 'd'}
+
+#  print(my_set - other_set)  # {'y', 'abc'}
+print(my_set.difference(other_set))  # {'y', 'abc'}
+```
+
+```python
+"""Есть только в other_set, и нет в my_set"""
+my_set = {'abc', 'd', 'f', 'y'}
+other_set = {'a', 'f', 'd'}
+
+#  print(other_set - my_set)  # {'a'}
+print(other_set.difference(my_set))  # {'a'}
+```
+
+- discard() - удаление элемента из множеств. Не вызывает ошибку при передаче несуществующего элемента (в отличии от remove)
+```python
+my_set = {'abc', 'd', 'f', 'y'}
+
+my_set.discard('d')
+
+print(my_set)
+```
+
+- remove() - удаление элемента из множества. Вызывает ошибку при передаче несуществующего элемента (в отличии от discard)
+```python
+my_set = {'abc', 'd', 'f', 'y'}
+
+my_set.remove('ded')  # KeyError: 'ded'
+
+print(my_set)
+```
+
+- copy() - копирование набора (разные объекты в памяти).
+```python
+my_set = {'abc', 'd', 'f', 'y'}
+other_set = {'a', 'f', 'd'}
+
+copied_set = my_set.copy()
+
+my_set.add('t')  # {'d', 't', 'y', 'f', 'abc'}
+copied_set.add('l')  # {'d', 'l', 'y', 'f', 'abc'}
+
+print(my_set)
+print(copied_set)
+print(copied_set == my_set)  # False
+print(id(copied_set) == id(my_set))  # False
+```
+
+- symmetric_difference() - ЕСТЬ в одном из наборов, НЕТ в другом и НЕТ в пересечении.
+```python
+my_set = {'abc', 'd', 'f', 'y'}
+
+copied_set = my_set.copy()
+
+my_set.add('t')  # {'d', 't', 'y', 'f', 'abc'}
+copied_set.add('l')  # {'d', 'l', 'y', 'f', 'abc'}
+
+print(my_set.symmetric_difference(copied_set))  # {'l', 't'}
+```
+ 
+Другой пример (формула работы symmetric_difference наглядно)
+```python
+a = {'abc', 'd', 'f', 'y'}
+b = {'abc', 'd', 'f', 'l'}
+print((a | b) - (a & b))  # {'y', 'l'}
+```
+
+- pop() - удаляет и возвращает последний элемент
+```python
+my_set = {'abc', 'd', 'f', 'y'}
+
+a = my_set.pop()
+
+print(my_set, a)
+#  {'d', 'f', 'abc'} 
+#  y
+```
+
+- clear() - очистка набора
+```python
+my_set = {'abc', 'd', 'f', 'y'}
+
+my_set.clear()
+
+print(my_set)  # set()
+```
+
+- update() - добавление элемента в набор
+```python
+my_set = {'abc', 'd', 'f', 'y'}
+
+my_set.update('J')
+
+print(my_set)  # {'f', 'y', 'abc', 'J', 'd'}
+```
+
+
+
 
 #### Стек и куча (heap)
 
