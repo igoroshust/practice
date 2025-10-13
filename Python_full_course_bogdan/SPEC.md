@@ -1295,6 +1295,8 @@ print(my_set)  # {'f', 'y', 'abc', 'J', 'd'}
 ```
 
 
+my_secre
+
 
 
 #### Стек и куча (heap)

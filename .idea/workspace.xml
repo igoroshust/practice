@@ -7,7 +7,7 @@
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Python_full_course_bogdan/SPEC.md" beforeDir="false" afterPath="$PROJECT_DIR$/Python_full_course_bogdan/SPEC.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_full_course_bogdan/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python_full_course_bogdan/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/js.py" beforeDir="false" afterPath="$PROJECT_DIR$/js/js.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +82,7 @@
     "Python.first.executor": "Run",
     "Python.http_queries.executor": "Run",
     "Python.javacode.executor": "Run",
+    "Python.js.executor": "Run",
     "Python.lists.executor": "Run",
     "Python.main.executor": "Run",
     "Python.oop.executor": "Run",
