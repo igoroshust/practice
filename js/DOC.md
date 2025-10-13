@@ -808,9 +808,31 @@ console.log(obj.toString()); // [object Object]
 
 
 
+#### Классы (конструкторы объектов)
+Класс - это как чертёж для всех будущих объектов (например, person), которые будут созданы на его основе.
+Конструктор - функция, создающая объекты, и наполняющая их данными (свойствами).
 
+```
+class Person {
+  constructor(userName, age, isMarried){
+    this.userName = userName;
+    this.age = age;
+    this.isMarried = isMarried;
+  }
+  
+  sayHi(name) {
+    console.log('Привет, ' + name + '. Я - ' + this.userName);
+  }
+};
 
+// Создаём экземпляр класса Person
+const person1 = new Person('Марк', 30, false);
+const person2 = new Person('Павел', 28, true);
+console.log(person1);
+console.log(person2);
 
+person2.sayHi('Igor');
+```
 
 
 
