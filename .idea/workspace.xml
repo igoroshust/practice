@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bde7fb1b-2c7e-44da-bd54-8c6c906863d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_full_course_bogdan/SPEC.md" beforeDir="false" afterPath="$PROJECT_DIR$/Python_full_course_bogdan/SPEC.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_full_course_bogdan/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python_full_course_bogdan/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/DOC.md" beforeDir="false" afterPath="$PROJECT_DIR$/js/DOC.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/repeat/what_is.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/repeat/what_is.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +43,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -48,64 +54,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python tests.Python tests for auto_test_open_file.TestFileOpen.executor": "Run",
-    "Python tests.Python tests for auto_test_open_file.TestFileOpen.test_read_file.executor": "Run",
-    "Python tests.Python tests for auto_tests.TestAddFunction.executor": "Run",
-    "Python tests.Python tests for auto_tests.TestAddFunction.test_in.executor": "Run",
-    "Python tests.Python tests for auto_tests.TestAddFunction.test_none.executor": "Run",
-    "Python tests.Python tests for auto_tests.TestAddFunction.test_true.executor": "Run",
-    "Python tests.Python tests for auto_tests.TestDivision.executor": "Run",
-    "Python tests.Python tests for auto_tests.TestDivision.test_divistion_by_zero.executor": "Run",
-    "Python tests.Python tests for test_math_utils.test_add_parametrized.executor": "Run",
-    "Python tests.Python tests for test_math_utils.test_add_positive.executor": "Run",
-    "Python tests.Python tests for test_math_utils.test_fetch_user.executor": "Run",
-    "Python tests.Python tests for test_user_validator.TestUserValidatorReal.executor": "Run",
-    "Python tests.Python tests for test_user_validator.TestUserValidatorReal.test_valid_user.executor": "Run",
-    "Python tests.Python tests in _test.py.executor": "Run",
-    "Python tests.Python tests in auto_test_open_file.py.executor": "Run",
-    "Python tests.Python tests in auto_tests.py.executor": "Run",
-    "Python tests.Python tests in calc.py.executor": "Run",
-    "Python tests.Python tests in file.py.executor": "Run",
-    "Python tests.Python tests in main.py.executor": "Run",
-    "Python tests.Python tests in red.py.executor": "Run",
-    "Python tests.Python tests in test_math_utils.py.executor": "Run",
-    "Python.Unnamed.executor": "Run",
-    "Python.algorithms.executor": "Run",
-    "Python.algorythms.executor": "Run",
-    "Python.conspect.executor": "Run",
-    "Python.design_patterns.executor": "Run",
-    "Python.file.executor": "Run",
-    "Python.first.executor": "Run",
-    "Python.http_queries.executor": "Run",
-    "Python.javacode.executor": "Run",
-    "Python.js.executor": "Run",
-    "Python.lists.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.oop.executor": "Run",
-    "Python.patterns.executor": "Run",
-    "Python.pg2.executor": "Run",
-    "Python.practice.executor": "Run",
-    "Python.python_generation.executor": "Run",
-    "Python.read_files.executor": "Run",
-    "Python.red.executor": "Run",
-    "Python.repeat.executor": "Run",
-    "Python.run.executor": "Run",
-    "Python.strings.executor": "Run",
-    "Python.strings_methods.executor": "Run",
-    "Python.task-lv0.executor": "Run",
-    "Python.urls.executor": "Run",
-    "Python.what_is.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Python313/projects/practice",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "settings.editor.splitter.proportion": "0.2874618"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python tests.Python tests for auto_test_open_file.TestFileOpen.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for auto_test_open_file.TestFileOpen.test_read_file.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for auto_tests.TestAddFunction.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for auto_tests.TestAddFunction.test_in.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for auto_tests.TestAddFunction.test_none.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for auto_tests.TestAddFunction.test_true.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for auto_tests.TestDivision.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for auto_tests.TestDivision.test_divistion_by_zero.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_math_utils.test_add_parametrized.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_math_utils.test_add_positive.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_math_utils.test_fetch_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_user_validator.TestUserValidatorReal.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_user_validator.TestUserValidatorReal.test_valid_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in _test.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in auto_test_open_file.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in auto_tests.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in calc.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in file.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in main.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in red.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_math_utils.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Python.algorithms.executor&quot;: &quot;Run&quot;,
+    &quot;Python.algorythms.executor&quot;: &quot;Run&quot;,
+    &quot;Python.conspect.executor&quot;: &quot;Run&quot;,
+    &quot;Python.design_patterns.executor&quot;: &quot;Run&quot;,
+    &quot;Python.file.executor&quot;: &quot;Run&quot;,
+    &quot;Python.first.executor&quot;: &quot;Run&quot;,
+    &quot;Python.http_queries.executor&quot;: &quot;Run&quot;,
+    &quot;Python.javacode.executor&quot;: &quot;Run&quot;,
+    &quot;Python.js.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lists.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.oop.executor&quot;: &quot;Run&quot;,
+    &quot;Python.patterns.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pg2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.practice.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python_generation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.read_files.executor&quot;: &quot;Run&quot;,
+    &quot;Python.red.executor&quot;: &quot;Run&quot;,
+    &quot;Python.repeat.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run.executor&quot;: &quot;Run&quot;,
+    &quot;Python.strings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.strings_methods.executor&quot;: &quot;Run&quot;,
+    &quot;Python.task-lv0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.urls.executor&quot;: &quot;Run&quot;,
+    &quot;Python.what_is.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Python313/projects/practice&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.2874618&quot;
   }
-}]]></component>
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="practice" is-module-sdk="true">

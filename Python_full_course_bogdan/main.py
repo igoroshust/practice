@@ -1,35 +1,4 @@
-# # my_fruits = ('apple', 'banana', 'lime')
-# # other_fruits = ('banana', 'apple', 'lime')
-# #
-# # print(my_fruits[0])
-#
-# users = (
-#     {
-#         'user_id': 134,
-#         'user_name': 'Alice'
-#     },
-#     {
-#         'user_id': 831,
-#         'user_name': 'Bob'
-#     }
-# )
-#
-# print(users[1]['user_id'])  # 831
-#
-# users[1]['user_id'] = 100  # Изменяем словарь
-#
-# print(users[1]['user_id'])  # 100
+first_dict = {'a': 1, 'b': 2}
+second_dict = {'b': 2, 'a': 1}
 
-
-
-my_set = {'abc', 'd', 'f', 'y'}
-
-my_set.clear()
-
-print(my_set)
-
-
-
-
-
-
+(first_dict == second_dict) and print('Словари одинаковые')
