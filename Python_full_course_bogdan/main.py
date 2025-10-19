@@ -1,4 +1,8 @@
-first_dict = {'a': 1, 'b': 2}
-second_dict = {'b': 2, 'a': 1}
+import traceback
 
-(first_dict == second_dict) and print('Словари одинаковые')
+try:
+    x = 1 / 0
+except Exception as e:
+    print('---')
+    exception_traceback = traceback.format_exc()
+    print(exception_traceback)

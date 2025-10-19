@@ -1666,6 +1666,171 @@ red_button = {
 # Если у словаря button есть ключ color, его значение будет перезаписано
 ```
 
+Объединение словарей в новый словарь
+```python
+
+button_info = {
+    'text': 'Buy',
+}
+
+button_style = {
+    'color': 'yellow',
+    'width': 200,
+    'height': 300,
+}
+
+button = {
+    **button_info,
+    **button_style,
+}
+
+# button = button_info | button_style  # Аналогичная запись объединения словарей (порядок следования операндов играет роль)
+
+print(button)
+```
+
+#### del
+del - ИНСТРУКЦИЯ, не оператор
+Магический метод list.__delitem__(0)
+
+#### lambda
+Лямбда функции всегда анонимные. Полезны при работе с функциями высшего порядка (map, filter, sorted), когда нужна простая
+функция на короткое время, для создания коротких callback-функций
+`lambda parameters: expression`
+
+```
+# Обычная функция
+def add(x, y):
+    return x + y
+    
+# Эквивалентная лямбда-функция
+add = lambda x, y: x + y
+```
+lambda-функции, присвоенные переменным, использовать можно, но не рекомендуется.
+
+Обычные функции с 1 строчкой в теле можно писать на манер lambda-функций:
+```python
+def mult(a, b): return a * b
+```
+
+Пример использования lambda-функции
+```python
+def greeting(greet):
+    return lambda name: f"{greet}, {name}!"  # Здесь формируется замыкание
+
+morning_greeting = greeting('Good Morning')
+print(morning_greeting('Bogdan'))
+
+evening_greeting = greeting('Good Evening')
+print(evening_greeting('Bodgan'))
+```
+
+В примере выше есть замыкание происходит в функции `greeting`, которая возвращает анонимную функцию (lambda)
+Как работает создание замыкания: когда мы вызываем `greeting('Good Morning')`:
+- `greet` устанавливается в 'Good Morning'
+- lambda-функция создаётся и возвращается. Здесь и происходит замыкание: lambda захватывает переменную greet из области
+видимости `greeting`. Даже после после выхода из `greeting`, lambda помнит значение greet.
+
+Замыкание формируется в момент создания lambda внутри `greeting`, создавая отдельное замыкание для каждого значения `greet`.
+
+Можно переписать вышестоящий код так:
+```python
+def greeting(greet):
+    def info(name):
+        return f'{greet}, {name}!'
+    return info
+```
+
+#### Замыкание функций
+Замыкание (closure) - это концепция в программировании, когда функция (обычно вложенная) "запоминает" переменные из своей
+внешней области видимости (scope), даже после того, как внешняя функция завершнила выполнение. Это позволяет внутренней 
+функции обращаться к этим переменным позже, как будто они замкнуты внутри неё. В Python замыкания реализуются через вложенные
+функции, где внутренняя функция захватывает (captures) переменные из внешней.
+
+
+#### try/except
+Позволяет обработать ошибку и избежать прерывания программы.
+
+```python
+try:
+    # Выполнение блока кода
+    pass
+except ErrorType:
+    # Этот блок выполняется в случае возникновения ошибок в блоке try
+    pass
+```
+
+Конкретный пример
+```python
+try:
+    print(10 / 0)
+except ZeroDivisionError as e:
+    print(type(e))  # <class 'ZeroDivisionError'>
+    print(e)  # division by zero
+
+print('Continue...')
+```
+
+Пример отлова ошибок разных типов
+```
+try:
+    print('10' / 0)
+except ZeroDivisionError as e:
+    print(isinstance(e, Exception))
+    print(e)
+except TypeError as e:
+    print(type(e))
+    print(e)
+else:
+    # Выполнится, если не было ошибок
+    print('Connect to DB')
+finally:
+    # Выполнится в любом случае (если была ошибка, и если не было)
+    print('Disconnect from DB')
+    
+print('Continue...')
+```
+
+**В else можно прописывать логику подключения к БД, а в finally - отключение**
+
+Любые ошибки в блоке:
+```
+try:
+    print(10 / 0)
+except Exception as e:
+    print(e)
+```
+
+Или (не рекомендуется)
+```python
+try:
+    print(10 / 0)
+except:
+    print('Some erorr occurred')
+```
+
+#### Traceback
+Traceback (трассировка стека или обратная трассировка) - это специальный отчёт, который показывает последовательность вызовов
+функций в программе в момент возникновения ошибки. Помогает определить место возникновения ошибки,понять последовательность вызовов,
+быстро найти и исправить проблему. Traceback содержит:
+- Информацию о файле и номере строки, где произошла ошибка;
+- - Последовательность вызовов функций;
+- Тип возникшей ошибки;
+- Дополнительное описание проблемы
+
+Получение Traceback в виде строки
+```
+import traceback
+
+try:
+    x = 1 / 0
+except Exception as e:
+    print('---')
+    exception_traceback = traceback.format_exc()
+    print(exception_traceback)
+```
+
+#### Функции высшего порядка
 
 
 

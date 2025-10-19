@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Python_full_course_bogdan/SPEC.md" beforeDir="false" afterPath="$PROJECT_DIR$/Python_full_course_bogdan/SPEC.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Python_full_course_bogdan/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python_full_course_bogdan/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/DOC.md" beforeDir="false" afterPath="$PROJECT_DIR$/js/DOC.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/repeat/what_is.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/repeat/what_is.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,11 +124,11 @@
       <recent name="C:\Python313\projects\practice\python\Archive" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Python313\projects\practice\Python_full_course_bogdan" />
       <recent name="C:\Python313\projects\practice\interview_questions\unittest_workdir" />
       <recent name="C:\Python313\projects\practice\dj_project" />
       <recent name="C:\Python313\projects\practice\dj_project\static" />
       <recent name="C:\Python313\projects\practice\python" />
-      <recent name="C:\Python313\projects\practice" />
     </key>
   </component>
   <component name="RunManager">
