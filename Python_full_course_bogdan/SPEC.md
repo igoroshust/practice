@@ -1830,6 +1830,62 @@ except Exception as e:
     print(exception_traceback)
 ```
 
+
+Пример генерации ошибок
+```
+def divide_nums(a, b):
+    """Вызов ошибки"""
+    if b == 0:
+        raise ValueError('Second argument can\'t be 0')
+    return a / b
+
+try:
+    divide_nums(10, 0)
+except ValueError as e:
+    print(e)
+
+print('Continue...')
+```
+
+
+**Задача**
+![img_5.png](img_5.png)
+
+*Корректное решение-1*
+```python
+def image_info(dictionary: dict) -> str:
+    if 'image_id' not in dictionary or 'image_title' not in dictionary:
+        raise TypeError('Keys image_id and image_title must be present')
+    return f"Image '{dictionary['image_title']}' has id {dictionary['image_id']}"
+
+some_dict = {
+    'image_id': 123,
+    'image_title': 'Ria',
+}
+
+try:
+    image_info({'image_id': 123})
+except TypeError as e:
+    print(e)
+```
+
+*Корректное решение-2 (учителя)*
+```python
+def image_info(img):
+    if ('image_id' not in img) or ('image_title' not in img):
+        raise TypeError('Keys image_id and image_title must be present')
+    return f"Image '{img['image_title']}' has id {img['image_id']}"
+
+print(
+    image_info({'image_title': 'My cat', 'image_id': 123}),
+)
+
+try:
+    image_info({'image_id': 123})
+except TypeError as e:
+    print(e)
+```
+
 #### Функции высшего порядка
 
 
