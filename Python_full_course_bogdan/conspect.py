@@ -1,10 +1,307 @@
 print('\n'*5)
 
 
-#  09:16:45
-             
 
-print('\n'*10)
+            
+print('\n'*5)
+
+# Посмотреть подклассы int
+print(int.__subclasses__())
+
+# Задача-1
+my_object = {
+    'name': 'Igor',
+    'age': 28,
+}
+def dict_to_list(dictionary):
+    seq = []
+    for key, value in dictionary.items():
+        if (type(value) == int):
+            value *= 2
+        seq.append((key, value))
+    return seq
+print(
+    dict_to_list(my_object)
+)
+
+# Задача-2
+seq = [1, 2, 3, True, 'string']
+def filter_list(sequence, type_of_seq):
+    new_list = []
+    for i in sequence:
+        # if isinstance(i, type_of_seq) -- спорный вариант (учитывает True)
+        if (type(i) == type_of_seq):
+            new_list.append(i)
+    return new_list
+print(
+    filter_list(seq, bool),
+    filter_list([3, 'dos', 123], int),
+    sep='\n'
+)
+
+# Задача-2 (альтернативный вариант)
+seq = [1, 2, 3, True, 'string']
+def filter_list(sequence, type_of_sequence):
+    return list(filter(lambda elem: type(elem) == type_of_sequence, sequence))
+print(filter_list(seq, int))
+
+# Задача-2 (решение учителя)
+def filter_list(list_to_filter, value_type):
+    def check_element_type(elem):
+        return isinstance(elem, value_type)
+    return list(filter(check_element_type, list_to_filter))
+print(filter_list([1, 10, 'abc', 5.5], int))
+
+
+"""Циклы"""
+# Циклы используются для перебора элементов последовательности
+# Последовательности: dict, list, tuple, set, range, str
+# Типы: for...in..., while
+
+# Получение значения ключа при обходе словаря
+my_dict = {'id': 324, 'title': 'test'}
+for key in my_dict:
+    print(type(key))
+    print(key)
+    print(my_dict[key])
+
+
+# for in по словарю
+my_object = {
+    'x': 10,
+    'y': True,
+    'z': 'abc',
+}
+for key in my_object:
+    print(key, my_object[key])
+
+# Сохранение последнего значения перебора в глобальной области видимости
+for el in [1, 'abc', True]:
+    print(type(el))
+    print(el)
+print(el)  # True (сохраняет последний элемент), доступна в глобальной области видимости
+
+# Получение значения ключа при обходе словаря
+my_dict = {'id': 324, 'title': 'test'}
+for key in my_dict:
+    print(type(key))
+    print(key)
+    print(my_dict[key])
+
+
+"""Тернарный оператор"""
+# Вывод сведений в терминал исходя из содержимого кортежа
+my_img = ('1920', '1080', True)
+def show_result(tup: tuple):
+    if len(my_img) == 2:
+        return f'{my_img[0]}x{my_img[1]}'
+    return 'Incorrect image formatting'
+print(show_result(my_img))
+
+# Тернарный оператор для подсчёта длины строки
+string = 'jdasjp ijdAPISDJ Paidj pasdjoasjd oiajsdoi ajsodiasjdias oadisjoaisdjaisdjai jaidjapidj'
+print('String is long') if len(string) >= 79 else print('String is short')
+
+
+# Вывод сведений в терминал исходя из содержимого кортежа
+my_img = ('1920', '1080',)
+info = f'{my_img[0]}x{my_img[1]}' if len(my_img) == 2 else 'Incorrect image formatting'
+print(info)
+
+# Тернарный оператор
+my_number = 21.5
+print('is int') if type(my_number) is int else print('is not int')
+
+# Второй пример (Вызов разных функций в зависимости от того или иного условия)
+send_img(img) if img.get['is_processed'] else process_and_send_img(img)
+
+# Третий пример
+product_qty = 10
+print('in stock' if product_qty > 0 else 'out of stock')
+
+# Присвоение тернарного оператора переменной
+temp = +24
+weather = 'hot' if temp > 18 else "cold"
+print(weather)
+
+
+# Решение задачи на дистанцию
+my_dict = {
+    'distance': 3000,
+    'speed': 200,
+    'time': 10,
+}
+
+
+def route_info(dictionary: dict):
+    """Моё решение"""
+    if dictionary.get('distance') and (type(dictionary['distance']) is int):
+        return f"Distance to your destination is {dictionary['distance']}"
+
+    elif not dictionary.get('distance') and (dictionary.get('speed') and dictionary.get('speed')):
+        return f"___Distance to your destination is {dictionary['speed'] * dictionary['time']}"
+
+    else:
+        return "No distance info is available"
+
+
+def route_info_1(route):
+    """Решение учителя"""
+    if ('distance' in route) and (type(route['distance']) == int):
+        return f"Distance to your destination is {route['distance']}"
+
+    # Если первое условие ложно, переходим ко второму условию!
+    if ('speed' in route) and ('time' in route):
+        return f"Distance to your destination is {route['speed'] * route['time']}"
+
+    return "No distance info is available"
+
+
+def route_info_2(route):
+    """Решение учителя с if-else"""
+    if ('distance' in route) and (type(route['distance']) == int):
+        route_info = f"Distance to your destination is {dictionary['distance']}"
+    elif ('speed' in route) and ('time' in route):
+        route_info = f"Distance to your destination is {route['speed'] * route['time']}"
+    else:
+        route_info = "No distance info is available"
+    return route_info
+
+
+print(
+    route_info_1(my_dict),
+    sep='\n'
+)
+
+# Проверяем тип параметра функции
+# !!! Внутри функции лучше использовать return, а не блоки if elif else
+def nums_info(a, b):
+    """Проверяем тип параметров"""
+    if (type(a) is not int) or (type(b) is not int):
+        return 'Один из аргументов не целое число'
+
+    if a >= b:
+        return f'{a} больше или равно {b}'
+
+    return f'{a} меньше {b}'
+
+print(nums_info(True, 10))
+
+# Альтернативная запись
+def nums_info(a, b):
+    if (type(a) is not int) or (type(b) is not int):
+        info = 'Один из аргументов не целое число'
+    elif a >= b:
+        info = f'{a} больше или равно {b}'
+    else:
+        info = f'{a} меньше {b}'
+    return info
+
+
+# Проверка позитивного числа
+num_one = 10
+num_two = 5.3
+
+if (num_one > 0 and
+    num_two > 0 and
+    isinstance(num_one, int) and
+    isinstance(num_two, int)):
+    print('Both number are ints and positive')
+
+# Проверка наличия ключа в словаре
+my_phone = {
+    'price': 200,
+    'brand': 'Siemens',
+}
+
+if my_phone.get('brand'):
+    print('Phone\'s brand is', my_phone['brand'])
+else:
+    print('There is no phone brand')
+
+# Распаковка списка в позиционные аргументы
+
+"""Создайте список словарей,
+в котором 3 словаря,
+с помощью оператора распаковки списков
+создать 3 переменные каждая из которых будет содержать один из словарей,
+создать функцию, принимающую 2 аргумента
+в вызове функции должны распаковывать словарь
+функцию нужно вызвать трижды (в оригинальном списке должно быть 3 словаря)
+у каждого словаря должно быть по два ключа"""
+
+dictionary_list = [
+    {'name': 'Igor', 'surname': 'Oshust'},
+    {'name': 'Egor', 'surname': 'Malkin'},
+    {'name': 'Gregor', 'surname': 'Palkin'},
+]
+
+first, second, third = dictionary_list
+
+def get_info(name, surname):
+    return f"one - {name}, two - {surname}"
+
+print(
+    get_info(**first),
+    get_info(**second),
+    get_info(**third),
+    sep='\n'
+)
+
+user_data = ['Bogdan', 23] 
+
+def user_info(name, comments_qty):  # В таком случае в списке должно быть точно два аргумента
+    if not comments_qty:
+        return f"{name} has no comments"
+    return f"{name} has {comments_qty} comments"
+
+print(user_info(*user_data))
+
+"""Распаковка словаря в аргументы с ключевыми словами"""
+user_profile = {
+    'name': 'Bogdan',
+    'comments_qty': 23,
+}
+
+def user_info(name, comments_qty=0):  # В таком случае в словаре не может быть более 2 ключей!
+    if not comments_qty:
+        return f"{name} has no comments"
+    return f"{name} has {comments_qty} comments"
+
+print(
+    # С помощью распаковки передаём ключи словаря в качестве аргументов функции user_info
+    user_info(**user_profile),
+
+    # Альтернативная запись
+    user_info(user_profile['name'], user_profile['comments_qty']),
+
+    # С явным указанием аргументов с ключевыми словами
+    user_info(name=user_profile['name'], comments_qty=user_profile['comments_qty']),
+    
+    sep='\n'
+)
+
+# + Можно распаковать словарь следующим образом (но не рекомендуется, ибо мы фактически распаковываем названия ключей и не получаем значения этих ключей)
+name, comments_qty = user_profile
+print(name)
+print(comments_qty)
+
+"""Использование * при распаковке"""
+my_fruits = ['apple', 'banana', 'lime']
+my_apple, *remaining_fruits = my_fruits
+print(my_apple)  # apple
+print(remaining_fruits)  # ['banana', 'lime']
+
+"""Распаковка списков (LIST)"""
+my_fruits = ['apple', 'banana', 'lime']
+my_apple, my_banana, my_lime = my_fruits
+
+print(
+    my_apple,
+    my_banana,
+    my_lime
+)
+
 
 """Пример вызова функции по умолчанию"""
 
