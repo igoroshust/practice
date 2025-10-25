@@ -1,9 +1,132 @@
 print('\n'*5)
 
 
-
             
 print('\n'*5)
+
+"""Сокращённый цикл for in"""
+# Выражение for Элемент in Последовательность if Условие
+
+# Решение задач по курсу
+my_object = {
+    'name': 'Igor',
+    'surname': 'Oshust',
+    'sex': 'Male',
+    'id': '32',
+}
+
+my_object_upper = {k: v.upper() for k, v in my_object.items()}
+my_object_long_length = {k: v for k, v in my_object.items() if len(v) > 3}
+
+
+print(my_object_upper)
+print(my_object_long_length)
+
+# Создать словарь из списка с помощью генератора
+my_scores = [10, 7, 14]
+scores = {index: elem for index, elem in enumerate(my_scores)}
+print(scores)  # {0: 10, 1: 7, 2: 14}
+
+# for in для словаря
+my_scores = {
+    'a': 10,
+    'b': 7,
+    'm': 14
+}
+
+scores = {k: v * 10 for k, v in my_scores.items()}
+print(scores)
+print(my_scores)
+
+# for in для множеств
+my_set = {1, 10, 15}
+new_set = {val * val for val in my_set}
+print(new_set)
+
+
+# Создание списка положительных чисел
+lst = [abs(i) for i in range(-10, 11)]
+
+# Тот же пример с добавлением условия
+lst = [abs(i) for i in range(-10, 11) if abs(i) > 5]
+
+"""Деление введённых чисел"""
+# Улучшенная версия кода
+while True:
+    try:
+        first_value = float(input('Enter first value: '))
+        second_value = float(input('Enter second value: '))
+
+        # Попытка деления
+        result = first_value / second_value
+        print(f'Result: {result}')
+
+    except ValueError:
+        print('Error: You must ener valid numbers!')
+        continue  # проверяем итерацию
+    except ZeroDivisionError:
+        print('Error: Division by zero! Please enter a non-zero second value')
+        continue
+
+    # Если всё прошло успешно, спрашиваем о продолжении
+    user_input = input('Try again? yes/no: ')
+    if user_input.lower() == 'no':
+        break
+    elif user_input.lower() != 'yes':
+        print('Please enter "yes" or "no".')
+
+print('Bye!')
+
+
+# Моё решение
+user_input = ''
+
+while user_input != 'no':
+    first_value = float(input('Enter first value: '))
+    second_value = float(input('Enter second value: '))
+
+    try: 
+        result = first_value / second_value
+    except ZeroDivisionError as e:
+        print('Eror: division by zero!')
+        second_value = float(input('Enter second value: '))
+    print(f'Result: {result}')
+
+    user_input = input('Try again? yes/no: ')
+    if user_input == 'yes':
+        continue
+else:
+    print('bye')
+
+# Решение учителя
+while True:
+    try:
+        num_one = float(input('Please enter number one: '))
+        num_two = float(input('Please enter number two: '))
+    except ValueError as e:
+        print(e)
+        print('You must enter numbers!')
+        continue # переходим на следующую итерацию (нижеизложенные строки кода не будут выполнены в рамках текущей итерации)
+
+    print(num_one / num_two)
+
+    answer = input('Do you want to continue? (yes/no): ')
+    if answer == 'no':
+        break
+
+
+"""Угадай число"""
+import random
+
+random_num = random.randint(1, 5)
+
+while True:
+    num = int(input('Guess the number from 1 to 5: '))
+    if num != random_num:
+        print('Try again...')
+        continue
+    print('Congratulations!', random_num)
+    break
 
 # Посмотреть подклассы int
 print(int.__subclasses__())
