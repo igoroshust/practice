@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск товаров</title>
+</head>
+<body>
+
+    <h1>Поиск товаров</h1>
+    <form action="{% url 'product_search' %}" method="get">
+        <input type="text" name="q" value="{{ query }}" placeholder="Введите название или описание">
+        <button type="submit">Искать</button>
+    </form>
+
+    {% if products %}
+        <h2>Результаты поиска:</h2>
+        <ul>
+            {% for product in products %}
+                <li>
+                    <strong>{{ product.name }}</strong> - {{ product.price }} руб. <br>
+                    Категория: {{ product.category }}
+                    Описание: {{ product.description }}
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>Товары не найдены</p>
+    {% endif %}
+    
+</body>
+</html>

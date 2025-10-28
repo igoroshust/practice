@@ -1,2 +1,5 @@
 .idea
+django_skills/venv
+django_skills/.idea
+django_skills/.env
 venv
