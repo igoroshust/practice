@@ -1,3 +1,95 @@
+/* Ключевое слово this 
+Ключевое слово this внутри метода объекта ссылается на объект */
+
+person1 = {
+    userName: 'Igor',
+    age: 28,
+    isMarried: false,
+    // Метод объекта (Свойство, если функция - то это метод)
+    sayHi: function(name){
+        console.log(`Привет, ${name}! Меня зовут ${this.userName}`);
+        // this.userName тоже самое, что person.userName
+    }
+}
+
+person1.sayHi('Марк');
+
+/* Если используем this внутри функции, которая не является методом объекта (даже если она лежит в методе объекта, но не является методом),
+то this будет  терять контекст и ссылаться на глобальный объект window */
+function showThis(){
+    console.log(this); 
+}
+showThis(); // window (или undefined, если включен 'use strict')
+
+
+/* Объекты */
+let propertyName = 'Designer';
+let hobbyName = 'hobby';
+
+person = {
+    userName: 'Igor',
+    age: 28,
+    isMarried: false,
+    profession: propertyName, // Свойство как переменная
+    hobby: 'Programming',    // Метод объекта (Свойство, если функция - то это метод)
+    sayHi: function(){
+        console.log('Привет!');
+    },
+    'first name': 'Egor'
+}
+
+console.log(person.profession);
+console.log(person[hobbyName]); // Вызов свойства как переменной
+console.log(person.userName); // Используем для простых ключей
+console.log(person['age']); // Ключи с пробелами, спецсимволами или является переменной
+console.log(person['first name']);
+
+
+/* Методы объектов */
+
+//  Создаём свойство объекта
+person.money = 130000;
+console.log(person['money']);
+
+// Удаляем свойство
+delete person.age;
+
+// Вызов метода
+person.sayHi();
+
+// Создание метода
+person.sayBye = (name) => console.log(`Пока, ${name}!`);
+person.sayBye('Gregory');
+
+
+
+/* Обход массивов */
+const autoBrands = ['Audi', 'BMW', 'Mazda', 'Toyota', 'Nissan'];
+
+/* Обход массива с forEach */
+autoBrands.forEach(function(item, index){
+    console.log(`${index} => ${item}`);
+})
+
+// С передачей функции как параметра (вызов функции не нужен)
+autoBrands.forEach(printBrand);
+function printBrand (brand, i) {
+    console.log(`${i} => ${brand}`);
+}
+
+// Стрелочная функция
+autoBrands.forEach((brand, i) => console.log(`${brand} => ${i}`));
+
+
+/* Обход массива циклом for ( of ) */
+
+// Массив будет пройден столько раз, сколько в нём элементов
+for (let brand of autoBrands) {
+    // console.log(brand);
+}
+
+
+
 /* Методы массивов 
 .push() - добавляем элемент в конец массива
 .pop() - удалить элемент с конца массива
