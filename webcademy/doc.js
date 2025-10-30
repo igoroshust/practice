@@ -1,3 +1,171 @@
+
+/* Выбор DOM-элементов */
+
+/* Работа с CSS-классами */
+/* Методы работы с атрибутами
+getAttribute(attrName) - возвращает значение указанного атрибута
+setAttribute(name, value) - добавляет указанный атрибут и его значени к элементу
+hasAttribute(attrName) - возвращает true при наличии у элемента указанного атрибута
+removeAttribute(attrName) - удаляет указанный атрибут
+toggleAttribute(name, force) - добавляет новый атрибут при отсутствии или удаляет существующий атрибут. 
+-- force true - атрибут гарантированно добавляется, даже если уже есть;
+-- force false - атрибут гарантированно удаляется, даже если его не было.
+
+hasAttributes() - возвращает true, если у элемента естьь какие-либо атрибуты
+getAttributeNames() - возвращает названия атрибутов элемента
+*/
+
+const picture = document.getElementById('lead');
+picture.getAttribute('src'); // lead.jpg
+picture.setAttribute('src', '4c.jpg'); // Заменяем картинку
+picture.setAttribute('alt', 'newAlt'); // alt='newAlt'
+picture.removeAttribute('alt');
+picture.toggleAttribute('alt');
+
+console.log(picture.hasAttribute('alt'));
+console.log(picture.hasAttributes());
+console.log(picture.getAttributeNames()); // ['src', 'id', 'alt']
+
+
+picture.setAttribute('src', '4c.jpg');
+picture.setAttribute('width', '400');
+picture.setAttribute('height', '350');
+picture.src = 'lead.jpg'; // Альтернативный способ заменить изображение
+
+
+/* Проверка содержимого класса */
+const heading = document.querySelector('h2');
+heading.classList.toggle('red-text');
+
+ // Через переменную
+const result2 = heading.classList.contains('red-text') ? 'Класс red-text есть!' : 'Класса red-text нет!';
+console.log(result2);
+
+// Напрямую в консоли
+console.log(
+    heading.classList.contains('red-text') ? 'Класс red-text есть!' : 'Класса red-text нет!'
+);
+
+// Стандартно через условия
+if (heading.classList.contains('red-text')) {
+    console.log('Класс red-text есть!');
+} else {
+    console.log('Класса red-text нет!');
+}
+
+
+/* Переключение класса (toggle)
+const heading = document.querySelector('h2');
+heading.classList.toggle('green-text'); // Добавляет класс
+console.log(heading.className);
+console.log(heading);
+
+heading.classList.toggle('green-text'); // Удаляет класс
+console.log(heading.className);
+console.log(heading);
+*/
+
+/* Добавление/Удаление класса 
+const heading = document.querySelector('h2');
+heading.classList.add('red-text');
+console.log('После добавления:', heading.classList.contains('red-text')); // true
+console.log(heading.className); // red-text
+console.log(heading);
+
+heading.classList.remove('red-text');
+console.log('После удаления:', heading.classList.contains('red-text')); // false
+console.log(heading.className);
+console.log(heading);
+
+
+
+// Выбор одного элемента по DOM-селектору. querySelector возвращает первый найденный на странице элемент
+// Можно передавать теги и вложенные классы
+const firstElement = document.querySelector('.school-name');
+const h2Element = document.querySelector('h2');
+console.log(firstElement, h2Element);
+
+// Добавить класс к элементу
+const h4 = document.querySelector('h4');
+h4.classList.add('red');
+console.log(h4);
+
+/* Методы classList 
+add
+remove
+toggle
+contains
+replace
+item(index) - возвращает класс по индексу
+*/
+
+// Выбор коллекции элементов
+const headings = document.querySelectorAll('h2');
+
+// Добавляем класс к коллекции элементов
+headings.forEach(item => {
+    item.classList.add('red-text');
+    // console.log(item);
+});
+
+for (let heading of headings) {
+    heading.classList.add('red-text');
+    // console.log(element);
+}
+
+// Методы старого стандарта
+document.getElementById('');
+document.getElementsByClassName(''); // Не поддерживает forEach без явного преобразования
+document.getElementsByTagName('');
+
+
+
+
+/* Сжать теги html-документа для просмотра структуры: ctrl + K; ctrl + 0 
+Вернуть исходное состояние: ctrl + K; ctrl + J */
+
+/* Классы. Конструкторы объектов
+Класс - это как чертёж для все будущих объектов, которые будут создаваться на его основе */
+
+class Person {
+    // Конструктор (функция, создающая объект и наполняющая его данными - свойствами)
+    constructor (userName, age, isMarried) {
+        this.userName = userName;
+        this.age = age;
+        this.isMarried = isMarried;
+    }
+
+    // Когда описываем метод в классе, мы не пишем function
+    sayHi() {
+        console.log(`Привет! Я ${this.userName}.`);
+    }
+}
+
+const user1 = new Person('Марк', 30, false); // В константу user1 будет записан объект класса Person
+const user2 = new Person('Игорь', 28, true); 
+console.log(user1, user2, user1.sayHi);
+user1.sayHi();
+user2.sayHi();
+
+
+
+/* Объекты: обход циклом for in 
+В отличие от for of, for in может обходить неитерируемые объекты и возвращать ключи */
+const persona = {
+    userName: 'Марк',
+    age: 30,
+    isMarried: false,
+    sayHi: function(yourName){
+        console.log(`Привет, ${yourName}. Меня зовут ${this.userName}`)
+    },
+};
+
+
+for (let key in persona) {
+    console.log(key);
+}
+
+
 /* Ключевое слово this 
 Ключевое слово this внутри метода объекта ссылается на объект */
 
