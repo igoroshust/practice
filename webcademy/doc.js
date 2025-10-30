@@ -1,5 +1,56 @@
-
 /* Выбор DOM-элементов */
+/* Прослушка событий */
+
+const button = document.querySelector('#button');
+const button1 = document.querySelector('#button1');
+const picture1 = document.querySelector('#picture');
+
+button.value = 'Удалить';
+
+// Устанавливаем прослушку события (удаление по клику)
+// addEventListener позволяет навешивать много обработчиков на 1 событие
+button.addEventListener('click', function(){
+    console.log('Click!');
+    picture1.remove(); // Удаляем картинку
+});
+
+// { capture: true } - действия на этапе захвата (будет выведено перед кликом)
+button.addEventListener('click', function(){
+    console.log('Захват!');
+}, { capture: true });
+
+// { once: true } - обработчик выполняется только один раз, затем автоматически удаляется. 
+// Полезно для одноразовых действий с целью избежать утечек в памяти.
+button1.addEventListener('click', function(){
+    console.log('1 раз выполнюсь');
+}, { once: true });
+
+// { passive: true } - обработчик не будет вызывать `preventDefault()` (запрет стандартного поведения, например, прокрутки)
+window.addEventListener('scroll', () => console.log('Скролл'), { passive: true })
+
+button1.addEventListener('click', (e) => {
+    e.preventDefault(); // Работает только при passive: false
+    console.log('Клик без действия по умолчанию');
+}, { passive: false });
+
+
+// { signal: undefined } - позволяет отменить слушатель с помощью AbortController. Полезно для очистки при размонитровании компонентов (например, в React)
+// signal отменяет только те обработчики, которые явно связаны с ним.
+const controller = new AbortController();
+button.addEventListener('click', () => console.log('Клик из signal'), { signal: controller.signal })
+
+// Отмена всех связанных слушателей (через 2 секунды сигнал отменится)
+setTimeout(() => {
+    controller.abort();
+    console.log('Сигнал отменён!');
+}, 2000)
+
+
+// Альтернативный способ навешивать события по клику
+// Только 1 обработчик (дубли перезаписывают исходный). Старый способ, совместим со старыми браузерами. Используем для быстрого прототипирования, но лучше addEventListener.
+button.onclick = function () {
+    picture.remove(); // Удаляем картинку
+}
 
 /* Работа с CSS-классами */
 /* Методы работы с атрибутами
@@ -11,11 +62,11 @@ toggleAttribute(name, force) - добавляет новый атрибут пр
 -- force true - атрибут гарантированно добавляется, даже если уже есть;
 -- force false - атрибут гарантированно удаляется, даже если его не было.
 
-hasAttributes() - возвращает true, если у элемента естьь какие-либо атрибуты
+hasAttributes() - возвращает true, если у элемента есть какие-либо атрибуты
 getAttributeNames() - возвращает названия атрибутов элемента
 */
 
-const picture = document.getElementById('lead');
+const picture = document.getElementById('picture');
 picture.getAttribute('src'); // lead.jpg
 picture.setAttribute('src', '4c.jpg'); // Заменяем картинку
 picture.setAttribute('alt', 'newAlt'); // alt='newAlt'
@@ -76,7 +127,6 @@ heading.classList.remove('red-text');
 console.log('После удаления:', heading.classList.contains('red-text')); // false
 console.log(heading.className);
 console.log(heading);
-
 
 
 // Выбор одного элемента по DOM-селектору. querySelector возвращает первый найденный на странице элемент
@@ -159,7 +209,6 @@ const persona = {
         console.log(`Привет, ${yourName}. Меня зовут ${this.userName}`)
     },
 };
-
 
 for (let key in persona) {
     console.log(key);
