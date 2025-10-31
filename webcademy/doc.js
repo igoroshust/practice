@@ -1,6 +1,77 @@
 /* Выбор DOM-элементов */
-/* Прослушка событий */
 
+/* Работы с элементами */
+
+// Выбор контейнера
+const container = document.querySelector('#elementsContainer');
+
+// Создание заголовка + наполнение контентом
+const newHeader = document.createElement('р1');
+newHeader.innerText = 'New Header';
+container.append(newHeader);
+
+// Копирование шапки
+// const mainHeader = document.querySelector('header');
+// // const headerCopy = mainHeader.cloneNode(); // Клонирутся только шапка без содержимого (<header></header>)
+// const headerCopy = mainHeader.cloneNode(true); // Клонирутся с внутренним содержимым
+// container.append(headerCopy);
+
+
+// Вставка разметки через строки
+const htmlExample = '<h2>H2</h2>';
+container.insertAdjacentHTML('beforeend', htmlExample);
+
+// Вставка разметки через шаблонные строки
+const title = 'Текст заголовка';
+const htmlExample1 = `<h2>${title}</h2>`;
+container.insertAdjacentHTML('beforeend', htmlExample1);
+
+
+/* Шпаргалка 
+// Создать элемент
+document.createElement('');
+
+// Изменить HTML-содержимое внутри элемента
+element.innerHTML = '';
+
+// Изменить текстовое содержимое внутри элемента
+node.innerText = ''
+
+// Клонирование элемента
+node.cloneNode() // true с внутренним содержимым (текст и теги), false - без внутреннего содержимого
+
+// Вставить элемент внутрь другого элемента
+element.append(nodesOrDOMStrings)
+
+// Удалить элемент
+element.remove()
+*/
+
+/* Объект event 
+event - объект события, автоматически передаваемый в обработчик события в JS. Он содержит информацию о произошедшем событии (клик, нажатие клавиши, отправка формы и т.д.) */
+
+const list = document.querySelector('#list');
+
+list.addEventListener('click', function (event){
+    console.log(this); // Инфо об элементе c id=list
+    console.log(event); // Информация о событии
+    console.log(event.target); // HTML-элемент, спровоцировавший событие (li, например)
+    console.log(event.currentTarget); // Элемент, к которому применён обработчик (ul в данном случае)
+});
+
+
+/* Прослушка событий №2 */
+const inputText = document.querySelector('#input-text');
+const textBlock = document.querySelector('#text-block');
+
+inputText.addEventListener('input', inputHandler);
+
+function inputHandler (){
+    textBlock.innerText = inputText.value;
+}
+
+
+/* Прослушка событий */
 const button = document.querySelector('#button');
 const button1 = document.querySelector('#button1');
 const picture1 = document.querySelector('#picture');
