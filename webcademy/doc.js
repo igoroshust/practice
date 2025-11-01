@@ -1,6 +1,31 @@
-/* Выбор DOM-элементов */
+/* setInterval Позволяет запускать код через определённый промежуток (интервал) времени
+setInterval(функция, время запуска); 
+setInterval(function(){}, 1000); - выполнение функции каждую секунду 
+При запуске setInterval возвращается идентификатор данного интервала (по которому его можно определить и остановить) 
+clearInterval() позволяет очистить интервал */
 
-/* Работы с элементами */
+const timerIntervalID = setInterval(function(){ console.log('Fired!'); }, 1000);
+clearInterval(timerIntervalID);
+
+
+/* setTimeout - функция, выполяющая код через определённый промежуток времени 
+setTimeout(function(){}, 5000); - код выполнится через 5 секунд 
+При запуске возвращается идентификатор таймера (по которому его можно остановить) */
+
+const timerID = setTimeout(function(){ console.log('Fired'); }, 2000);
+clearInterval(timerID); 
+
+/* setInterval + setTimeout
+Задание (вывести fired 10 секунд, затем остановить вызов) */
+
+const timerIntervalID_1 = setInterval(function(){ console.log('Fired'); }, 1000);
+
+setTimeout(() => {
+    clearInterval(timerIntervalID_1);
+}, 10000);
+
+
+/* Выбор DOM-элементов */
 
 // Выбор контейнера
 const container = document.querySelector('#elementsContainer');

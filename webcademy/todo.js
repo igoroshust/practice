@@ -1,4 +1,39 @@
-/* Создание списка задач */
+/* Секундомер */
+const counterElement = document.querySelector('#counter');
+let counter = 0;
+let timerID; // При  кажом запуске (старт) timerID будет меняться
+
+
+// Старт
+const buttonStart = document.querySelector('#start');
+buttonStart.onclick = function(){
+    console.log('Нажали на start')
+    timerID = setInterval(function(){ // let, потому что несколько раз запускаем и останавливаем данные сетинтервал
+        counter++;
+        counterElement.innerText = counter;
+    }, 1000);
+};
+
+// Пауза
+const buttonPause = document.querySelector('#pause');
+buttonPause.onclick = function(){
+    console.log('Нажали на паузу')
+    clearInterval(timerID);
+};
+
+
+// Сброс
+const buttonReset = document.querySelector('#reset');
+buttonReset.onclick = function(){
+    console.log('Нажали на сброс');
+    counter = 0;
+    counterElement.innerText = counter;
+    clearInterval(timerID);
+};
+
+
+
+/* Создание списка задач
 
 const todoInput = document.querySelector('#todo-input');
 const todoForm = document.querySelector('#todo-form');
@@ -52,13 +87,6 @@ function formHandler(event) {
 }
 
 
-
-
-
-
-
-
-
 // const todoButton = document.querySelector('#todo-button');
 
 // todoButton.addEventListener('click', function(){
@@ -66,3 +94,5 @@ function formHandler(event) {
 //     newItem.innerHTML = todoInput.value;
 //     todoList.append(newItem);
 // });
+
+ */
