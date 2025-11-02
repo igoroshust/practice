@@ -1,3 +1,255 @@
+/* Коллбэеки
+Коллбэк - функция, передаваемая в качестве аргумента другой функции и должна быть выполнена после завершения раоты этой функции. 
+Функция, принимающая другую функцию в качестве аргумента, называется функцией высшего порядка. Переданная ей функция и есть коллбек.*/
+
+// Пример callback
+function greet(name, callback) {
+    console.log(`Привет, ${name}!`);
+    callback(); // Вызываем коллбек после вывода приветствия
+}
+
+function sayGoodbye() {
+    console.log(`Пока!`);
+}
+
+greet('Алиса', sayGoodbye); // Вызываем greet, передавая sayGoodbye как коллбэк
+
+
+/* Вывод значений параметров функции высшего порядка внутри callback */
+
+// Первый способ. Замыкание
+// Передаём в greet не саму функцию sayGoodbye, а анонимную функцию-обёртку, которая запомнит имя через замыкание:
+function greet0(name, callback) {
+    console.log(`Привет, ${name}!`);
+    callback(); // Вызываем коллбек после вывода приветствия
+}
+function sayGoodbye(name) {
+    console.log(`Пока, ${name}!`);
+}
+// Создаём обёртку, которая "захватит" name
+greet0('Алиса', function(){
+    sayGoodbye('Алиса'); // Анонимная функция помнит значение благодаря механизму замыканий и передаёт его в sayGoodbye при вызове
+});
+
+// Второй способ. Каррирование (создаём функцию-генератор, возвращающую коллбэк с зашитым именем)
+// Плюсы: переиспользуемость (можно создавать коллбэки для разных имён) + чистота: основной коллбэк (createGoodbyeCallback) не зависит от внешних переменных
+function greet1(name, callback){
+    console.log(`Привет, ${name}!`);
+    callback();
+};
+function createGoodbyeCallback(name){
+    return function(){
+        console.log(`Пока, ${name}!`)
+    };
+};
+greet1('Алиса', createGoodbyeCallback('Алиса'));
+
+// Третий способ. Привязка контекста, используя bind (привязываем имя к функции через function.prototype.bind)
+function greet2(name, callback){
+    console.log(`Привет, ${name}!`);
+    callback();
+};
+function sayGoodbye(){
+    // this здесь будет объектом, к которому привязано имя
+    console.log(`Пока, ${this.name}`);
+};
+// Привязываем имя к контексту функции (this внутри sayGoodbye будет объектом { name: 'Алиса' }). Подходит, если нужно передать несколько данных (не только имя)
+greet2('Алиса', sayGoodbye.bind({ name: 'Алиса' })); 
+
+/* Асинхронность - это возможность выполнять несколько задач параллельно или с перекрытием, не дожидаясь завершения каждой из задач. 
+- Операции могут стартовать, выполняться и завершаться независимо. 
+- Код не блокируется на долгих операциях, 
+- Система может обрабатывать другие задачи, пока дожидается результата 
+
+Синхронность - это строго последовательное выполнение кода, при котором каждая следующая операция ждёт завершения предыдущей.
+- Программа выполняется шаг за шагом;
+- Пока одна задача не завершится, следующая не начнётся;
+- Если функция выполняет чтение файла, весь код "замораживается" до окончания чтения. */
+
+// Callback. Callback hell
+
+// Последовательный вызов функций (учебный пример)
+// setTimeout(() => {
+//     console.log('Step 1');
+//     setTimeout(() => {
+//         console.log('Step 2');
+//         setTimeout(() => {
+//             console.log('Step 3');
+//         }, 1000);
+//     }, 1500);
+// }, 2000);
+
+/* Коллбек-функции - функции, которые передаются в другие функции и вызываются после их завершения */
+
+// Мой пример проверки номеров
+// function checkRooms1(callback){
+//     console.log('Проверяем номера в отеле...');
+//     const availableRooms = true;
+//     setTimeout(function(){
+//         callback(availableRooms);
+//     }, 3000);
+// };
+// function checkRoomsResult1(availableRooms) {
+//     const result = availableRooms ? 'Номера есть!' : 'Номеров нет.';
+//     console.log(result);
+// };
+// checkRooms1(checkRoomsResult1);
+
+// Первый пример проверки номеров (учитель)
+// function checkRooms(){
+//     setTimeout(function(){
+//         console.log('Проверяем номера в отеле...');
+//         const availableRooms = true;
+    
+//         if (availableRooms) {
+//             console.log('Номера есть!');
+//             console.log('Едем в отпуск!');
+//         } else {
+//             console.log('Номеров нет!');
+//             console.log('Отпуск отменяется.');
+//         }
+//     }, 1000);
+// };
+// checkRooms();
+
+
+// Второй пример (проверка номеров + билетов)
+// function checkRooms(){
+//     setTimeout(function(){
+//         console.log('Проверяем номера в отеле...');
+//         const availableRooms = true;
+
+//         if (availableRooms){
+//             let message = 'Номера есть';
+//             submitVacation(message);
+//         } else {
+//             let message = 'Номеров нет';
+//             cancelVacation(message);
+//         }
+//     })
+// };
+// function cancelVacation(message){
+//     console.log('----- cancelVacation -----');
+//     console.log('Ответ на предыдущем шаге:', message);
+//     console.log('Отпуск отменяется.');
+// };
+// function submitVacation(message){
+//     console.log('----- submitVacation -----');
+//     console.log('Ответ на предыдущем шаге:', message);
+//     console.log('Едем в отпуск!');
+// };
+// checkRooms();
+
+
+// Третий пример (передача коллбеков)
+// function checkRooms(success, failed){
+//     setTimeout(function(){
+//         console.log('Проверяем номера в отеле...');
+//         const availableRooms = true;
+//         if (availableRooms){
+//             let message = 'Номера есть';
+//             success(message);
+//         } else {
+//             let message = 'Номеров нет';
+//             failed(message);
+//         }
+//     })
+// };
+// checkRooms(submitVacation, cancelVacation);
+// function cancelVacation(message){
+//     console.log('----- cancelVacation -----');
+//     console.log('Ответ на предыдущем шаге:', message);
+//     console.log('Отпуск отменяется.');
+// };
+
+// function submitVacation(message){
+//     console.log('----- submitVacation -----');
+//     console.log('Ответ на предыдущем шаге:', message);
+//     console.log('Едем в отпуск!');
+// };
+
+
+// Четвёртый пример (проверка билетов)
+function checkRooms(success, failed){
+    setTimeout(function(){
+        console.log('Проверяем номера в отеле...');
+        const availableRooms = true;
+
+        if (availableRooms){
+            let message = 'Номера есть';
+            success(message);
+        } else {
+            let message = 'Номеров нет';
+            failed(message);
+        }
+    })
+};
+
+function checkTickets(message, success, failed){
+    setTimeout(function(){
+        console.log('----- function checkTickets -----');
+        console.log('Ответ на предыдущем шаге:', message);
+
+        console.log('Проверяем авиабилеты...');
+        const availableTickets = true;
+
+        if (availableTickets){
+            let message = 'Билеты есть';
+            success(message);
+        } else {
+            let message = 'Билетов нет';
+            failed(message);
+        }
+    }, 500);
+}
+
+function cancelVacation(message){
+    console.log('----- cancelVacation -----');
+    console.log('Ответ на предыдущем шаге:', message);
+    console.log('Отпуск отменяется.');
+};
+function submitVacation(message){
+    console.log('----- submitVacation -----');
+    console.log('Ответ на предыдущем шаге:', message);
+    console.log('Едем в отпуск!');
+};
+
+// callback hell разростается
+// код уезжает вправо
+
+checkRooms(
+    // success
+    function(messageFromCheckRooms){
+        checkTickets(
+            messageFromCheckRooms, 
+            function(messageFromCheckTickets){
+                submitVacation(messageFromCheckTickets);
+            },
+            function(messageFromCheckTickets){
+                cancelVacation(messageFromCheckTickets);
+            })
+    }, 
+    // failed
+    function(messageFromCheckRooms){
+        cancelVacation(messageFromCheckRooms)
+    }
+);
+
+/* Более упрощённый вариант вышестоящего кода вызова функции checkRooms
+checkRooms(
+    function(messageFromCheckRooms){
+        checkTickets(
+            messageFromCheckRooms,
+            submitVacation,
+            cancelVacation
+        )
+    },
+    cancelVacation
+); 
+*/
+
+
+
 /* setInterval Позволяет запускать код через определённый промежуток (интервал) времени
 setInterval(функция, время запуска); 
 setInterval(function(){}, 1000); - выполнение функции каждую секунду 
