@@ -2,7 +2,9 @@
 друг за другом + это выглядит аккуратее коллбеков и позволяет избежать callback hell
 
 Промисы созданы для того, чтобы обернуть собой асинхронный код, выполнение которого необходимо подождать, и после него выполнять следующие действия 
-в .then() мы передаём cb-функцию из категории 'resolve'
+в .then() мы передаём cb-функцию из категории 'resolve'. then при своей работе возвращает промис, то есть мы можем дальше работать с цепочкой.
+тонкий момент, что then могут выполняться не строго по цепочке (например, если во втором then прописать setTimeout)
+
 в .catch() мы передаём cb-функцию из категории 'reject' 
 
 Плюсы промисов: 
@@ -14,7 +16,7 @@ const myPromise = new Promise(function(resolve, reject){
     // resolve и reject - cb-функции, выполняемые при успешном или неуспешном выполнении промиса
     setTimeout(function(){
         // запрос на сервер
-        const response = false;
+        const response = true; // от значения зависит обработка кода в then или catch
         if (response) {
             let message = 'SUCCESS';
             resolve(message); // Отработает then
@@ -28,8 +30,13 @@ const myPromise = new Promise(function(resolve, reject){
 
 myPromise
 .then(function(data){
-    console.log('Then');
+    console.log('Then 1');
     console.log(data);
+    return 'Data from then 1';
+})
+.then(function(data){
+    console.log('Then 2');
+    console.log(data); // Вывод 'Data from then 1', то есть второй then обработал результат выполнения первого then
 })
 .catch(function(data){
     console.log('Catch');
@@ -37,19 +44,42 @@ myPromise
 });
 
 
+/* Пример промиса со сторой последовательностью выполнения цепочки (несмотря на разный setTimeout) */
+const myPromise1 = new Promise(function(resolve, reject){
+    // Имитируем ответ от сервера
+    const response = true;
+    if (response) {
+        let message = "SUCCESS";
+        resolve(message);
+    } else {
+        let message = "FAILED";
+        reject(message);
+    }
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
+myPromise1
+.then(function(data){
+    return new Promise(function(resolve, reject){
+        setTimeout(() => {
+            console.log('Then 1');
+            console.log(data);
+            // Имитация ответа от сервера
+            const response = true;
+            if (response) {
+                resolve('Data from then 1');
+            } else {
+                reject('Data from then 1');
+            }
+        }, 1000);
+    });
+})
+.then(function(data){
+    setTimeout(() => {
+        console.log('Then 2');
+        console.log(data); // Вывод Data from then 1
+    }, 500);
+})
+.catch(error => console.error(error));
 
 
 
