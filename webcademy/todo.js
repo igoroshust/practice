@@ -1,3 +1,60 @@
+/* Промисы. Нужны для решения проблемы асинхронного кода в JS так. С их помощью можно описать функции чётки и последовательно,
+друг за другом + это выглядит аккуратее коллбеков и позволяет избежать callback hell
+
+Промисы созданы для того, чтобы обернуть собой асинхронный код, выполнение которого необходимо подождать, и после него выполнять следующие действия 
+в .then() мы передаём cb-функцию из категории 'resolve'
+в .catch() мы передаём cb-функцию из категории 'reject' 
+
+Плюсы промисов: 
+1. Легко потребляется;
+2. Удобно передавать функции без callback hell'a */
+
+// Создаём промис
+const myPromise = new Promise(function(resolve, reject){
+    // resolve и reject - cb-функции, выполняемые при успешном или неуспешном выполнении промиса
+    setTimeout(function(){
+        // запрос на сервер
+        const response = false;
+        if (response) {
+            let message = 'SUCCESS';
+            resolve(message); // Отработает then
+        } else {
+            let message = 'FAILED';
+            reject(message); // Отработает catch
+        }
+    }, 1000);
+    console.log('Promise created');
+});
+
+myPromise
+.then(function(data){
+    console.log('Then');
+    console.log(data);
+})
+.catch(function(data){
+    console.log('Catch');
+    console.log(data);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // /* Секундомер */
 // const counterElement = document.querySelector('#counter');
 // let counter = 0;
