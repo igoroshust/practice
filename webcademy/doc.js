@@ -1,3 +1,158 @@
+/* Работа с получением данных (API, async) */
+
+// myObject = {
+//     city: '',
+//     region: '',
+//     country: '',
+// }
+
+// fetch('https://ipinfo.io/161.185.160.93/geo')
+// .then(response => response.json())
+// .then(data => {
+//     myObject.city = data['city'];
+//     myObject.region = data['region'];
+//     myObject.country = data['country'];
+// })
+// .catch(error => console.error('Ошибка', error))
+// .finally(console.log('Операция завершена.'));
+
+
+// setTimeout(() => {
+//     console.log(myObject);
+
+//     let headingCity = document.querySelector('.heading-city');
+//     let regionCity = document.querySelector('.region-city');
+//     let countryCity = document.querySelector('.country-city');
+
+//     headingCity.innerText = myObject['city'];
+//     regionCity.innerText = myObject['region'];
+//     countryCity.innerText = myObject['country'];
+// }, 2000);
+
+
+
+let myObject = {
+    city: '',
+    region: '',
+    country: '',
+};
+
+// Оборачиваем в асинхронную функцию (чтобы использовать await)
+async function fetchData() {
+    try {
+        const response = await fetch('https://ipinfo.io/161.185.160.93/geo');
+        const data = await response.json();
+        
+        // Заполняем объект данными
+        myObject.city = data.city;
+        myObject.region = data.region;
+        myObject.country = data.country;
+        
+        console.log(myObject);  // Выводим объект сразу после получения данных
+        
+        // Обновляем DOM
+        const headingCity = document.querySelector('.heading-city');
+        const regionCity = document.querySelector('.region-city');
+        const countryCity = document.querySelector('.country-city');
+        
+        headingCity.innerText = myObject.city;
+        regionCity.innerText = myObject.region;
+        countryCity.innerText = myObject.country;
+        
+    } catch (error) {
+        console.error('Ошибка:', error);
+    } finally {
+        console.log('Операция завершена.');
+    }
+}
+
+// Вызываем функцию
+fetchData();
+
+
+
+/* Рабочее API: https://ipinfo.io/162.185.160.94/geo */
+
+
+/* Метод finally() - метод промиса, вызываемый всегда, независимо от статуса завершённой операции.
+Предназначен для очистки или выполнения кода, выполняемого в любом случае невзирая на статус
+
+const myPromise = Promise.reject(new Error('Ошибка!'));
+
+myPromise
+.catch((error) => {
+    console.log('Ошибка:', error.message); // Ошибка: ошибка!
+})
+.finally(() => {
+    console.log('Очистка завершена.'); // Выполнится несмотря на ошибку
+})*/
+
+/* Промисы (Promises) - это объекты, представляющие результат асинхронной операции. Они имеют три возможных состояния (статуса), которые описывают их жизненный цикл 
+Статус промиса определяет, завершена ли операция, и если да, то успешно или с ошибкой. Важно: статус промиса неизменяем - однажды перейдя в `fulfilled` или `rejected`,
+он остаётся в этом состоянии навсегдa
+
+Статусы:
+1. pending (ожидание). Начальное и единственное состояние, в котором промис находится сразу после создания. Операция ещё не завершена - промис "ждёт" результата.
+Происходит при вызове `new Promise((resolve, reject) => { ... }). Пока не вызван `resolve()` или `reject()`, статус остаётся `pending`. 
+Особенности: В этом состоянии промис не имеет результата или ошибки. Можно прикреплять обработчики (then, catch), но они не выполнятся, пока статус не изменится. 
+Промис в pending можно отменить только косвенно (например, через AbortController в fetch), но сам статус не меняется.
+Пример:
+const myPromise = new Promise((resolve, reject) => {
+    // Здесь асинхронная операция, например, fetch или setTimeout
+    setTimeout(() => {
+        resolve('Успех!'); // Переход в fulfilled
+    }, 1000);
+})
+console.log(myPromise); // Promise {<pending>}
+
+2. fulfilled (выполнен успешно). Промис выполнен успешно. У него есть значение (value), которое передаётся в обработчик then.
+Происходит, когда внутри конструктора промиса вызывается функция `resolve(value)`. Это переводит статус из `pending` и `fulfilled`.
+Особенности: результат (value) может быть любым типом данных (строка, объект, другой промис). 
+Если `resolve` вызывается с другим промисом, статус зависит от этого промиса (это называется resolution - разрешение).
+Обработчики then выполняются сразу, если промис уже в fulfilled. Метод finally() также выполняется, но без доступа к результату
+Пример:
+const myPromise = Promise.resolve('Данные получены'); // Сразу fulfilled
+myPromise.then((result) => {
+    console.log(result); // Выведет: 'Данные получены'
+});
+console.log(myPromise);
+
+3. rejected (отклонён). Промис завершился с ошибкой. У него есть причина ошибки (reason), которая передаётся в обработчик `catch()`.
+Когда внутри конструктора промиса вызывается функция `reject(reason)`, это переводит из статуса `pending` в `rejected`. 
+Особенности: причина (reason) обычно является объектом `Error`, но может быть любой тип (строка, объект и т.д.). 
+Если ошибка не обработана, она может вызвать глобальную ошибку. Если в then будет ошибка, промис перейдёт в rejected.
+Пример:
+const myPromise = Promise.reject(new Error('Что-то пошло не так')); // Сразу rejected
+myPromise.catch((error) => {
+    console.log(error.message); // Выведет: 'Что-то пошло не так'
+});
+console.log(myPromise); // Promise {<rejected>: Error: Что-то пошло не так}
+
+*/
+
+
+/* Отображение статусов промисов */
+const myPromise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let checkStatus = true;
+        if (checkStatus) resolve('Ура! Данные получены!'); else reject('Ошибка! Ошибка!');
+    }, 1000);
+});
+
+console.log(myPromise2); // Выведет: Promise {<pending>}
+
+setTimeout(() => {
+    console.log(myPromise2); // Через 1 сек: Promise {<fulfilled>: 'Успех! Данные получены.}
+}, 1000);
+
+myPromise2
+.then((result) => {
+    console.log('Результат:', result); // Выведет "Успех! Данные получены!"
+})
+.catch((error) => {
+    console.error('Ошибка', error);
+})
+
 /* Промисы. Нужны для решения проблемы асинхронного кода в JS так. С их помощью можно описать функции чётки и последовательно,
 друг за другом + это выглядит аккуратее коллбеков и позволяет избежать callback hell
 
@@ -14,6 +169,7 @@
 // Создаём промис
 const myPromise = new Promise(function(resolve, reject){
     // resolve и reject - cb-функции, выполняемые при успешном или неуспешном выполнении промиса
+    // resolve переводит промис из состояния pending в состояние fulfilled и передаёт результат (value)
     setTimeout(function(){
         // запрос на сервер
         const response = true; // от значения зависит обработка кода в then или catch
