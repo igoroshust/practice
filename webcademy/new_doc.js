@@ -72,6 +72,13 @@ const apiInfo1 = fetch('https://ipinfo.io/161.185.160.93/geo')
         //     const selector = item.selector;
         //     const key = item.key;
         // })
+
+        // Вариант с текстовым узлом
+        //     elements.forEach(({ selector, key }) => {
+        //     item = document.querySelector(selector);
+        //     node = document.createTextNode(data[key]);
+        //     item.appendChild(node);
+        // })
     })
 })
 .catch(error => {
