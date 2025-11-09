@@ -1,3 +1,185 @@
+/* Пример с курсами валют (решение учителя) */
+
+// // Обработка API через промисы
+// fetch('https://www.cbr-xml-daily.ru/daily_json.js')
+// .then(function(data){
+//     return data.json()
+// })
+// .then(function(data){
+//     console.log(data);
+// })
+// .catch(error => console.error(error));
+
+async function getCurrencies() {
+    const url = 'https://www.cbr-xml-daily.ru/daily_json.js'
+    const response = await fetch(url);
+    const data = await response.json();
+
+   
+    const usdRate = data.Valute.USD.Value.toFixed(2);
+    const eurRate = data.Valute.EUR.Value.toFixed(2);
+
+    const usdElement = document.querySelector('#usd');
+    const eurElement = document.querySelector('#eur');
+
+    usdElement.innerText = usdRate;
+    eurElement.innerText = eurRate;
+}
+
+// getCurrencies();
+
+/* Решение проблемы с сохранением данных в промисах */
+async function getCurrencies (){
+    const url = 'https://www.cbr-xml-daily.ru/daily_json.js'
+    const response = await fetch(url);
+    const data = await response.json();
+    renderRates(data);
+}
+
+getCurrencies();
+
+function renderRates(data){
+    const usdRate = data.Valute.USD.Value.toFixed(2);
+    const eurRate = data.Valute.EUR.Value.toFixed(2);
+
+    const usdElement = document.querySelector('#usd');
+    const eurElement = document.querySelector('#eur');
+
+    usdElement.innerText = usdRate;
+    eurElement.innerText = eurRate;
+}
+
+
+
+/* Пример с курсами валют (моё решение) */
+
+const usdElement = document.querySelector('#usd');
+const eurElement = document.querySelector('#eur');
+
+async function fetchData(){
+    try {
+        const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+        const response = await fetch(url);
+        const data = await response.json();
+
+        let rublesPerUsd = (data.Valute.BYN.Value / data.Valute.USD.Value).toFixed(2);
+        let rublesPerEur = (data.Valute.BYN.Value / data.Valute.EUR.Value).toFixed(2);
+
+        usdElement.innerText = rublesPerUsd;
+        eurElement.innerText = rublesPerEur;
+
+        // console.log(data.Valute.BYN.Value.toFixed(2));
+
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+fetchData();
+
+
+/* API работы с курсами валют 
+https://www.cbr-xml-daily.ru/daily_json.js */
+
+
+/* Несколько асинхронных операций (серия промисов) */
+function checkRooms() {
+    return new Promise(function(resolve, reject){
+        setTimeout(function(){
+            console.log('---- checkRooms ----');
+            console.log('Проверяем номера в отеле...');
+            let availableRooms = true;
+
+            if (availableRooms) {
+                resolve('Номера есть!');
+            } else {
+                reject('Номеров нет.');
+            }
+        }, 1500);
+    });
+}
+
+function checkTickets(data) {
+    return new Promise(function(resolve, reject){
+        setTimeout(() => {
+            console.log('---- checkTickets ----');
+            console.log('Ответ на предыдущем шаге:', `"${data}"`);
+
+            console.log('Проверяем авиабилеты...');
+            // ---- код отправки запроса в авиакомпанию ----
+            const availableTickets = true;
+
+            if (availableTickets) {
+                let message = 'Билеты есть!';
+                resolve(message);
+            } else {
+                let message = 'Билетов нет.';
+                reject(message);
+            }
+        })
+    })
+}
+
+function submitVacation(data) {
+    console.log('---- submitVacation ----');
+    console.log('Ответ на предыдущем шаге: ', `"${data}"`);
+    console.log('Едем в отпуск!');
+}
+
+function cancelVacation(data) {
+    console.log('---- cancelVacation ----');
+    console.log('Ответ на предыдущем шаге: ', data);
+    console.log('Отпуск отменяется.')
+}
+
+async function checkVacation(){
+    // try-catch - важное условие обработки асинхронных функций, без него нельзя отловить reject и обрабатывать ошибки
+    try {
+        const roomsResult = await checkRooms();
+        const ticketsResult = await checkTickets(roomsResult);
+
+        if (ticketsResult) {
+            submitVacation(ticketsResult);
+        } else {
+            cancelVacation(ticketsResult);
+        }
+    } catch (error) {
+       cancelVacation(error);
+    }
+}
+
+checkVacation();
+
+
+/* Async functions. Асинхронные функции. Потребление промиса */
+function promiseFunction() {
+    return new Promise(function(resolve, reject){
+        setTimeout(() => {
+            result = false;
+            if (result) {
+                resolve('DONE!');
+            } else {
+                reject('FAIL!');
+            }
+        }, 1000);
+    });
+}
+
+console.log(promiseFunction()); // Promise {<pending>}
+
+// Потребление промиса с помощью асинхронной функции + try/catch (альтернатива then/catch) 
+async function startPromise() {
+    try {
+        const result = await promiseFunction(); // Записываем результат выполнения promiseFunction()
+        console.log(result);
+    } catch(err) {
+        console.log(err);
+    }
+};
+
+startPromise();
+
+
 /* Работа с получением данных (API, async) */
 
 // myObject = {
