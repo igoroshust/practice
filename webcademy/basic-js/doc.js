@@ -1,3 +1,77 @@
+/* Функция-конструктор - создание объекта. Смысл: однократное описание структуры с целью дальнейшего переиспользования */
+
+function Person(name, age, speciality, city) {
+    this.name = name;
+    this.age = age;
+    this.spiciality = speciality;
+    this.city = city;
+
+    // Создаём функцию, доступную экземплярам вовне
+    this.sayHi = function() {
+        return `${this.name} says "Hi!"`;
+    }
+
+    // Функция создаётся локально внутри метода и недоступна для вызова извне
+    function sayGoodbye(personName) {
+        return `${personName} says "Goodbye!"`;
+    }
+
+    // Пример использования функции внутри метода
+    // console.log(sayGoodbye(this.name));
+}
+
+const kirill = new Person('kirill', 28, 'web', 'Yakutsk');
+// console.log(kirill.sayHi());
+
+
+/* Пример создания класса (чертежа) с экземплярами */
+class Human {
+    constructor(name, age, speciality, city) {
+        this.name = name;
+        this.age = age;
+        this.speciality = speciality;
+        this.city = city;
+
+        // Первый способ объявить метод (каждая копия метода занимает отдельное место в памяти. Если создать 1000 экземпляров, будет 1000 отдельных функций `sayHi`,
+        // что не эффективно для больших объемов данных, но может быть полезно в контексте замыкания)
+        this.sayHi = function(){
+            return `${this.name} says "Hi!"`
+        }
+    };
+
+    // Второй способ объявить метод (одна копия метода на весь класс. Для 1000 экземпляров - всего одна функция `sayGoodbye`, 
+    // что экономит память и ускоряет создание объектов).
+
+    sayGoodbye() {
+        return `${this.name} says "Goodbye!"`
+    }
+};
+const igor = new Human('igor', 28, 'web developer', 'Tchita');
+
+// console.log(igor.sayHi());
+// console.log(igor.sayGoodbye());
+
+
+
+/* Объекты. Способ группировки информации
+Свойство - определённое значение, присвоенное объекту
+Метод - способность объекта совершать действие (функция, являющаяся свойством объекта) 
+this внутри метода объекта ссылается на сам объект */
+
+const peter = {
+    name: 'Peter',
+    age: 28,
+    spiciality: 'html coder',
+    city: 'Moscow',
+    sayHi: function(){
+        return `${this.name} says "Hi!"`
+    }
+};
+
+// console.log(peter.sayHi());
+
+
+
 /* Пример вызова функции в параметрах другой функции */
 function calculateSum(x, y) {
     let result = x + y;
