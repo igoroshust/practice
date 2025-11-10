@@ -10,6 +10,8 @@
     <h1>Поиск товаров</h1>
     <form action="{% url 'product_search' %}" method="get">
         <input type="text" name="q" value="{{ query }}" placeholder="Введите название или описание">
+        <!-- name - имя параметра, который будет отправлен в HTTP-запросе при отправке формы
+            value - сохраняем введённый пользователем в инпуте текст после перезагрузки страницы -->
         <button type="submit">Искать</button>
     </form>
 

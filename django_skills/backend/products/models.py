@@ -1,8 +1,8 @@
 from django.db import models
 
 class Product(models.Model):
-    name = models.CharField(max_length=200, verbose_name="Название товара")
-    description = models.TextField(verbose_name="Описание")
+    name = models.CharField(max_length=200, verbose_name="Название товара", db_index=True)
+    description = models.TextField(verbose_name="Описание", db_index=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")  # Цена с 2 знаками после запятой
     #  DecimalField для чисел с плавающей точкой (цена), max_digits - общее количество цифр (включая цифры до и после точки), decimal_places - количество цифр после точки
     #  DecimalField рекомендуется для денежных значений, где важна точность (FloatField - где погрешность допустима)
