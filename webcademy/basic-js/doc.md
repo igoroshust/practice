@@ -1,4 +1,8 @@
 # Темы для разбора:
+- event 
+- target
+- Событийная модель JavaScript (DOM Events -- event, target, etc.)
+
 - classList
 - FETCH API
 - DOM API
@@ -7,6 +11,8 @@
 - Полифилы
 - Сферы применения ЯП (когда лучше использовать один, когда - другой);
 - this
+- throw
+- ; - подробнее о назначении точки с запятой
 - Замыкания
 - XMLHttpRequest
 - Server-Side Rendering
@@ -20,6 +26,28 @@
 - jQuery
 - document
 - querySelector
+-  Airbnb JS Style Guide
+
+
+### event, target, event.target
+event, target, event.target - это концепции из событийной модели JavaScipt (DOM Events). Когда происходит событие (например, клик), браузер создаёт объект `event` и передаёт его в обработчик функции.
+
+- `event`: Это объект события (типа `MouseEvent` или `Event`). Он содержит информацию о событии: координаты, тип, время и т.д. В коде `addEventListener('click', (event) => { ... })` event - это параметр, который можно назвать как угодно (например, `e`).
+
+- `target`: Это свойство объекта event. Оно указывает на DOM-элемент, который вызвал событие (на котором произошёл клик). Если кликнули на `<li>`, `event-target` - это тот `<li>`.
+
+- `event.target`: Полный доступ к элементу-источнику. Может быть использован для проверки, что клик был именно по целевому элементу, а не на пустом месте.
+
+
+**Пример**
+```javascript
+tabList.addEventListener('click', (event) => {
+    console.log(event.target); // Выведет элемент, на который кликнули (например, <li>)
+    console.log(event.type); // 'click'
+})
+```
+
+
 
 
 ### className
