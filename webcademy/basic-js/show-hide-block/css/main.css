@@ -1,3 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
 .content-hidden {
     display: none;
 }
+
+.tab-content-hidden {
+    display: none;
+}
+
+.list-group {
+    list-style-type: none;
+
+    display: flex;
+}
+
+.list-group-item {
+    border: 1px solid lightgrey;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+}
+
+
+/* Расшифровка
+.list-group > * + * {
+    margin-left: 30px;
+}
+
+Разница с записью .list-group > *:
+`> *` - выбирает прямых потомков любого типа (здесь `<li>`). То есть ВСЕ li!
+`+ *` - выбирает следующий соседний элемент любого типа (элемент, следующий сразу после другого прямого потомка). То есть li, КРОМЕ ПЕРВОГО!
+
+
+*/
