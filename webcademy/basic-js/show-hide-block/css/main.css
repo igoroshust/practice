@@ -2,6 +2,20 @@
     box-sizing: border-box;
 }
 
+.modal-section {
+    position: relative;
+}
+
+.fade-block {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: greenyellow;
+    height: 200px;
+}
+
 .content-hidden {
     display: none;
 }

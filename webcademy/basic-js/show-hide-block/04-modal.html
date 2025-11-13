@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <script defer src="./js/04-modal-01.js"></script>
+
+    <title>Модальное окно</title>
+</head>
+<body>
+
+    <main>
+        <section class="modal-section">
+            
+    <h1 class="mb-4">Модальное окно</h1>
+
+    <button
+        data-modal-button="modal-1"
+        class="btn btn-outline-primary mb-1"
+        type="button"
+    >
+        Открыть модальное окно №1
+    </button>
+
+    <button
+        data-modal-button="modal-2"
+        class="btn btn-outline-primary mb-1"
+        type="button"
+    >
+        Открыть модальное окно №2
+    </button>
+
+    <button
+        data-modal-button="modal-3"
+        class="btn btn-outline-primary mb-1"
+        type="button"
+    >
+        Открыть модальное окно №3
+    </button>
+
+    <button
+        data-modal-button="modal-4"
+        class="btn btn-outline-primary mb-1"
+        type="button"
+    >
+        Открыть модальное окно №4
+    </button>
+
+    <div id="modal-1" data-modal class="fade-block content-hidden">
+        <div class="modal-window">
+            <div class="card">
+                <div class="card-header">Модальное окно №1</div>
+                <div class="card-body">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Debitis, qui magni aliquam similique facere repudiandae tempore corrupti fugit, 
+                        praesentium dignissimos aut ab ipsam quidem, inventore libero doloribus? Atque, amet est?</p>
+                    <button class="btn btn-dark" data-modal-close type="button">Закрыть окно</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-2" data-modal class="fade-block content-hidden">
+        <div class="modal-window">
+            <div class="card">
+                <div class="card-header">Модальное окно №2</div>
+                <div class="card-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Doloribus voluptatum similique, ipsam dicta mollitia asperiores. 
+                        Cum repellat nostrum, qui dolor animi totam sit ex magnam, veritatis magni, hic commodi non!
+                        Corporis, minus mollitia et odit nobis laboriosam pariatur perferendis velit similique qui officiis
+                        fugiat consequatur id recusandae quaerat accusamus necessitatibus voluptatem repellendus porro dolore optio. 
+                        Odio molestias vel eligendi impedit.
+                    </p>
+                    <button class="btn btn-dark" data-modal-close type="button">Закрыть окно</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-3" data-modal class="fade-block content-hidden">
+        <div class="modal-window">
+            <div class="card">
+                <div class="card-header">Модальное окно №3</div>
+                <div class="card-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Doloribus voluptatum similique, ipsam dicta mollitia asperiores. 
+                        Cum repellat nostrum, qui dolor animi totam sit ex magnam, veritatis magni, hic commodi non!
+                        Corporis, minus mollitia et odit nobis laboriosam pariatur perferendis velit similique qui officiis
+                        fugiat consequatur id recusandae quaerat accusamus necessitatibus voluptatem repellendus porro dolore optio. 
+                        Odio molestias vel eligendi impedit.
+                    </p>
+                    <button class="btn btn-dark" data-modal-close type="button">Закрыть окно</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-4" data-modal class="fade-block content-hidden">
+        <div class="modal-window">
+            <div class="card">
+                <div class="card-header">Модальное окно №4</div>
+                <div class="card-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Doloribus voluptatum similique, ipsam dicta mollitia asperiores. 
+                        Cum repellat nostrum, qui dolor animi totam sit ex magnam, veritatis magni, hic commodi non!
+                        Corporis, minus mollitia et odit nobis laboriosam pariatur perferendis velit similique qui officiis
+                        fugiat consequatur id recusandae quaerat accusamus necessitatibus voluptatem repellendus porro dolore optio. 
+                        Odio molestias vel eligendi impedit.
+                    </p>
+                    <button class="btn btn-dark" data-modal-close type="button">Закрыть окно</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Короткая запись для создания блока 
+    (#modal-$.fade-block>.modal-window>.card>.card-header{Модальное окно №$}+.card-body>p{Lorem ipsum}+button.btn.btn-dark[data-modal-close][type="button"]{Закрыть окно})*2
+    -->
+            </section>
+    </main>
+    
+</body>
+</html>
