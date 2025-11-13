@@ -20,6 +20,7 @@ buttonClose.addEventListener('click', function(){
 modal.addEventListener('click', function(){
     modal.classList.add('content-hidden');
     // console.log('Close modal');
+    // console.log('Close modal');
 });
 
 // Предотвращаем всплытие элементов (чтобы избежать скрытия модалки при клике на текст внутри неё и другие дочерние элементы)
