@@ -5,14 +5,43 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
     <script defer src="./main.js"></script>
 
     <title>Document</title>
 </head>
 <body>
 
+<main>
+    <section class="city-section">
+        <p class="city-paragraph" id="city">City: <span class="value"></span></p>
+        <p class="city-paragraph" id="region">Region: <span class="value"></span></p>
+        <p class="city-paragraph" id="country">Country: <span class="value"></span></p>
+        <button class="btn city-btn" role="button">Получить данные</button>
+    </section>
+</main>
 
-<div class="fetch-example">
+<div class="modal hidden">
+    <h4 class="modal-window">Модальное окно</h4>
+    <p class="modal-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Id hic quam voluptas officiis beatae amet ut, rem aspernatur, 
+        dolore dicta quibusdam laborum consectetur quod eveniet in sint 
+        aliquam repudiandae! Voluptatibus.</p>
+    <button class="btn modal-btn" role="button">Exit</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="fetch-example">
     <h2>Курсы валют</h2>
     <div class="currency-box">
         <div class="currency-row" id="dollar">
@@ -24,7 +53,7 @@
             <span id="eur"></span> рублей за евро.
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- <div class="city-block">
     <p class="city">City: </p>

@@ -1,3 +1,112 @@
+/*  1. Таймер
+    1.1 setTimeout(), setInterval() - скрипт ждёт 2 секунды, считает до 5, заканчивает выполнение
+    2. Получение данных по API
+    3. Курсы валют
+    4. Промисы
+    5. Коллбэки
+    6. show-hide block
+    7. Аккордеон
+    8. Табы
+    9. Модальное окно 
+    10. Повторение теории
+*/
+
+
+
+
+
+
+/* Пример работы со временем */
+/* Мой вариант */
+// let counter = 1;
+// let timerID;
+
+// setTimeout(() => {
+
+//     timerID = setInterval(() => {
+//     console.log(counter);
+//     counter++;
+//     }, 1000); // 2. Выводим каждую секунду новое значение
+
+//     setTimeout(function(){
+//         clearInterval(timerID);
+//     }, 10000); // 3. Через 10 секунд прекращаем выполнение
+
+// }, 3000); // 1. Отложенный запуск скрипта через 3 секунды
+
+
+/* Вариант-1. Инкапсуляция логики в замыкании */
+
+// function createCounter(delay, interval, duration) {
+//     let counter = 1;
+//     let timerID;
+
+//     setTimeout(() => {
+//         timerID = setInterval(() => {
+//             console.log(counter);
+//             counter++;
+//         }, interval);
+
+//         setTimeout(() => clearInterval(timerID), duration);
+//     }, delay);
+// };
+
+// createCounter(3000, 1000, 10000);
+
+
+/* Вариант-2. Класс-ориентированный подход */
+// class Counter {
+//     constructor(delay = 3000, interval = 1000, duration = 10000) {
+//         this.counter = 1;
+//         this.timerID = null;
+//         this.delay = delay;
+//         this.interval = interval;
+//         this.duration = duration;
+//     }
+
+//     start() {
+//         setTimeout(() => {
+//             this.timerID = setInterval(() => {
+//                 console.log(this.counter);
+//                 this.counter++;
+//             }, this.interval);
+
+//             setTimeout(() => this.stop(), this.duration);
+//         }, this.delay);
+//     }
+
+//     stop() {
+//         clearInterval(this.timerID);
+//     }
+// }
+
+// // Использование
+// const counter = new Counter();
+// counter.start();
+
+
+/* Вариант-3. Promise-based решение */
+// function delayedCounter(delay = 3000, interval = 1000, duration = 10000) {
+//     return new Promise((resolve) => {
+//         let counter = 1;
+//         let intervalID, timeoutID;
+
+//         setTimeout(() => {
+//             intervalID = setInterval(() => console.log(counter++), interval);
+//             timeoutID = setTimeout(() => {
+//                 clearInterval(intervalID);
+//                 resolve();
+//             }, duration);
+//         }, delay);
+//     });
+// };
+
+// // Использование
+// delayedCounter().then(() => console.log('Counter finished'));
+
+
+
+
 const city = document.querySelector('.city');
 const region = document.querySelector('.region');
 const country = document.querySelector('.country');
