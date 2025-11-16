@@ -12,6 +12,147 @@
 */
 
 
+
+
+/* ================================ Практикуюсь с промисами ================================ */
+/* Мой код */
+const myPromise = new Promise(function(resolve, reject){
+    let checkStatus = true;
+
+    if (checkStatus) {
+        message = 'Done from ROOT';
+        resolve(message);
+    } else {
+        message = 'Fatal error from ROOT';
+        reject(message);
+    }
+});
+
+
+myPromise.then(function(data){
+    return new Promise(function(resolve, reject){
+        setTimeout(function(){
+            let checkStatus = true;
+
+            if (checkStatus) {
+                message = 'Done from then-1';
+                arr = {
+                    message: message,
+                    data: data
+                };
+                resolve(arr);
+            } else {
+                message = 'Fatal error from then-1';
+                arr = {
+                    message: message,
+                    data: data
+                };
+                reject(arr);
+            }
+        }, 1000);
+    });
+})
+.then(function(data){
+    setTimeout(function(){
+        console.log(`Результат первой проверки: ${data['message']}`);
+        console.log(`Результат второй проверки: ${data['data']}`);
+        data.thenOne = '+ then-1';
+    }, 1000);
+    return data;
+})
+.then(function(data){
+    setTimeout(function(){
+        console.log(`Данные в третьей цепочке: ${data['message']}, ${data['data']}`);
+        data.thenTwo = '+ then-2';
+    }, 1000);
+    return data
+})
+.then(function(data){
+    setTimeout(function(){
+        console.log(`Данные в четвёртой цепочке: ${data['message']}, ${data['data']}`);
+        console.log(data);
+    }, 1000);
+})
+.catch(function(error){
+    setTimeout(function(){
+        console.log(error['data']);
+        console.log(error['message']);
+    }, 1000);
+})
+.finally(function(){
+    console.log('Промис выполняется...');
+});
+
+
+/* Рефакторинг моего кода от ИИ */
+const myPromise1 = new Promise(function(resolve, reject) {
+    let checkStatus = true;
+    if (checkStatus) {
+        resolve('Done from ROOT');
+    } else {
+        reject('Fatal error from ROOT');
+    }
+});
+
+myPromise1
+    .then(function(data) {
+        return new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                let checkStatus = true;
+                if (checkStatus) {
+                    resolve({
+                        message: 'Done from then-1',
+                        data: data
+                    });
+                } else {
+                    reject({
+                        message: 'Fatal error from then-1',
+                        data: data
+                    });
+                }
+            }, 1000);
+        });
+    })
+    .then(function(data) {
+        return new Promise(function(resolve) {
+            setTimeout(function() {
+                console.log(`Результат первой проверки: ${data.message}`);
+                console.log(`Результат второй проверки: ${data.data}`);
+                data.then1 = '+then1';
+                resolve(data);  // Возвращаем данные для следующего .then()
+            }, 1000);
+        });
+    })
+    .then(function(data){
+        return new Promise(function(resolve) {
+            setTimeout(function() {
+                console.log(`Данные во второй цепочке: ${data.message}, ${data.data}`);
+                data.then2 = '+then2';
+                resolve(data);
+            }, 1000);
+        });
+    })
+    .then(function(data){
+        return new Promise(function(resolve){
+            setTimeout(function(){
+                console.log(`Данные в третьей цепочке: ${data.message}, ${data.data}`);
+                console.log(data);
+                resolve(data);
+            }, 1000);
+        });
+    })
+    .catch(function(error) {
+        console.log(error.data);
+        console.log(error.message);
+    });
+
+
+/* ================================ Конец практики с промисами ================================ */
+
+
+
+
+
 /* Пример работы со временем */
 /* Мой вариант */
 // let counter = 1;
