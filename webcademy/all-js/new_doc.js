@@ -12,10 +12,6 @@
 */
 
 
-
-
-
-
 /* Пример работы со временем */
 /* Мой вариант */
 // let counter = 1;
@@ -86,13 +82,19 @@
 
 
 /* Вариант-3. Promise-based решение */
-// function delayedCounter(delay = 3000, interval = 1000, duration = 10000) {
+// function delayedCounter(delay=3000, interval=1000, duration=10000) {
 //     return new Promise((resolve) => {
 //         let counter = 1;
 //         let intervalID, timeoutID;
 
 //         setTimeout(() => {
+//             // Асинхронные таймеры выполняются параллельно основному коду (не блокируют основной поток выполнения)
+
+//             // Пока второй таймер не сработал, setInterval продолжает печатать числа каждую секунду
+//             // Интервал начинает печатать сразу
 //             intervalID = setInterval(() => console.log(counter++), interval);
+
+//             // Второй таймер запускается параллельно и будет выполнен по истечению duration (остановка выполнения)
 //             timeoutID = setTimeout(() => {
 //                 clearInterval(intervalID);
 //                 resolve();
@@ -100,9 +102,17 @@
 //         }, delay);
 //     });
 // };
-
-// // Использование
 // delayedCounter().then(() => console.log('Counter finished'));
+
+/* Вариант-4. Рекурсивный способ */
+// function printWithDelay(i = 0) {
+//     if (i > 10) return; // Условие выхода (аналог i <= 10)
+//     console.log(i);
+//     // Запускаем следующую итерацию через 1 секунду
+//     setTimeout(() => printWithDelay(i + 1), 1000);
+// };
+
+// setTimeout(printWithDelay, 3000);
 
 
 

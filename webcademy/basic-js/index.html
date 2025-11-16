@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+
     <script defer src="./main.js"></script>
 
     <title>Document</title>
 </head>
 <body>
 
-    <div id="test">SomeValue</div>
-    
+<main class="main">
+    <section class="section timer-section hidden">
+        <span class="timer-value" id="timer-value" style="display: block;">0</span>
+        <button id="start" role="button">Старт</button>
+        <button id="pause" role="button">Пауза</button>
+        <button id="reset" role="button">Сброс</button>
+    </section>
+
+    <section class="section section-currency hidden">
+        <div class="currency-block">
+            <p class="currency-usd">
+                <span class="currency-value usd">0</span>
+                рублей за доллар.
+            </p>
+            <p class="currency-eur">
+                <span class="currency-value eur">0</span>
+                рублей за евро.
+            </p>
+        </div>
+    </section>
+
+
+</main>
+
 </body>
 </html>
