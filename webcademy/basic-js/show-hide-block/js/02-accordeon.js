@@ -1,4 +1,4 @@
-// const headers = document.querySelectorAll("[data-name='accordeon-title']");
+const headers = document.querySelectorAll("[data-name='accordeon-title']");
 
 // /* Итоговый вариант */
 headers.forEach((item) => {
@@ -11,13 +11,13 @@ headers.forEach((item) => {
 });
 
 /* Вариант с отдельной функцией */
-headers.forEach(function(item) {
-    item.addEventListener('click', showContent); // showContent без вызова, т.к. внутри addEventListener передаёт ссылку на функцию как callback - она будет вызвана браузером при клике по умолчанию.
-});
+// headers.forEach(function(item) {
+//     item.addEventListener('click', showContent); // showContent без вызова, т.к. внутри addEventListener передаёт ссылку на функцию как callback - она будет вызвана браузером при клике по умолчанию.
+// });
 
-function showContent() {
-    this.nextElementSibling.classList.toggle('content-hidden');
-};
+// function showContent() {
+//     this.nextElementSibling.classList.toggle('content-hidden');
+// };
 
 
 /* Моё решение */
