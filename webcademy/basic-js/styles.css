@@ -12,3 +12,35 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 10px;
 }
+
+.modal-buttons {
+    /* display: flex;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки равной ширины */
+    max-width: 400px;
+    gap: 30px;
+}
+
+/* .btn {
+    flex: 1 1 calc(50% - 15px); /* Каждая кнопка занимает ~50% ширины минус половина gap 
+} */
+
+.modal-windows {
+    position: absolute;
+    top: 30px;
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.btn-exit {
+    margin-top: 20px;
+}
+
+.fade {
+    position: relative;
+    margin-top: 20px;
+    height: 400px;
+    background-color: bisque;
+}
